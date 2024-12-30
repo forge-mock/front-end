@@ -1,5 +1,7 @@
-trigger:
-- develop
+pr:
+  branches:
+    include:
+      - develop
 
 resources:
 - repo: self
