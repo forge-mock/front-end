@@ -14,7 +14,8 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: MacBook-Air-M1-Khavol
+      name: 'default'
+      vmImage: 'MacBook M1 Khavol'
     steps:
     - task: Docker@2
       displayName: Build an image
