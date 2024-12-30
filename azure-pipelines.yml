@@ -25,6 +25,7 @@ stages:
               yarn stylelint
               yarn prettier:check
             displayName: Lint Code with ESLint and Prettier
+            continueOnError: false
 
   - stage: Build
     displayName: Build Image
