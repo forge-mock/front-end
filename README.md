@@ -34,4 +34,3 @@ yarn lint
 yarn stylelint
 yarn prettier
 ```
-
