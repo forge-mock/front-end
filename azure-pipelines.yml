@@ -10,11 +10,27 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
+- stage: Lint
+  displayName: Lint Code
+  jobs:
+  - job: Lint
+    displayName: Run ESLint and Prettier
+    pool:
+      name: 'default'
+      vmImage: 'MacBook M1 Khavol'
+    steps:
+    - script: |
+        yarn install
+        yarn lint
+        yarn prettier
+      displayName: Lint Code with ESLint and Prettier
+
 - stage: Build
-  displayName: Build image
+  displayName: Build Image
+  dependsOn: Lint
   jobs:
   - job: Build
-    displayName: Build
+    displayName: Build Docker Image
     pool:
       name: 'default'
       vmImage: 'MacBook M1 Khavol'
