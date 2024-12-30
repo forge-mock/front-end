@@ -1,0 +1,7 @@
+slices that represents business objects
+1. api (api services, mappers)
+2. config (i18n, etc)
+3. components (ui elements)
+4. library (utilities, hooks)
+5. model (store, actions, reducers, selectors)
+6. public api (index.ts)
