@@ -14,12 +14,21 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     plugins: {
-      "@next/eslint-plugin-next": pluginNext,
+      "@next/next": pluginNext,
     },
   },
   {
     rules: {
+      ...pluginNext.configs.recommended.rules,
+      ...pluginNext.configs["core-web-vitals"].rules,
       "react/react-in-jsx-scope": "off",
+    },
+  },
+  {
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
 ];
