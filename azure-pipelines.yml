@@ -21,7 +21,7 @@ stages:
               yarn lint
               yarn stylelint || exit 1
               yarn prettier:check
-            displayName: Lint Code with ESLint and Prettier
+            displayName: Lint Code with ESLint, StyleLint and Prettier
 
   - stage: Build
     displayName: Build Image
