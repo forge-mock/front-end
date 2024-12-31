@@ -1,24 +1,34 @@
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
 import pluginNext from "@next/eslint-plugin-next";
-import parser from "@typescript-eslint/parser";
+import pluginReact from "eslint-plugin-react";
 
-/** @type {import('eslint').Linter.Config} */
-const config = {
-  languageOptions: {
-    parser,
-    parserOptions: {
-      ecmaVersion: 2021,
-      sourceType: "module",
-      ecmaFeatures: {
-        jsx: true,
+/** @type {import("eslint").Linter.Config[]} */
+export default [
+  { files: ["/src/**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
+  { ignores: ["**/node_modules/**", "**/.next/**"] },
+  { languageOptions: { globals: globals.browser } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  {
+    plugins: {
+      "@next/next": pluginNext,
+    },
+  },
+  {
+    rules: {
+      ...pluginNext.configs.recommended.rules,
+      ...pluginNext.configs["core-web-vitals"].rules,
+      "react/react-in-jsx-scope": "off",
+    },
+  },
+  {
+    settings: {
+      react: {
+        version: "detect",
       },
     },
   },
-  plugins: {
-    "@next/next": pluginNext,
-  },
-  rules: {
-    ...pluginNext.configs.recommended.rules,
-  },
-};
-
-export default config;
+];
