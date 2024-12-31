@@ -1,7 +1,4 @@
-pr:
-  branches:
-    include:
-      - develop
+trigger: none
 
 resources:
   - repo: self
