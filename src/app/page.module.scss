@@ -11,7 +11,6 @@
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-geist-sans), serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,7 +31,7 @@
 }
 
 .main ol {
-  font-family: var(--font-geist-mono), serif;
+  font-weight: 500;
   padding-left: 0;
   margin: 0;
   font-size: 14px;
@@ -64,10 +63,9 @@
   height: 48px;
   padding: 0 20px;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s,
+  color 0.2s,
+  border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
