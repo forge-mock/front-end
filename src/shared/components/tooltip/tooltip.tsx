@@ -21,16 +21,17 @@ interface TooltipProps {
     | "left-start"
     | "left-end";
   offset?: number;
+  classes?: string;
   children: React.ReactNode;
 }
 
-function Tooltip({ id, text, place = "top", offset = 10, children }: TooltipProps) {
+function Tooltip({ id, text, place = "top", offset = 10, classes = "", children }: TooltipProps) {
   return (
     <>
       <div data-tooltip-id={id} data-tooltip-content={text}>
         {children}
       </div>
-      <ReactTooltip id={id} place={place} offset={offset} opacity={1} className={styles.tooltip} />
+      <ReactTooltip id={id} place={place} offset={offset} opacity={1} className={`${styles.tooltip} ${classes}`} />
     </>
   );
 }

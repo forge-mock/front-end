@@ -27,23 +27,12 @@ function DesktopSidebar(): React.JSX.Element {
           border-solid border-r-slate-400 bg-slate-100 ${styles.tabContainer} ${isExpanded && styles.open}`}
     >
       <nav>
-        {isExpanded ? (
-          <div className="w-full">
-            {DESKTOP_TABS.map(
-              (tab: Tab): React.JSX.Element => (
-                <TabButton key={tab.title} {...tab} />
-              )
-            )}
-          </div>
-        ) : (
-          <div className="w-full">
-            {DESKTOP_TABS.map(
-              (tab: Tab): React.JSX.Element => (
-                <TabIcon key={tab.title} {...tab} />
-              )
-            )}
-          </div>
-        )}
+        <div className="w-full">
+          {DESKTOP_TABS.map(
+            (tab: Tab): React.JSX.Element =>
+              isExpanded ? <TabButton key={tab.title} {...tab} /> : <TabIcon key={tab.title} {...tab} />
+          )}
+        </div>
       </nav>
       <ExpandIcon isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
     </aside>
