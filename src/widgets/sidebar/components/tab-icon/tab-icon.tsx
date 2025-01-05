@@ -9,7 +9,7 @@ function TabIcon({ icon, title, path }: TabProps): React.JSX.Element {
   return (
     <div className="p-2.5">
       <Link href={path}>
-        <Tooltip text={title} offset={5} placement="end">
+        <Tooltip id={title} place="right" text={title}>
           <IconButton src={icon} alt={title} />
         </Tooltip>
       </Link>

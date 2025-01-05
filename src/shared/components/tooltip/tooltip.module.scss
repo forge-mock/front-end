@@ -1,0 +1,9 @@
+// react-tooltip overrides tailwind styles, so we need to use css classes
+.tooltip {
+  font-size: 14px !important;
+
+  color: #f1f5f9 !important;
+  background-color: #7c3aed !important;
+
+  transition: opacity 0.3s !important;
+}
