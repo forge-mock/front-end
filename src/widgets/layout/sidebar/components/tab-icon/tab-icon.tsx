@@ -1,8 +1,13 @@
 import React from "react";
 import { Tooltip, IconLink } from "@shared/components";
-import { Tab as TabProps } from "../../lib/interfaces/tab";
 
-function TabIcon({ icon, title, path }: TabProps): React.JSX.Element {
+export interface TabIconProps {
+  icon: string;
+  title: string;
+  path: string;
+}
+
+function TabIcon({ icon, title, path }: TabIconProps): React.JSX.Element {
   return (
     <div className="flex flex-row items-center gap-4 p-4">
       <div className="flex shrink-0">

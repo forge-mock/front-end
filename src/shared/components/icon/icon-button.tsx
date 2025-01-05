@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { FocusRing } from "react-aria";
 import { Button } from "react-aria-components";
 import styles from "./icon.module.scss";
 
@@ -14,11 +15,23 @@ interface IconButtonProps {
   onClick?: () => void;
 }
 
+// function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "" }: IconButtonProps) {
+//   return (
+//     <button onClick={() => onClick?.()} className={styles.iconButton} type="button">
+//       <div className={`${styles.inner} ${classes}`} tabIndex={-1}>
+//         <Image src={src} width={width} height={height} alt={alt} />
+//       </div>
+//     </button>
+//   );
+// }
+
 function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "" }: IconButtonProps) {
   return (
-    <Button onPress={() => onClick?.()} className={`${styles.iconButton} ${classes}`}>
-      <Image src={src} width={width} height={height} alt={alt} />
-    </Button>
+    <FocusRing focusRingClass="ring ring-offset-2 ring-blue-500">
+      <Button onPress={() => onClick?.()} className={`${styles.iconButton} ${classes}`} type="button">
+        <Image src={src} width={width} height={height} alt={alt} />
+      </Button>
+    </FocusRing>
   );
 }
 

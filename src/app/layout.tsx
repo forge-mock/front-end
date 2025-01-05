@@ -1,8 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Navbar } from "@widgets/navbar";
-import { DesktopSidebar, MobileSidebar } from "@widgets/sidebar";
-import { Footer } from "@widgets/footer";
+import { Navbar } from "@widgets/layout/navbar";
+import { DesktopSidebar, MobileSidebar } from "@widgets/layout/sidebar";
+import { Footer } from "@widgets/layout/footer";
 import "./globals.scss";
 
 export const metadata: Metadata = {
