@@ -26,8 +26,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </div>
           </div>
 
-          <div className="flex flex-col justify-between overflow-auto h-[calc(100vh-3.5rem)]">
-            <main>{children}</main>
+          <div className="flex grow flex-col justify-between overflow-auto h-[calc(100vh-3.5rem)]">
+            <main className="p-2">{children}</main>
             <Footer />
           </div>
         </div>
