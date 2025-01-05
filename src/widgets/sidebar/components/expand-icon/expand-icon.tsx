@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { IconButton } from "@shared/components";
 import { LocalStorageItems } from "@shared/lib/constants";
@@ -16,7 +18,7 @@ function ExpandIcon({ isExpanded, setIsExpanded }: ExpandIconProps): React.JSX.E
 
   return (
     <div className="flex p-3.5">
-      <div className={`transition duration-300 rotate-180 ${isExpanded && "rotate-0"}`}>
+      <div className={`transition duration-300 ${isExpanded ? "rotate-0" : "rotate-180"}`}>
         <IconButton src="/layout/expand.svg" alt="expand" onClick={() => handleClickExpand()} />
       </div>
     </div>

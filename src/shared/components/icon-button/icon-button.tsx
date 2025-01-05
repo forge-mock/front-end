@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { Button } from "react-aria-components";
 
 interface IconButtonProps {
   src: string;
@@ -14,17 +13,13 @@ interface IconButtonProps {
 
 function IconButton({ src, alt, width = 24, height = 24, onClick }: IconButtonProps) {
   return (
-    <Button
-      onPress={() => onClick?.()}
-      className={({ isHovered, isPressed, isFocused }) => `
-    flex shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-violet-600 transition duration-300
-    ${isHovered && "bg-slate-300"}
-    ${isPressed && "transition-none bg-slate-400"}
-    ${isFocused && "outline-none"}
-  `}
+    <div
+      onClick={() => onClick?.()}
+      className="flex shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-violet-600 
+      cursor-pointer transition duration-300 hover:bg-slate-300 active:transition-none active:bg-slate-400"
     >
       <Image src={src} width={width} height={height} alt={alt} />
-    </Button>
+    </div>
   );
 }
 

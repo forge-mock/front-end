@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Tooltip } from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import styles from "./tooltip.module.scss";
 
 interface TooltipProps {
@@ -24,15 +24,15 @@ interface TooltipProps {
   children: React.ReactNode;
 }
 
-function TooltipV2({ id, text, place = "top", offset = 10, children }: TooltipProps) {
+function Tooltip({ id, text, place = "top", offset = 10, children }: TooltipProps) {
   return (
     <>
-      <p data-tooltip-id={id} data-tooltip-content={text}>
+      <div data-tooltip-id={id} data-tooltip-content={text}>
         {children}
-      </p>
-      <Tooltip id={id} place={place} offset={offset} opacity={1} className={styles.tooltip} />
+      </div>
+      <ReactTooltip id={id} place={place} offset={offset} opacity={1} className={styles.tooltip} />
     </>
   );
 }
 
-export default TooltipV2;
+export default Tooltip;

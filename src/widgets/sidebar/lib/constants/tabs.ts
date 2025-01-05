@@ -14,7 +14,7 @@ const DESKTOP_TABS: Tab[] = [
   {
     icon: "/layout/docs.svg",
     title: "Documentation",
-    path: "/docs",
+    path: "docs",
   },
   {
     icon: "/layout/about.svg",

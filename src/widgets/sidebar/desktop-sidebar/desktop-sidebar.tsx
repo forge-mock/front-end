@@ -11,21 +11,15 @@ import ExpandIcon from "../components/expand-icon/expand-icon";
 import styles from "./desktop-sidebar.module.scss";
 
 function DesktopSidebar(): React.JSX.Element {
-  const [isExpanded, setIsExpanded] = useState<boolean | null>(null);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   useEffect(() => {
     const isSidebarExpanded = getLocalStorage(LocalStorageItems.IsSidebarExpanded);
 
     if (isSidebarExpanded) {
       setIsExpanded(isSidebarExpanded as boolean);
-    } else {
-      setIsExpanded(false);
     }
   }, []);
-
-  if (isExpanded === null) {
-    return <></>;
-  }
 
   return (
     <aside
