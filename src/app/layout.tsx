@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Navbar } from "@widgets/navbar";
-import { DesktopSidebar } from "@widgets/sidebar";
+import { DesktopSidebar, MobileSidebar } from "@widgets/sidebar";
 import { Footer } from "@widgets/footer";
 import "./globals.scss";
 
@@ -16,7 +16,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="flex flex-col">
         <Navbar />
         <div className="flex flex-row">
-          <DesktopSidebar />
+          <div>
+            <div className="h-full hidden sm:block">
+              <DesktopSidebar />
+            </div>
+
+            <div className="h-full block sm:hidden">
+              <MobileSidebar />
+            </div>
+          </div>
+
           <div className="flex flex-col justify-between overflow-auto h-[calc(100vh-3.5rem)]">
             <main>{children}</main>
             <Footer />

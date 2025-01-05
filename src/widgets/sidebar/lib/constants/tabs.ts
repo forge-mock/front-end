@@ -2,27 +2,27 @@ import { Tab } from "../interfaces/tab";
 
 const DESKTOP_TABS: Tab[] = [
   {
-    icon: "./layout/constructor.svg",
+    icon: "/layout/constructor.svg",
     title: "Constructor",
     path: "/",
   },
   {
-    icon: "./layout/schema.svg",
+    icon: "/layout/schema.svg",
     title: "Schemas",
     path: "/schema",
   },
   {
-    icon: "./layout/docs.svg",
+    icon: "/layout/docs.svg",
     title: "Documentation",
     path: "/docs",
   },
   {
-    icon: "./layout/about.svg",
+    icon: "/layout/about.svg",
     title: "About",
     path: "/about",
   },
   {
-    icon: "./layout/feedback.svg",
+    icon: "/layout/feedback.svg",
     title: "Feedback",
     path: "/feedback",
   },
