@@ -12,8 +12,10 @@ function ExpandIcon({ isExpanded, setIsExpanded }: ExpandIconProps): React.JSX.E
   }
 
   return (
-    <div className={`p-2.5 transition duration-300 rotate-180 ${isExpanded && "transition duration-300 rotate-0"}`}>
-      <IconButton src="./layout/expand.svg" alt="expand" onClick={() => handleClickExpand()} />
+    <div className="flex p-2.5">
+      <div className={`transition duration-300 rotate-180 ${isExpanded && "rotate-0"}`}>
+        <IconButton src="./layout/expand.svg" alt="expand" onClick={() => handleClickExpand()} />
+      </div>
     </div>
   );
 }

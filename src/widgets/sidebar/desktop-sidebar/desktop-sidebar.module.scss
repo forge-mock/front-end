@@ -1,0 +1,9 @@
+.tabContainer {
+  width: 72px;
+  position: relative;
+  transition: width 0.3s ease;
+
+  &.open {
+    width: 190px;
+  }
+}
