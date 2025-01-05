@@ -1,4 +1,5 @@
-import IconButton from "./icon-button/icon-button";
+import IconLink from "./icon/icon-link";
+import IconButton from "./icon/icon-button";
 import Tooltip from "./tooltip/tooltip";
 
-export { IconButton, Tooltip };
+export { IconLink, IconButton, Tooltip };
