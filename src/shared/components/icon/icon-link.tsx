@@ -21,7 +21,7 @@ function IconLink({ path, src, alt, width = 24, height = 24, classes = "" }: Ico
       className="flex shrink-0 focus-visible:transition focus-visible:duration-300 focus-visible:outline-none 
         focus-visible:ring-offset-2 focus-visible:ring focus-visible:ring-blue-500 focus-visible:rounded-full"
     >
-      <div className={`flex ${styles.iconContainer} ${classes}`}>
+      <div className={`flex ${styles.iconLink} ${classes}`}>
         <Image src={src} width={width} height={height} alt={alt} />
       </div>
     </Link>

@@ -1,9 +1,13 @@
 .iconContainer {
-  @apply flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-violet-600 
-  cursor-pointer transition duration-300 hover:bg-slate-300 active:transition-none active:bg-slate-400;
+  @apply flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-violet-600;
+}
+
+.iconLink {
+  @extend .iconContainer;
+  @apply cursor-pointer transition duration-300 hover:bg-slate-300 active:transition-none active:bg-slate-400;
 }
 
 .iconButton {
-  @extend .iconContainer;
+  @extend .iconLink;
   @apply focus:outline-violet-600;
 }

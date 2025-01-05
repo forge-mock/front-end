@@ -15,16 +15,6 @@ interface IconButtonProps {
   onClick?: () => void;
 }
 
-// function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "" }: IconButtonProps) {
-//   return (
-//     <button onClick={() => onClick?.()} className={styles.iconButton} type="button">
-//       <div className={`${styles.inner} ${classes}`} tabIndex={-1}>
-//         <Image src={src} width={width} height={height} alt={alt} />
-//       </div>
-//     </button>
-//   );
-// }
-
 function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "" }: IconButtonProps) {
   return (
     <FocusRing focusRingClass="ring ring-offset-2 ring-blue-500">
