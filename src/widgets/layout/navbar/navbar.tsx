@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "./components/logo/logo";
 import Burger from "./components/burger/burger";
 import Title from "./components/title/title";
+import ThemeSwitch from "./components/theme-switch/theme-switch";
 import Account from "./components/account/account";
 
 function Navbar(): React.JSX.Element {
@@ -22,8 +23,12 @@ function Navbar(): React.JSX.Element {
 
       <Title />
 
-      <div className="hidden sm:block">
-        <Account />
+      <div className="flex items-center gap-4">
+        <ThemeSwitch />
+
+        <div className="hidden sm:block">
+          <Account />
+        </div>
       </div>
     </header>
   );
