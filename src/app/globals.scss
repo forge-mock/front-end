@@ -2,8 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+// Backgrounds
+[data-theme="light"] {
+  --light-grey-background: #f1f5f9;
+  --grey-background: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --light-grey-background: #1e293b;
+  --grey-background: #0f172a;
+}
+
+// Borders
+[data-theme="light"] {
+  --grey-border: #94a3b8;
+  --violet-border: #7c3aed;
+}
+
+[data-theme="dark"] {
+  --grey-border: #64748b;
+  --violet-border: #8b5cf6;
+}
+
+// Hovers
+
+// Outlines
+
+// Text colors
+[data-theme="light"] {
+  --text-color: #0f172a;
+  --title-purple-color: #7c3aed;
+}
+
+[data-theme="dark"] {
+  --text-color: #cbd5e1;
+  --title-purple-color: #7c3aed;
+}
+
+// Icons
+[data-theme="light"] {
+  --violet-icon: invert(26%) sepia(99%) saturate(3631%) hue-rotate(254deg) brightness(95%) contrast(96%);
+}
+
+[data-theme="dark"] {
+  --violet-icon: invert(35%) sepia(54%) saturate(1893%) hue-rotate(235deg) brightness(101%) contrast(93%);
+}
+
+// Scrollbar
+[data-theme="light"] {
+  --scrollbar-grey-thumb: #94a3b8;
+  --scrollbar-grey-track: #cbd5e1;
+}
+
+[data-theme="dark"] {
+  --scrollbar-grey-thumb: #64748b;
+  --scrollbar-grey-track: #334155;
+}
+
 body {
-  @apply font-roboto text-sm font-medium bg-slate-100;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  background-color: var(--light-grey-background);
+  color: var(--text-color);
+
+  header {
+    background-color: var(--grey-background);
+    border-bottom: 2px solid var(--grey-border);
+  }
+
+  aside {
+    background-color: var(--light-grey-background);
+    border-right: 2px solid var(--grey-border);
+  }
 }
 
 ::-webkit-scrollbar {
@@ -11,10 +83,53 @@ body {
   height: 3px;
 }
 
+::-moz-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
+::-ms-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
+::-o-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded-md;
+  border-radius: 0.375rem;
+  background-color: var(--scrollbar-grey-thumb);
+}
+
+::-moz-scrollbar-thumb {
+  border-radius: 0.375rem;
+  background-color: var(--scrollbar-grey-thumb);
+}
+
+::-ms-scrollbar-thumb {
+  border-radius: 0.375rem;
+  background-color: #94a3b8;
+}
+
+::-o-scrollbar-thumb {
+  border-radius: 0.375rem;
+  background-color: var(--scrollbar-grey-thumb);
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-300;
+  background-color: var(--scrollbar-grey-track);
+}
+
+::-moz-scrollbar-track {
+  background-color: var(--scrollbar-grey-track);
+}
+
+::-ms-scrollbar-track {
+  background-color: var(--scrollbar-grey-track);
+}
+
+::-o-scrollbar-track {
+  background-color: var(--scrollbar-grey-track);
 }

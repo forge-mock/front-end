@@ -15,7 +15,7 @@ function TabButton({ icon, title, path }: TabProps): React.JSX.Element {
           focus-visible:transition focus-visible:duration-300 focus-visible:outline-none focus-visible:ring-offset-2 
           focus-visible:ring focus-visible:ring-blue-500`}
       >
-        <Icon src={icon} alt={title} classes="border-blue-500" />
+        <Icon src={icon} alt={title} />
         <p className="text-violet-800 truncate">{title}</p>
       </Link>
     </div>

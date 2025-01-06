@@ -11,3 +11,7 @@
   @extend .iconLink;
   @apply focus:outline-violet-600;
 }
+
+.icon {
+  filter: var(--violet-icon);
+}
