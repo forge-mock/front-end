@@ -23,8 +23,7 @@ function DesktopSidebar(): React.JSX.Element {
 
   return (
     <aside
-      className={`flex flex-col justify-between shrink-0 h-full pt-2.5 border-2
-          border-solid border-r-slate-400 bg-slate-100 ${styles.tabContainer} ${isExpanded && styles.open}`}
+      className={`flex flex-col justify-between shrink-0 h-full pt-2.5 ${styles.tabContainer} ${isExpanded && styles.open}`}
     >
       <nav>
         <div className="w-full">
