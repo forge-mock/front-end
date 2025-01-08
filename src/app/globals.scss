@@ -6,11 +6,13 @@
 [data-theme="light"] {
   --light-grey-background: #f1f5f9;
   --grey-background: #e2e8f0;
+  --violet-background: #7c3aed;
 }
 
 [data-theme="dark"] {
-  --light-grey-background: #1e293b;
-  --grey-background: #0f172a;
+  --light-grey-background: #262626;
+  --grey-background: #171717;
+  --violet-background: #8b5cf6;
 }
 
 // Borders
@@ -25,18 +27,36 @@
 }
 
 // Hovers
+[data-theme="light"] {
+  --grey-hover: #cbd5e1;
+  --grey-active: #94a3b8;
+}
+
+[data-theme="dark"] {
+  --grey-hover: #404040;
+  --grey-active: #525252;
+}
 
 // Outlines
+[data-theme="light"] {
+  --blue-outline: #3b82f6;
+}
+
+[data-theme="dark"] {
+  --blue-outline: #06b6d4;
+}
 
 // Text colors
 [data-theme="light"] {
   --text-color: #0f172a;
-  --title-purple-color: #7c3aed;
+  --light-text-color: #475569;
+  --violet-title-color: #7c3aed;
 }
 
 [data-theme="dark"] {
   --text-color: #cbd5e1;
-  --title-purple-color: #7c3aed;
+  --light-text-color: #94a3b8;
+  --violet-title-color: #8b5cf6;
 }
 
 // Icons
@@ -45,7 +65,7 @@
 }
 
 [data-theme="dark"] {
-  --violet-icon: invert(35%) sepia(54%) saturate(1893%) hue-rotate(235deg) brightness(101%) contrast(93%);
+  --violet-icon: invert(26%) sepia(99%) saturate(3631%) hue-rotate(254deg) brightness(95%) contrast(96%);
 }
 
 // Scrollbar
@@ -75,6 +95,29 @@ body {
   aside {
     background-color: var(--light-grey-background);
     border-right: 2px solid var(--grey-border);
+  }
+
+  footer {
+    color: var(--light-text-color);
+  }
+}
+
+@layer utilities {
+  .border-default {
+    @apply border-2 border-solid border-[var(--violet-border)] rounded-xl;
+  }
+
+  .border-rounded-default {
+    @apply border-2 border-solid border-[var(--violet-border)] rounded-full;
+  }
+
+  .hover-default {
+    @apply transition duration-300 sm:hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
+  }
+
+  .outline-default {
+    @apply focus-visible:transition focus-visible:duration-300 focus-visible:outline-none 
+    focus-visible:ring-offset-1 focus-visible:ring focus-visible:ring-[var(--blue-outline)] focus-visible:ring-offset-[var(--violet-border)];
   }
 }
 

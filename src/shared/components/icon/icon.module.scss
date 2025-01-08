@@ -1,15 +1,15 @@
 .iconContainer {
-  @apply flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-violet-600;
+  @apply flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-[var(--violet-border)];
 }
 
 .iconLink {
   @extend .iconContainer;
-  @apply cursor-pointer transition duration-300 hover:bg-slate-300 active:transition-none active:bg-slate-400;
+  @apply cursor-pointer transition duration-300 sm:hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
 }
 
 .iconButton {
   @extend .iconLink;
-  @apply focus:outline-violet-600;
+  @apply focus:outline-[var(--violet-border)] focus:ring-offset-[var(--violet-border)];
 }
 
 .icon {

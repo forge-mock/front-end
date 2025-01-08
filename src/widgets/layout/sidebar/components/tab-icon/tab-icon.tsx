@@ -15,7 +15,7 @@ function TabIcon({ icon, title, path }: TabIconProps): React.JSX.Element {
           <IconLink path={path} src={icon} alt={title} />
         </Tooltip>
       </div>
-      <p className="text-violet-800 truncate">{title}</p>
+      <p className="text-[var(--violet-title-color)] truncate">{title}</p>
     </div>
   );
 }
