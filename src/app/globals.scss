@@ -2,85 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-// Backgrounds
 [data-theme="light"] {
-  --light-grey-background: #f1f5f9;
-  --grey-background: #e2e8f0;
-  --violet-background: #7c3aed;
-}
-
-[data-theme="dark"] {
-  --light-grey-background: #262626;
-  --grey-background: #171717;
-  --violet-background: #8b5cf6;
-}
-
-// Borders
-[data-theme="light"] {
-  --grey-border: #94a3b8;
-  --violet-border: #7c3aed;
-}
-
-[data-theme="dark"] {
-  --grey-border: #64748b;
-  --violet-border: #8b5cf6;
-}
-
-// Hovers
-[data-theme="light"] {
-  --grey-hover: #cbd5e1;
-  --grey-active: #94a3b8;
-}
-
-[data-theme="dark"] {
-  --grey-hover: #404040;
-  --grey-active: #525252;
-}
-
-// Outlines
-[data-theme="light"] {
-  --blue-outline: #3b82f6;
-}
-
-[data-theme="dark"] {
-  --blue-outline: #06b6d4;
-}
-
-// Text colors
-[data-theme="light"] {
+  // Text colors
   --text-color: #0f172a;
   --light-text-color: #475569;
   --violet-title-color: #7c3aed;
+
+  // Backgrounds
+  --light-grey-background: #f1f5f9;
+  --grey-background: #e2e8f0;
+  --violet-background: #7c3aed;
+
+  // Borders
+  --grey-border: #94a3b8;
+  --violet-border: #7c3aed;
+
+  // Hovers
+  --grey-hover: #cbd5e1;
+  --grey-active: #94a3b8;
+
+  // Outlines
+  --blue-outline: #3b82f6;
+
+  // Scrollbars
+  --scrollbar-grey-thumb: #94a3b8;
+  --scrollbar-grey-track: #cbd5e1;
+
+  // Icons
+  --violet-icon: invert(26%) sepia(99%) saturate(3631%) hue-rotate(254deg) brightness(95%) contrast(96%);
 }
 
 [data-theme="dark"] {
+  // Text colors
   --text-color: #cbd5e1;
   --light-text-color: #94a3b8;
   --violet-title-color: #8b5cf6;
-}
 
-// Icons
-[data-theme="light"] {
-  --violet-icon: invert(26%) sepia(99%) saturate(3631%) hue-rotate(254deg) brightness(95%) contrast(96%);
-}
+  // Backgrounds
+  --light-grey-background: #262626;
+  --grey-background: #171717;
+  --violet-background: #8b5cf6;
 
-[data-theme="dark"] {
-  --violet-icon: invert(26%) sepia(99%) saturate(3631%) hue-rotate(254deg) brightness(95%) contrast(96%);
-}
+  // Borders
+  --grey-border: #64748b;
+  --violet-border: #8b5cf6;
 
-// Scrollbar
-[data-theme="light"] {
-  --scrollbar-grey-thumb: #94a3b8;
-  --scrollbar-grey-track: #cbd5e1;
-}
+  // Hovers
+  --grey-hover: #404040;
+  --grey-active: #525252;
 
-[data-theme="dark"] {
+  // Outlines
+  --blue-outline: #06b6d4;
+
+  // Scrollbars
   --scrollbar-grey-thumb: #64748b;
   --scrollbar-grey-track: #334155;
+
+  // Icons
+  --violet-icon: invert(26%) sepia(99%) saturate(3631%) hue-rotate(254deg) brightness(95%) contrast(96%);
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
