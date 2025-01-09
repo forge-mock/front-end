@@ -1,6 +1,6 @@
 import { Tab } from "../interfaces/tab";
 
-const DESKTOP_TABS: Tab[] = [
+const TABS: Tab[] = [
   {
     icon: "/layout/constructor.svg",
     title: "Constructor",
@@ -28,13 +28,4 @@ const DESKTOP_TABS: Tab[] = [
   },
 ];
 
-const MOBILE_TABS: Tab[] = [
-  {
-    icon: "/layout/account.svg",
-    title: "Account",
-    path: "/account",
-  },
-  ...DESKTOP_TABS,
-];
-
-export { DESKTOP_TABS, MOBILE_TABS };
+export { TABS };
