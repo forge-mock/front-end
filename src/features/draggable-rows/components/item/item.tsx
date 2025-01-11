@@ -26,9 +26,12 @@ function Item(
   };
 
   return (
-    <div ref={ref} style={inlineStyles} {...props}>
-      {id}
-    </div>
+    <>
+      <div ref={ref} style={inlineStyles} {...props}>
+        {id}
+      </div>
+      <p>Hello</p>
+    </>
   );
 }
 

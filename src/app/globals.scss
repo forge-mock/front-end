@@ -7,6 +7,7 @@
   --text-color: #0f172a;
   --light-text-color: #475569;
   --violet-title-color: #7c3aed;
+  --red-text-color: #dc2626;
 
   // Backgrounds
   --light-grey-background: #f1f5f9;
@@ -15,7 +16,10 @@
 
   // Borders
   --grey-border: #94a3b8;
+  --light-violet-border: #a78bfa;
   --violet-border: #7c3aed;
+  --blue-border: #3b82f6;
+  --red-border: #dc2626;
 
   // Hovers
   --grey-hover: #cbd5e1;
@@ -35,21 +39,25 @@
 [data-theme="dark"] {
   // Text colors
   --text-color: #cbd5e1;
-  --light-text-color: #94a3b8;
+  --light-text-color: #afafaf;
   --violet-title-color: #8b5cf6;
+  --red-text-color: #dc2626;
 
   // Backgrounds
-  --light-grey-background: #262626;
-  --grey-background: #171717;
+  --light-grey-background: #171717;
+  --grey-background: #0a0a0a;
   --violet-background: #8b5cf6;
 
   // Borders
   --grey-border: #64748b;
+  --light-violet-border: #a78bfa;
   --violet-border: #8b5cf6;
+  --blue-border: #06b6d4;
+  --red-border: #dc2626;
 
   // Hovers
-  --grey-hover: #404040;
-  --grey-active: #525252;
+  --grey-hover: #333333;
+  --grey-active: #404040;
 
   // Outlines
   --blue-outline: #06b6d4;
@@ -64,9 +72,9 @@
 
 body {
   font-family: Roboto, sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   background-color: var(--light-grey-background);
   color: var(--text-color);
 
@@ -85,17 +93,45 @@ body {
   }
 }
 
+.disable-transitions * {
+  transition: none !important;
+}
+
 @layer utilities {
   .border-default {
     @apply border-2 border-solid border-[var(--violet-border)] rounded-xl;
+  }
+
+  .border-error-default {
+    @apply border-2 border-solid border-[var(--red-border)] rounded-xl;
+  }
+
+  .border-small-rounded-default {
+    @apply border-2 border-solid border-[var(--violet-border)] rounded-lg;
+  }
+
+  .border-small-rounded-error-default {
+    @apply border-2 border-solid border-[var(--red-border)] rounded-lg;
   }
 
   .border-rounded-default {
     @apply border-2 border-solid border-[var(--violet-border)] rounded-full;
   }
 
+  .border-rounded-error-default {
+    @apply border-2 border-solid border-[var(--red-border)] rounded-full;
+  }
+
   .hover-default {
-    @apply transition duration-300 sm:hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
+    @apply transition duration-300 hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
+  }
+
+  .hover-border-default {
+    @apply transition duration-300 hover:border-[var(--light-violet-border)];
+  }
+
+  .focus-default {
+    @apply focus:transition focus:duration-300 focus:border-[var(--blue-border)] focus:outline-0;
   }
 
   .outline-default {

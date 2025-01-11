@@ -4,7 +4,7 @@
 
 .iconLink {
   @extend .iconContainer;
-  @apply cursor-pointer transition duration-300 sm:hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
+  @apply cursor-pointer transition duration-300 hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
 }
 
 .iconButton {
