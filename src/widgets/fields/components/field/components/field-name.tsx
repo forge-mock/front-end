@@ -11,7 +11,11 @@ function FieldName(): React.JSX.Element {
     console.log("Hello!");
   }
 
-  return <TextInput label="Field name" value={inputValue} onChange={(e) => setInputValue(e)} onBlur={onBlurInput} />;
+  return (
+    <div className="w-40">
+      <TextInput placeholder="Field name" value={inputValue} onChange={(e) => setInputValue(e)} onBlur={onBlurInput} />
+    </div>
+  );
 }
 
 export default FieldName;
