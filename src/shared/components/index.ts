@@ -8,3 +8,6 @@ export { Tooltip };
 
 import TextInput from "./input/text-input";
 export { TextInput };
+
+import Button from "./button/button";
+export { Button };

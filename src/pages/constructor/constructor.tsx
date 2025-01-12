@@ -1,8 +1,8 @@
 import React from "react";
-import { Fields } from "@widgets/fields";
+import { DraggableFields } from "@widgets/draggable-fields";
 
 function Constructor(): React.JSX.Element {
-  return <Fields />;
+  return <DraggableFields />;
 }
 
 export default Constructor;

@@ -5,6 +5,7 @@
 [data-theme="light"] {
   // Text colors
   --text-color: #0f172a;
+  --dark-text-color: #cbd5e1;
   --lighter-text-color: #7a8697;
   --light-text-color: #475569;
   --violet-title-color: #7c3aed;
@@ -17,7 +18,7 @@
 
   // Borders
   --grey-border: #94a3b8;
-  --light-violet-border: #a78bfa;
+  --dark-violet-border: #5b21b6;
   --violet-border: #7c3aed;
   --blue-border: #3b82f6;
   --red-border: #dc2626;
@@ -25,6 +26,8 @@
   // Hovers
   --grey-hover: #cbd5e1;
   --grey-active: #94a3b8;
+  --violet-hover: #5b21b6;
+  --violet-active: #4c1d95;
 
   // Outlines
   --blue-outline: #3b82f6;
@@ -40,6 +43,7 @@
 [data-theme="dark"] {
   // Text colors
   --text-color: #cbd5e1;
+  --dark-text-color: #0f172a;
   --lighter-text-color: #676565;
   --light-text-color: #afafaf;
   --violet-title-color: #8b5cf6;
@@ -52,7 +56,7 @@
 
   // Borders
   --grey-border: #64748b;
-  --light-violet-border: #a78bfa;
+  --dark-violet-border: #a78bfa;
   --violet-border: #8b5cf6;
   --blue-border: #06b6d4;
   --red-border: #dc2626;
@@ -60,6 +64,8 @@
   // Hovers
   --grey-hover: #333333;
   --grey-active: #404040;
+  --violet-hover: #5b21b6;
+  --violet-active: #4c1d95;
 
   // Outlines
   --blue-outline: #06b6d4;
@@ -129,7 +135,11 @@ body {
   }
 
   .hover-border-default {
-    @apply transition duration-300 hover:border-[var(--light-violet-border)];
+    @apply transition duration-300 hover:border-[var(--dark-violet-border)] active:transition-none;
+  }
+
+  .hover-background-default {
+    @apply transition duration-300 hover:bg-[var(--violet-hover)] active:transition-none active:bg-[var(--violet-active)];
   }
 
   .focus-default {
