@@ -5,6 +5,7 @@ import { IconButton } from "@shared/components";
 
 function FieldSettings(): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  console.log(isModalOpen);
 
   function onIconClick() {
     setIsModalOpen(true);
