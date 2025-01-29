@@ -14,7 +14,7 @@ stages:
         displayName: Run ESLint, StyleLint and Prettier
         pool:
           name: "default"
-          vmImage: "MacBook M1 Khavol"
+          vmImage: "BeelinkMiniS12Khavol"
         steps:
           - script: |
               yarn install
@@ -31,7 +31,7 @@ stages:
         displayName: Build Docker Image
         pool:
           name: "default"
-          vmImage: "MacBook M1 Khavol"
+          vmImage: "BeelinkMiniS12Khavol"
         steps:
           - task: Docker@2
             displayName: Build an image
