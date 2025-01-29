@@ -3,10 +3,10 @@
 import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { ItemProps } from "../lib/item-props";
-import Item from "./item";
+import { FieldProps } from "../../lib/interfaces/field-props";
+import Item from "./field";
 
-function SortableItem(props: ItemProps): React.JSX.Element {
+function SortableField(props: FieldProps): React.JSX.Element {
   const { isDragging, attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: props.id });
 
   const style = {
@@ -17,4 +17,4 @@ function SortableItem(props: ItemProps): React.JSX.Element {
   return <Item ref={setNodeRef} style={style} withOpacity={isDragging} {...props} {...attributes} {...listeners} />;
 }
 
-export default SortableItem;
+export default SortableField;

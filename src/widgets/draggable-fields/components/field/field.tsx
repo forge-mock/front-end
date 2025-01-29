@@ -1,15 +1,32 @@
 "use client";
 
-import React from "react";
-import Draggable from "./components/draggable";
-import FieldName from "./components/field-name";
-import FieldType from "./components/field-type";
-import FieldSettings from "./components/field-settings";
+import React, { CSSProperties, forwardRef } from "react";
+import { FieldProps } from "../../lib/interfaces/field-props";
+import FieldName from "../field-name/field-name";
+import FieldType from "../field-type/field-type";
+import FieldSettings from "../field-settings/field-settings";
+import Draggable from "./draggable";
 
-function Field(): React.JSX.Element {
+function Field(
+  { withOpacity, isDragging, style, ...props }: FieldProps,
+  ref: React.Ref<HTMLDivElement>
+): React.JSX.Element {
+  const inlineStyles: CSSProperties = {
+    opacity: withOpacity ? "0.5" : "1",
+    transformOrigin: "10px 10px",
+    transform: isDragging ? "scale(1.05)" : "scale(1)",
+    ...style,
+  };
+
   return (
-    <div className="flex flex-row items-center w-[356px] gap-2 p-1.5 border-default">
-      <Draggable />
+    <div
+      ref={ref}
+      className="flex flex-row items-center w-[356px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"
+      style={inlineStyles}
+    >
+      <div className={isDragging ? "cursor-grabbing" : "cursor-grab"} {...props}>
+        <Draggable />
+      </div>
       <FieldName />
       <FieldType />
       <FieldSettings />
@@ -17,4 +34,4 @@ function Field(): React.JSX.Element {
   );
 }
 
-export default Field;
+export default forwardRef<HTMLDivElement, FieldProps>(Field);

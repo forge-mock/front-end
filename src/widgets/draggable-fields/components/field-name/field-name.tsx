@@ -6,6 +6,8 @@ import { TextInput } from "@shared/components";
 function FieldName(): React.JSX.Element {
   const [inputValue, setInputValue] = useState<string>("");
 
+  console.log(inputValue);
+
   // TODO: update store fields after unfocus
   function onBlurInput(): void {
     console.log("Hello!");
