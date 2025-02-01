@@ -1,8 +1,8 @@
 import React from "react";
-import { DraggableConstructor } from "@widgets/draggable-constructor";
+import DraggableConstructorWrapper from "./components/draggable-constructor-wrapper";
 
 function Constructor(): React.JSX.Element {
-  return <DraggableConstructor />;
+  return <DraggableConstructorWrapper />;
 }
 
 export default Constructor;

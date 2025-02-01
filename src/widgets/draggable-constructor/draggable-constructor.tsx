@@ -3,8 +3,13 @@
 import React from "react";
 import { DraggableFields } from "@features/draggable-fields";
 
-function DraggableConstructor(): React.JSX.Element {
-  return <DraggableFields></DraggableFields>;
+interface DraggableConstructorProps {
+  items: string[];
+  setItems: (items: string[]) => void;
+}
+
+function DraggableConstructor({ items, setItems }: DraggableConstructorProps): React.JSX.Element {
+  return <DraggableFields items={items} setItems={setItems}></DraggableFields>;
 }
 
 export default DraggableConstructor;
