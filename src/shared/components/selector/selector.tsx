@@ -39,7 +39,7 @@ function Selector<T extends object>({
 
       <Button className="focus:outline-0 border-0">
         <SelectValue className={({ isPlaceholder }) => `${isPlaceholder && "text-[var(--lighter-text-color)]"}`} />
-        <span aria-hidden="true">▼</span>
+        <span>▼</span>
       </Button>
 
       {description && (

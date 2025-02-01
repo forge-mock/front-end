@@ -5,6 +5,7 @@ import {
   DndContext,
   MouseSensor,
   TouchSensor,
+  KeyboardSensor,
   DragOverlay,
   useSensor,
   useSensors,
@@ -30,7 +31,7 @@ function DraggableFields({ items, setItems }: DraggableFieldsProps): React.JSX.E
   });
 
   const gridRef = useRef<HTMLDivElement>(null);
-  const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor), useSensor(KeyboardSensor));
 
   const getDraggableElement = (id: string) => {
     if (gridRef.current) {

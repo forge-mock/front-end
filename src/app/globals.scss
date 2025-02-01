@@ -147,8 +147,7 @@ body {
   }
 
   .outline-default {
-    @apply focus-visible:transition focus-visible:duration-300 focus-visible:outline-none 
-    focus-visible:ring-offset-1 focus-visible:ring focus-visible:ring-[var(--blue-outline)] focus-visible:ring-offset-[var(--violet-border)];
+    @apply focus-visible:transition focus-visible:duration-300 focus-visible:outline-none focus-visible:border-[var(--blue-border)];
   }
 }
 

@@ -13,10 +13,10 @@ interface ButtonProps extends AriaButtonProps {
 
 function Button({ text, outline = false, classes = "", ...props }: ButtonProps) {
   return (
-    <FocusRing focusRingClass="ring-1 ring-offset-2 ring-[var(--blue-outline)]">
+    <FocusRing focusRingClass="outline-default">
       <AriaButton
-        className={`cursor-pointer focus:outline-[#6d28d9] focus:ring-offset-[#6d28d9] border-2 border-solid border-[#6d28d9] 
-          rounded-lg ${outline ? "hover-default" : "hover-background-default text-[#cbd5e1] bg-[#6d28d9]"} ${classes}`}
+        className={`cursor-pointer focus-visible:outline-none border-2 border-solid border-[#6d28d9] rounded-lg
+          ${outline ? "hover-default" : "hover-background-default text-[#cbd5e1] bg-[#6d28d9]"} ${classes}`}
         {...props}
       >
         {text}

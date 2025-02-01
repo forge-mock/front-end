@@ -16,8 +16,8 @@ interface IconLinkProps {
 
 function IconLink({ path, src, alt, width = 24, height = 24, classes = "" }: IconLinkProps) {
   return (
-    <Link href={path} className="flex shrink-0 outline-default focus-visible:rounded-full">
-      <div className={`flex ${styles.iconLink} ${classes}`}>
+    <Link href={path} className={`flex outline-default shrink-0 focus-visible:rounded-full ${styles.iconLink} `}>
+      <div className={`flex ${classes}`}>
         <Image src={src} width={width} height={height} alt={alt} className={styles.icon} />
       </div>
     </Link>

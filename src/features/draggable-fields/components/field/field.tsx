@@ -24,7 +24,11 @@ function Field(
       className="flex flex-row items-center w-[356px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"
       style={inlineStyles}
     >
-      <div className={isDragging ? "cursor-grabbing" : "cursor-grab"} {...props}>
+      <div
+        className={`flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid 
+          border-[var(--violet-border)] outline-default ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+        {...props}
+      >
         <Draggable />
       </div>
       <FieldName />
