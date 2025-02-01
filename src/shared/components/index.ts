@@ -6,8 +6,11 @@ export { Icon, IconLink, IconButton };
 import Tooltip from "./tooltip/tooltip";
 export { Tooltip };
 
-import TextInput from "./input/text-input";
+import TextInput from "./text-input/text-input";
 export { TextInput };
+
+import Selector from "./selector/selector";
+export { Selector };
 
 import Button from "./button/button";
 export { Button };

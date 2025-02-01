@@ -22,6 +22,7 @@ export default [
       ...pluginNext.configs.recommended.rules,
       ...pluginNext.configs["core-web-vitals"].rules,
       "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {
