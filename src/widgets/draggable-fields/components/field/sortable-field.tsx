@@ -4,7 +4,7 @@ import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { FieldProps } from "../../lib/interfaces/field-props";
-import Item from "./field";
+import Field from "./field";
 
 function SortableField(props: FieldProps): React.JSX.Element {
   const { isDragging, attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: props.id });
@@ -14,7 +14,7 @@ function SortableField(props: FieldProps): React.JSX.Element {
     transition: transition || undefined,
   };
 
-  return <Item ref={setNodeRef} style={style} withOpacity={isDragging} {...props} {...attributes} {...listeners} />;
+  return <Field ref={setNodeRef} style={style} withOpacity={isDragging} {...props} {...attributes} {...listeners} />;
 }
 
 export default SortableField;

@@ -5,7 +5,6 @@ import { Button } from "@shared/components";
 
 function FieldType(): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  console.log(isModalOpen);
 
   function onButtonClick() {
     setIsModalOpen(true);

@@ -17,13 +17,13 @@ yarn install
 
 ## Run the project
 
-1. Run the project by running the following command:
+1. Run the project by running the following command and accept localhost certificate:
 
 ```bash
 yarn dev
 ```
 
-2. Open your browser and navigate to `http://localhost:3000/` to see the project running.
+2. Open your browser and navigate to `https://localhost:3000/` to see the project running.
 
 ## Important notes
 

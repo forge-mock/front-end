@@ -1,13 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-type GridProps = {
+interface GridProps {
   columns: number;
   children: React.ReactNode;
-};
+}
 
-function Grid({ children, columns }: GridProps): React.JSX.Element {
+function Grid({ children, columns }: GridProps, ref: React.Ref<HTMLDivElement>): React.JSX.Element {
   return (
     <div
+      ref={ref}
       style={{
         display: "grid",
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
@@ -20,4 +21,4 @@ function Grid({ children, columns }: GridProps): React.JSX.Element {
   );
 }
 
-export default Grid;
+export default forwardRef<HTMLDivElement, GridProps>(Grid);
