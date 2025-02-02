@@ -22,10 +22,7 @@ function Navbar(): React.JSX.Element {
 
       <div className="flex items-center gap-4">
         <ThemeSwitch />
-
-        <div className="hidden sm:block">
-          <Account />
-        </div>
+        <Account />
       </div>
     </header>
   );

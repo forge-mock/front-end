@@ -2,8 +2,9 @@
   width: 0;
   position: relative;
   transition: width 0.3s ease;
+  z-index: 2;
 
   &.open {
-    width: 190px;
+    width: 210px;
   }
 }

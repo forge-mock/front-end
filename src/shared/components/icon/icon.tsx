@@ -14,7 +14,7 @@ interface IconProps {
 
 function Icon({ src, alt, width = 24, height = 24, classes = "" }: IconProps) {
   return (
-    <div className={`flex ${styles.iconContainer} ${classes}`}>
+    <div tabIndex={0} className={`flex ${styles.iconContainer} ${classes}`}>
       <Image src={src} width={width} height={height} alt={alt} className={styles.icon} />
     </div>
   );
