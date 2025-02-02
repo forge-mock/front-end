@@ -7,6 +7,7 @@ function FieldType(): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   function onButtonClick() {
+    console.log(isModalOpen);
     setIsModalOpen(true);
   }
 

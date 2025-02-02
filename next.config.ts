@@ -22,11 +22,9 @@ function uniteContentSecurityPolicy(): string {
   const connectSrc = concatPolicy(CONNECT_SRC);
   const objectSrc = concatPolicy(OBJECT_SRC);
   const frameAncestors = concatPolicy(FRAME_ANCESTORS);
-
   const result = `${defaultSrc} ${scriptSrc} ${styleSrc} ${imgSrc} ${connectSrc} ${objectSrc} ${frameAncestors}`;
-  console.log(result);
 
-  return `${defaultSrc} ${scriptSrc} ${styleSrc} ${imgSrc} ${connectSrc} ${objectSrc} ${frameAncestors}`;
+  return result;
 }
 
 const nextConfig: NextConfig = {

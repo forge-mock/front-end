@@ -7,6 +7,7 @@ function FieldSettings(): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   function onIconClick() {
+    console.log(isModalOpen);
     setIsModalOpen(true);
   }
 
