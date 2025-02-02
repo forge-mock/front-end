@@ -83,7 +83,7 @@ function Selector<T extends object>({
             <ListBoxItem
               key={item[itemId]}
               className={({ isHovered, isSelected, isFocused, isFocusVisible }) =>
-                `p-1 rounded-md cursor-pointer
+                `px-1 rounded-md cursor-pointer
                 ${isHovered ? "hover-default" : ""}
                 ${isSelected ? "text-[#cbd5e1] bg-[#6d28d9]" : ""}
                 ${isFocused ? "outline-none" : ""}

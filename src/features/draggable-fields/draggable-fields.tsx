@@ -21,9 +21,10 @@ import DraggedField from "./components/draggable-field/draggable-field";
 interface DraggableFieldsProps {
   items: string[];
   setItems: (items: string[]) => void;
+  columnsToShow: number;
 }
 
-function DraggableFields({ items, setItems }: DraggableFieldsProps): React.JSX.Element {
+function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProps): React.JSX.Element {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [draggedFieldValues, setDraggedFieldValues] = useState<{ inputValue: string; buttonValue: string }>({
     inputValue: "",
@@ -85,7 +86,7 @@ function DraggableFields({ items, setItems }: DraggableFieldsProps): React.JSX.E
     >
       <SortableContext items={items} strategy={rectSortingStrategy}>
         {items.length > 0 && (
-          <Grid ref={gridRef} columns={3}>
+          <Grid ref={gridRef} columns={columnsToShow}>
             {items.map((id) => (
               <SortableField key={id} id={id as unknown as string} />
             ))}
