@@ -6,9 +6,10 @@ import FieldName from "../field-name/field-name";
 import FieldType from "../field-type/field-type";
 import FieldSettings from "../field-settings/field-settings";
 import Draggable from "./draggable";
+import RemoveField from "./remove-field";
 
 function Field(
-  { withOpacity, isDragging, style, ...props }: FieldProps,
+  { id, withOpacity, isDragging, style, ...props }: FieldProps,
   ref: React.Ref<HTMLDivElement>
 ): React.JSX.Element {
   const inlineStyles: CSSProperties = {
@@ -21,7 +22,7 @@ function Field(
   return (
     <div
       ref={ref}
-      className="flex flex-row items-center w-[356px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"
+      className="flex flex-row items-center w-[380px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"
       style={inlineStyles}
     >
       <div
@@ -34,6 +35,7 @@ function Field(
       <FieldName />
       <FieldType />
       <FieldSettings />
+      <RemoveField id={id} />
     </div>
   );
 }

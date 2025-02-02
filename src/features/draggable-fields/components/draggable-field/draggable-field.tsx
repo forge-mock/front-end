@@ -5,6 +5,7 @@ import { FieldProps } from "../../lib/interfaces/field-props";
 import FieldType from "../field-type/field-type";
 import FieldSettings from "../field-settings/field-settings";
 import Draggable from "../field/draggable";
+import RemoveField from "../field/remove-field";
 import DraggableFieldName from "./draggable-field-name";
 
 interface DraggableFieldProps extends FieldProps {
@@ -18,9 +19,11 @@ function DraggedField({ inputValue, withOpacity, isDragging, ...props }: Draggab
     transform: isDragging ? "scale(1.05)" : "scale(1)",
   };
 
+  console.log(inputValue);
+
   return (
     <div
-      className="flex flex-row items-center w-[356px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"
+      className="flex flex-row items-center w-[380px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"
       style={inlineStyles}
     >
       <div
@@ -33,6 +36,7 @@ function DraggedField({ inputValue, withOpacity, isDragging, ...props }: Draggab
       <DraggableFieldName inputValue={inputValue} />
       <FieldType />
       <FieldSettings />
+      <RemoveField />
     </div>
   );
 }

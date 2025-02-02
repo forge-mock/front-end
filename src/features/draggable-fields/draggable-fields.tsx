@@ -14,13 +14,14 @@ import {
   closestCenter,
 } from "@dnd-kit/core";
 import { arrayMove, SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
+import type { Field } from "@entities/fields";
 import Grid from "./components/grid/grid";
 import SortableField from "./components/field/sortable-field";
 import DraggedField from "./components/draggable-field/draggable-field";
 
 interface DraggableFieldsProps {
-  items: string[];
-  setItems: (items: string[]) => void;
+  items: Field[];
+  setItems: (items: Field[]) => void;
   columnsToShow: number;
 }
 
@@ -37,10 +38,10 @@ function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProp
   const getDraggableElement = (id: string) => {
     if (gridRef.current) {
       const activeField = gridRef.current?.querySelector(`[id="${id}"]`);
-      const parentElement = activeField?.parentNode;
+      const childrenElement = activeField?.children[0];
 
-      const inputValue = parentElement?.querySelector("input")?.value as string;
-      const buttonValue = parentElement?.querySelector("button")?.textContent as string;
+      const inputValue = childrenElement?.querySelector("input")?.value as string;
+      const buttonValue = childrenElement?.querySelector("button")?.textContent as string;
 
       setDraggedFieldValues({ inputValue, buttonValue });
     }
@@ -58,11 +59,11 @@ function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProp
       const { active, over } = event;
 
       if (active.id !== over?.id) {
-        const sortingItems: string[] = [...items];
+        const sortingItems: Field[] = [...items];
 
-        const oldIndex: number = sortingItems.indexOf(active.id as string);
-        const newIndex: number = sortingItems.indexOf(over!.id as string);
-        const updatedItems: string[] = arrayMove(sortingItems, oldIndex, newIndex);
+        const oldIndex: number = sortingItems.findIndex((item) => item.id === active.id);
+        const newIndex: number = sortingItems.findIndex((item) => item.id === over!.id);
+        const updatedItems: Field[] = arrayMove(sortingItems, oldIndex, newIndex);
 
         setItems(updatedItems);
       }
@@ -87,8 +88,10 @@ function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProp
       <SortableContext items={items} strategy={rectSortingStrategy}>
         {items.length > 0 && (
           <Grid ref={gridRef} columns={columnsToShow}>
-            {items.map((id) => (
-              <SortableField key={id} id={id as unknown as string} />
+            {items.map((item) => (
+              <div key={item.id} id={item.id}>
+                <SortableField id={item.id as unknown as string} />
+              </div>
             ))}
           </Grid>
         )}

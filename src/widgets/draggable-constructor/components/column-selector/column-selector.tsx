@@ -3,17 +3,24 @@
 import React, { useState, useRef, useEffect } from "react";
 import type { Key } from "react-aria-components";
 import { Selector } from "@shared/components";
-import { LocalStorageItems } from "@shared/lib/constants";
-import { setLocalStorage } from "@shared/lib/helpers";
 
 interface ColumnSelectorProps {
+  chosenColumnCount: number | null;
   setChosenColumnCount: (columnCount: number) => void;
 }
 
-// Element width and gap
-const elementWidth = 366;
+// Element width and place for paddings
+const elementWidth = 400;
 
-function ColumnSelector({ setChosenColumnCount }: ColumnSelectorProps): React.JSX.Element {
+function setColumnName(columnNumber: number): string {
+  if (columnNumber === 1) {
+    return "1 column";
+  }
+
+  return `${columnNumber} columns`;
+}
+
+function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: ColumnSelectorProps): React.JSX.Element {
   const [columns, setColumns] = useState<{ id: number; name: string }[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -26,8 +33,13 @@ function ColumnSelector({ setChosenColumnCount }: ColumnSelectorProps): React.JS
       if (containerRef.current) {
         const containerWidth = containerRef.current.getBoundingClientRect().width;
         const columnCount = Math.floor(containerWidth / elementWidth);
-        const columns = Array.from({ length: columnCount }, (_, i) => ({ id: i + 1, name: `${i + 1}` }));
+        const columns = Array.from({ length: columnCount > 0 ? columnCount : 1 }, (_, i) => ({
+          id: i + 1,
+          name: setColumnName(i + 1),
+        }));
+
         setColumns(columns);
+        setChosenColumnCount(columns[columns.length - 1].id);
       }
     };
 
@@ -40,10 +52,19 @@ function ColumnSelector({ setChosenColumnCount }: ColumnSelectorProps): React.JS
   }, [containerRef.current]);
 
   return (
-    <div ref={containerRef}>
-      {columns.length > 0 && (
-        <Selector items={columns} defaultSelectedKey={columns[0].id} onSelectionChange={onSelectorChange} />
-      )}
+    <div ref={containerRef} className="flex flex-row items-center justify-center gap-4">
+      <p>Choose count of columns to show:</p>
+
+      <div className="w-32">
+        {columns.length > 0 && (
+          <Selector
+            items={columns}
+            selectedKey={chosenColumnCount}
+            defaultSelectedKey={columns[0].id}
+            onSelectionChange={onSelectorChange}
+          />
+        )}
+      </div>
     </div>
   );
 }

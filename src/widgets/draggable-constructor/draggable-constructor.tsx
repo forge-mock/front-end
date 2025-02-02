@@ -1,21 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
-import { DraggableFields } from "@features/draggable-fields";
+import React, { useState, useEffect } from "react";
+import type { Field } from "@entities/fields";
+import { DraggableFields, useFieldsStore } from "@features/draggable-fields";
 import ColumnSelector from "./components/column-selector/column-selector";
 
 interface DraggableConstructorProps {
-  items: string[];
-  setItems: (items: string[]) => void;
+  items: Field[];
+  setItems: (items: Field[]) => void;
 }
 
 function DraggableConstructor({ items, setItems }: DraggableConstructorProps): React.JSX.Element {
-  const [selectedColumnCount, setSelectedColumnCount] = useState<number>(1);
+  const [selectedColumnCount, setSelectedColumnCount] = useState<number | null>(null);
+  const { fields, clearFields, setAllFields } = useFieldsStore();
+
+  useEffect(() => {
+    if (items.length > 0) {
+      setAllFields(items);
+    }
+
+    return () => {
+      clearFields();
+    };
+  }, [items]);
 
   return (
-    <div>
-      <ColumnSelector setChosenColumnCount={setSelectedColumnCount} />
-      <DraggableFields columnsToShow={selectedColumnCount} items={items} setItems={setItems}></DraggableFields>
+    <div className="flex flex-col gap-5">
+      <ColumnSelector chosenColumnCount={selectedColumnCount} setChosenColumnCount={setSelectedColumnCount} />
+
+      {selectedColumnCount && (
+        <div className="flex justify-center">
+          <DraggableFields columnsToShow={selectedColumnCount} items={fields} setItems={setItems}></DraggableFields>
+        </div>
+      )}
     </div>
   );
 }
