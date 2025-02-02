@@ -17,7 +17,7 @@ const TABS: Tab[] = [
     path: "docs",
   },
   {
-    icon: "/layout/about.svg",
+    icon: "/shared/info.svg",
     title: "About",
     path: "/about",
   },

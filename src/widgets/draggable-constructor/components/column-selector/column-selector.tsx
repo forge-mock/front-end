@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import type { Key } from "react-aria-components";
 import { Selector } from "@shared/components";
+import { InfoTooltip } from "@features/info-tooltip";
 
 interface ColumnSelectorProps {
   chosenColumnCount: number | null;
@@ -10,7 +11,7 @@ interface ColumnSelectorProps {
 }
 
 // Element width and place for paddings
-const elementWidth = 400;
+const elementWidth = 440;
 
 function setColumnName(columnNumber: number): string {
   if (columnNumber === 1) {
@@ -22,16 +23,17 @@ function setColumnName(columnNumber: number): string {
 
 function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: ColumnSelectorProps): React.JSX.Element {
   const [columns, setColumns] = useState<{ id: number; name: string }[]>([]);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const onSelectorChange = (selectedColumnCount: Key) => {
     setChosenColumnCount(selectedColumnCount as number);
   };
 
   useEffect(() => {
+    const main = document.querySelector("main");
+
     const handleResize = () => {
-      if (containerRef.current) {
-        const containerWidth = containerRef.current.getBoundingClientRect().width;
+      if (main) {
+        const containerWidth = main.getBoundingClientRect().width;
         const columnCount = Math.floor(containerWidth / elementWidth);
         const columns = Array.from({ length: columnCount > 0 ? columnCount : 1 }, (_, i) => ({
           id: i + 1,
@@ -49,12 +51,10 @@ function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: ColumnSelec
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [containerRef.current]);
+  }, []);
 
   return (
-    <div ref={containerRef} className="flex flex-row items-center justify-center gap-4">
-      <p>Choose count of columns to show:</p>
-
+    <div className="flex flex-row items-center justify-center gap-2">
       <div className="w-32">
         {columns.length > 0 && (
           <Selector
@@ -65,6 +65,8 @@ function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: ColumnSelec
           />
         )}
       </div>
+
+      <InfoTooltip text="Choose count of columns to show" />
     </div>
   );
 }

@@ -10,7 +10,7 @@ function DraggableConstructor(): React.JSX.Element {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-row justify-center gap-20">
+      <div className="flex flex-row w-full justify-center gap-20">
         <ColumnSelector chosenColumnCount={selectedColumnCount} setChosenColumnCount={setSelectedColumnCount} />
         <AddNewField />
       </div>
