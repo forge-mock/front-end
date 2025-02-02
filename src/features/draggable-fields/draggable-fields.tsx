@@ -35,8 +35,6 @@ function DraggableFields({ columnsToShow }: DraggableFieldsProps): React.JSX.Ele
   const gridRef = useRef<HTMLDivElement>(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor), useSensor(KeyboardSensor));
 
-  console.log(fields);
-
   const getDraggableElement = (id: string) => {
     if (gridRef.current) {
       const activeField = gridRef.current?.querySelector(`[id="${id}"]`);
@@ -98,6 +96,7 @@ function DraggableFields({ columnsToShow }: DraggableFieldsProps): React.JSX.Ele
           </Grid>
         )}
       </SortableContext>
+
       <DragOverlay>
         {activeId && <DraggedField id={activeId} inputValue={draggedFieldValues.inputValue} isDragging />}
       </DragOverlay>

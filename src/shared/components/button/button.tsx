@@ -15,7 +15,7 @@ function Button({ text, outline = false, classes = "", ...props }: ButtonProps) 
   return (
     <FocusRing focusRingClass="outline-border-default">
       <AriaButton
-        className={`cursor-pointer focus-visible:outline-none border-2 border-solid border-[#6d28d9] rounded-lg
+        className={`cursor-pointer focus-visible:outline-none border-2 border-solid border-[#6d28d9] rounded-lg px-2
           ${outline ? "hover-default" : "hover-background-default text-[#cbd5e1] bg-[#6d28d9]"} ${classes}`}
         {...props}
       >
