@@ -12,7 +12,7 @@ function MobileSidebar(): React.JSX.Element {
 
   return (
     <aside
-      className={`fixed flex flex-col justify-between h-full pt-2.5 ${styles.tabContainer} ${mobileSidebarExpanded && styles.open}`}
+      className={`fixed flex flex-col justify-between h-full pt-2.5 ${styles.tabContainer} ${mobileSidebarExpanded ? styles.open : ""}`}
     >
       <nav className="w-full truncate">
         {TABS.map(

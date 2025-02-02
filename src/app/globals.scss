@@ -147,6 +147,10 @@ body {
   }
 
   .outline-default {
+    @apply focus-visible:transition focus-visible:duration-300 focus-visible:outline-[var(--blue-border)];
+  }
+
+  .outline-border-default {
     @apply focus-visible:transition focus-visible:duration-300 focus-visible:outline-none focus-visible:border-[var(--blue-border)];
   }
 }

@@ -26,7 +26,7 @@ function Field(
     >
       <div
         className={`flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid 
-          border-[var(--violet-border)] outline-default ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          border-[var(--violet-border)] outline-border-default ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
         {...props}
       >
         <Draggable />

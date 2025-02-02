@@ -17,7 +17,7 @@ interface IconButtonProps {
 
 function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "" }: IconButtonProps) {
   return (
-    <FocusRing focusRingClass="outline-default">
+    <FocusRing focusRingClass="outline-border-default">
       <Button onPress={() => onClick?.()} className={`${styles.iconButton} ${classes}`} type="button">
         <Image src={src} width={width} height={height} alt={alt} className={styles.icon} />
       </Button>
