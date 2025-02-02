@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import type { Field } from "@entities/fields";
+import React, { useEffect } from "react";
+import { useFieldsStore } from "@features/draggable-fields";
 import { DraggableConstructor } from "@widgets/draggable-constructor";
 import { v4 as uuidv4 } from "uuid";
 
 function DraggableConstructorWrapper(): React.JSX.Element {
-  const [items, setItems] = useState<Field[]>([]);
+  const { clearFields, setAllFields } = useFieldsStore();
 
   useEffect(() => {
     const generatedItems = Array.from({ length: 5 }, () => ({
@@ -14,10 +14,14 @@ function DraggableConstructorWrapper(): React.JSX.Element {
       name: "",
       type: "",
     }));
-    setItems(generatedItems);
+    setAllFields(generatedItems);
+
+    return () => {
+      clearFields();
+    };
   }, []);
 
-  return <DraggableConstructor items={items} setItems={setItems} />;
+  return <DraggableConstructor />;
 }
 
 export default DraggableConstructorWrapper;

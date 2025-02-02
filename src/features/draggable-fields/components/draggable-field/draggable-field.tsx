@@ -19,8 +19,6 @@ function DraggedField({ inputValue, withOpacity, isDragging, ...props }: Draggab
     transform: isDragging ? "scale(1.05)" : "scale(1)",
   };
 
-  console.log(inputValue);
-
   return (
     <div
       className="flex flex-row items-center w-[380px] bg-[var(--light-grey-background)] gap-2 p-1.5 border-default"

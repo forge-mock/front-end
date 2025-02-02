@@ -27,7 +27,7 @@ function TextInput({
         placeholder={placeholder}
         className={({ isInvalid }) =>
           `bg-[var(--grey-background)] border-small-rounded-default hover-border-default 
-          placeholder:text-[var(--lighter-text-color)] focus-default 
+          placeholder:text-[var(--lighter-text-color)] focus-default px-2 
           ${isInvalid ? "border-small-rounded-error-default" : ""} 
           ${inputClasses}`
         }

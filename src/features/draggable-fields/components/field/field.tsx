@@ -2,7 +2,7 @@
 
 import React, { CSSProperties, forwardRef } from "react";
 import { FieldProps } from "../../lib/interfaces/field-props";
-import FieldName from "../field-name/field-name";
+import FieldName from "./field-name";
 import FieldType from "../field-type/field-type";
 import FieldSettings from "../field-settings/field-settings";
 import Draggable from "./draggable";
@@ -32,7 +32,7 @@ function Field(
       >
         <Draggable />
       </div>
-      <FieldName />
+      <FieldName id={id} />
       <FieldType />
       <FieldSettings />
       <RemoveField id={id} />

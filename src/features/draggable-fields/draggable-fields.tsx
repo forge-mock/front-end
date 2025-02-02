@@ -15,25 +15,27 @@ import {
 } from "@dnd-kit/core";
 import { arrayMove, SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import type { Field } from "@entities/fields";
+import { useFieldsStore } from "./store/fields-store";
 import Grid from "./components/grid/grid";
 import SortableField from "./components/field/sortable-field";
 import DraggedField from "./components/draggable-field/draggable-field";
 
 interface DraggableFieldsProps {
-  items: Field[];
-  setItems: (items: Field[]) => void;
   columnsToShow: number;
 }
 
-function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProps): React.JSX.Element {
+function DraggableFields({ columnsToShow }: DraggableFieldsProps): React.JSX.Element {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [draggedFieldValues, setDraggedFieldValues] = useState<{ inputValue: string; buttonValue: string }>({
     inputValue: "",
     buttonValue: "",
   });
 
+  const { fields, setAllFields } = useFieldsStore();
   const gridRef = useRef<HTMLDivElement>(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor), useSensor(KeyboardSensor));
+
+  console.log(fields);
 
   const getDraggableElement = (id: string) => {
     if (gridRef.current) {
@@ -59,18 +61,18 @@ function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProp
       const { active, over } = event;
 
       if (active.id !== over?.id) {
-        const sortingItems: Field[] = [...items];
+        const sortingItems: Field[] = [...fields];
 
         const oldIndex: number = sortingItems.findIndex((item) => item.id === active.id);
         const newIndex: number = sortingItems.findIndex((item) => item.id === over!.id);
         const updatedItems: Field[] = arrayMove(sortingItems, oldIndex, newIndex);
 
-        setItems(updatedItems);
+        setAllFields(updatedItems);
       }
 
       setActiveId(null);
     },
-    [items]
+    [fields]
   );
 
   const handleDragCancel = useCallback(() => {
@@ -85,12 +87,12 @@ function DraggableFields({ items, setItems, columnsToShow }: DraggableFieldsProp
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
     >
-      <SortableContext items={items} strategy={rectSortingStrategy}>
-        {items.length > 0 && (
+      <SortableContext items={fields} strategy={rectSortingStrategy}>
+        {fields.length > 0 && (
           <Grid ref={gridRef} columns={columnsToShow}>
-            {items.map((item) => (
+            {fields.map((item) => (
               <div key={item.id} id={item.id}>
-                <SortableField id={item.id as unknown as string} />
+                <SortableField id={item.id} />
               </div>
             ))}
           </Grid>
