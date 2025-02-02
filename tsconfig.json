@@ -24,7 +24,7 @@
       "@entities/*": ["./src/entities/*"],
       "@features/*": ["./src/features/*"],
       "@widgets/*": ["./src/widgets/*"],
-      "@pages/*": ["./src/pages/*"],
+      "@documents/*": ["./src/documents/*"],
       "@app/*": ["./src/app/*"]
     }
   },
