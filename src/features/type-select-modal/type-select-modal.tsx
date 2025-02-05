@@ -19,11 +19,11 @@ function TypeSelectModal({ isOpen, setIsOpen }: TypeSelectModalProps) {
     <ModalWindow
       isOpen={isOpen}
     >
-      <div className="flex">
-        <aside className="w-1/4 flex flex-col border-none bg-inherit gap-[5px]">
-          <Button autoFocus text="Primitive" onPress={() => setSelectedType('primitive')} classes="p-[20px] w-[200px] text-left"/>
-          <Button text="Collections" onPress={() => setSelectedType('collections')} classes="p-[20px] w-[200px] text-left"/>
-          <Button text="Specialized" onPress={() => setSelectedType('specialized')} classes="p-[20px] w-[200px] text-left"/>
+      <div className="flex h-full relative">
+        <aside className="w-[15%] flex flex-col border-right-2 bg-inherit flex-grow-1 gap-[5px] pr-[20px] mr-[20px]">
+          <Button autoFocus text="Primitive" onPress={() => setSelectedType('primitive')} classes="p-[20px] text-left"/>
+          <Button text="Collections" onPress={() => setSelectedType('collections')} classes="p-[20px] text-left"/>
+          <Button text="Specialized" onPress={() => setSelectedType('specialized')} classes="p-[20px] text-left"/>
         </aside>
         
         <div className="w-3/4">
@@ -33,7 +33,7 @@ function TypeSelectModal({ isOpen, setIsOpen }: TypeSelectModalProps) {
         </div>
       </div>
 
-      <Button text="Close modal" onPress={() => setIsOpen(false)}/>
+      <Button text="Close modal" onPress={() => setIsOpen(false)} className="absolute bottom-[120px] right-[180px] bg-[var(--violet-background)] p-[10px] rounded-lg"/>
     </ModalWindow>
   )
 }
