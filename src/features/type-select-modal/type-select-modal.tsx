@@ -33,7 +33,7 @@ function TypeSelectModal({ isOpen, setIsOpen }: TypeSelectModalProps) {
         </div>
       </div>
 
-      <Button text="Close modal" onPress={() => setIsOpen(false)} className="absolute bottom-[120px] right-[180px] bg-[var(--violet-background)] p-[10px] rounded-lg"/>
+      <Button text="Close modal" onPress={() => setIsOpen(false)} className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"/>
     </ModalWindow>
   )
 }
