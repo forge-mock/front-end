@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, forwardRef } from "react";
+import React, { CSSProperties, forwardRef, useState } from "react";
 import { FieldProps } from "../../lib/interfaces/field-props";
 import FieldName from "./field-name";
 import FieldType from "../field-type/field-type";
@@ -19,6 +19,8 @@ function Field(
     ...style,
   };
 
+  const [selectedType, setSelectedType] = useState<string>("Type");
+
   return (
     <div
       ref={ref}
@@ -33,8 +35,8 @@ function Field(
         <Draggable />
       </div>
       <FieldName id={id} />
-      <FieldType />
-      <FieldSettings />
+      <FieldType selectedType={selectedType} setSelectedType={setSelectedType} />
+      <FieldSettings selectedType={selectedType} />
       <RemoveField id={id} />
     </div>
   );

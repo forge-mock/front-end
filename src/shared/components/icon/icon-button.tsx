@@ -12,13 +12,16 @@ interface IconButtonProps {
   width?: number;
   height?: number;
   classes?: string;
+  isDisabled?: boolean;
   onClick?: () => void;
 }
 
-function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "" }: IconButtonProps) {
+function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "", isDisabled }: IconButtonProps) {
+  const className = !isDisabled ? `${styles.iconButton} ${classes}` : `${styles.iconButtonDisabled}`;
+
   return (
     <FocusRing focusRingClass="outline-border-default">
-      <Button onPress={() => onClick?.()} className={`${styles.iconButton} ${classes}`} type="button">
+      <Button isDisabled={isDisabled} onPress={() => onClick?.()} className={className} type="button">
         <Image src={src} width={width} height={height} alt={alt} className={styles.icon} />
       </Button>
     </FocusRing>

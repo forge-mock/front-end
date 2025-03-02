@@ -3,6 +3,7 @@
 import React from "react";
 import { TextFieldProps } from "react-aria-components";
 import { TextField, Label, Input, Text, FieldError } from "react-aria-components";
+import styles from "./inputs.module.scss";
 
 interface TextInputProps extends TextFieldProps {
   label?: string;
@@ -26,8 +27,7 @@ function TextInput({
       <Input
         placeholder={placeholder}
         className={({ isInvalid }) =>
-          `bg-[var(--grey-background)] border-small-rounded-default hover-border-default 
-          placeholder:text-[var(--lighter-text-color)] focus-default px-2 
+          `${styles.input} 
           ${isInvalid ? "border-small-rounded-error-default" : ""} 
           ${inputClasses}`
         }

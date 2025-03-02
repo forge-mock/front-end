@@ -12,6 +12,11 @@
   @apply focus:outline-[var(--violet-border)] focus:ring-offset-[var(--violet-border)];
 }
 
+.iconButtonDisabled {
+  @apply p-1.5 rounded-full border-2 border-solid border-[var(--grey-active)];
+  filter: grayscale(100%) brightness(70%);
+}
+
 .icon {
   filter: var(--violet-icon);
 }

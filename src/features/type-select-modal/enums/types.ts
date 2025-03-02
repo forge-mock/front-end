@@ -4,5 +4,5 @@ export enum Types {
   TEXT = "Text",
   BOOLEAN = "Boolean",
   DATETIME = "Date time",
-  UUID = "UUID"
+  UUID = "UUID",
 }
