@@ -21,3 +21,6 @@ export { Switcher };
 import NumberInput from "./inputs/number-input";
 import TextInput from "./inputs/text-input";
 export { NumberInput, TextInput };
+
+import ModalWindow from "./modal/modal";
+export { ModalWindow };

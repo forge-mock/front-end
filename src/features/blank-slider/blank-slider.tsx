@@ -1,4 +1,4 @@
-import ConfigSlider from "@shared/components/slider/slider";
+import { Slider } from "@shared/components";
 
 interface BlankSliderProps {
   blankValue: number | number[];
@@ -7,7 +7,7 @@ interface BlankSliderProps {
 
 function BlankSlider({ blankValue, setBlankValue }: BlankSliderProps) {
   return (
-    <ConfigSlider
+    <Slider
       value={blankValue}
       onChange={setBlankValue}
       label="Blank"

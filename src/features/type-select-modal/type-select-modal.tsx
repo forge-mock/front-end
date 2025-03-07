@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@shared/components";
+import { Button, ModalWindow } from "@shared/components";
 import PrimitiveTypes from "./types-content/primitive-type";
 import CollectionsTypes from "./types-content/collections-type";
 import SpecializedTypes from "./types-content/specialized-type";
-import ModalWindow from "@shared/components/modal/modal";
 
 interface TypeSelectModalProps {
   isOpen: boolean;

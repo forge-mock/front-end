@@ -2,13 +2,15 @@
 
 import React, { useState } from "react";
 import { IconButton } from "@shared/components";
-import NumberConfig from "@features/type-select-modal/types-configurator/primitive-configurator/number-config";
 import { Types } from "@features/type-select-modal/enums/types";
-import StringConfig from "@features/type-select-modal/types-configurator/primitive-configurator/string-config";
-import TextConfig from "@features/type-select-modal/types-configurator/primitive-configurator/text-config";
-import BooleanConfig from "@features/type-select-modal/types-configurator/primitive-configurator/boolean-config";
-import DateTimeConfig from "@features/type-select-modal/types-configurator/primitive-configurator/date-time-config";
-import UUIDConfig from "@features/type-select-modal/types-configurator/primitive-configurator/uuid-config";
+import {
+  BooleanConfig,
+  DateTimeConfig,
+  NumberConfig,
+  StringConfig,
+  TextConfig,
+  UUIDConfig,
+} from "@features/type-select-modal/types-configurator/primitive-configurator";
 
 interface FieldSettingsProps {
   selectedType: string;
@@ -16,6 +18,17 @@ interface FieldSettingsProps {
 
 function FieldSettings({ selectedType }: FieldSettingsProps): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const typeComponents = {
+    [Types.NUMBER]: NumberConfig,
+    [Types.STRING]: StringConfig,
+    [Types.TEXT]: TextConfig,
+    [Types.BOOLEAN]: BooleanConfig,
+    [Types.DATETIME]: DateTimeConfig,
+    [Types.UUID]: UUIDConfig,
+  };
+
+  const ConfigComponent = typeComponents[selectedType as keyof typeof typeComponents];
 
   function onIconClick() {
     setIsModalOpen(true);
@@ -32,12 +45,7 @@ function FieldSettings({ selectedType }: FieldSettingsProps): React.JSX.Element 
         onClick={onIconClick}
       />
 
-      {selectedType === Types.NUMBER && <NumberConfig isOpen={isModalOpen} setIsOpen={setIsModalOpen} />}
-      {selectedType === Types.STRING && <StringConfig isOpen={isModalOpen} setIsOpen={setIsModalOpen} />}
-      {selectedType === Types.TEXT && <TextConfig isOpen={isModalOpen} setIsOpen={setIsModalOpen} />}
-      {selectedType === Types.BOOLEAN && <BooleanConfig isOpen={isModalOpen} setIsOpen={setIsModalOpen} />}
-      {selectedType === Types.DATETIME && <DateTimeConfig isOpen={isModalOpen} setIsOpen={setIsModalOpen} />}
-      {selectedType === Types.UUID && <UUIDConfig isOpen={isModalOpen} setIsOpen={setIsModalOpen} />}
+      {ConfigComponent ? <ConfigComponent isOpen={isModalOpen} setIsOpen={setIsModalOpen} /> : null}
     </>
   );
 }

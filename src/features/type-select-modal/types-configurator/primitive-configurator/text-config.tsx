@@ -1,8 +1,7 @@
 "use client";
 
 import BlankSlider from "@features/blank-slider/blank-slider";
-import { Button, NumberInput, Switcher } from "@shared/components";
-import ModalWindow from "@shared/components/modal/modal";
+import { Button, NumberInput, Switcher, ModalWindow } from "@shared/components";
 import { useState } from "react";
 
 interface ConfiguratorProps {

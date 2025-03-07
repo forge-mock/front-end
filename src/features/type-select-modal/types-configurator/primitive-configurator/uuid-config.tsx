@@ -1,5 +1,4 @@
-import { Button } from "@shared/components";
-import ModalWindow from "@shared/components/modal/modal";
+import { Button, ModalWindow } from "@shared/components";
 
 interface ConfiguratorProps {
   isOpen: boolean;

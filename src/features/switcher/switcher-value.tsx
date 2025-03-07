@@ -1,7 +1,6 @@
 "use client";
 
-import { NumberInput } from "@shared/components";
-import Switcher from "@shared/components/switcher/switcher";
+import { NumberInput, Switcher } from "@shared/components";
 import { Group } from "react-aria-components";
 
 interface SwitcherValueProps {

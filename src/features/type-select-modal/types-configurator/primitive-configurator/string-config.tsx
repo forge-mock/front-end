@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, Switcher } from "@shared/components";
-import ModalWindow from "@shared/components/modal/modal";
+import { Button, Switcher, ModalWindow } from "@shared/components";
 import BlankSlider from "@features/blank-slider/blank-slider";
 import ValueSwitcher from "@features/switcher/switcher-value";
 import { useState } from "react";

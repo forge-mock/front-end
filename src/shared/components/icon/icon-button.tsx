@@ -17,7 +17,7 @@ interface IconButtonProps {
 }
 
 function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "", isDisabled }: IconButtonProps) {
-  const className = !isDisabled ? `${styles.iconButton} ${classes}` : `${styles.iconButtonDisabled}`;
+  const className = !isDisabled ? `${styles.iconButton} ${classes}` : styles.iconButtonDisabled;
 
   return (
     <FocusRing focusRingClass="outline-border-default">
