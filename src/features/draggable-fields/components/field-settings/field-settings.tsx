@@ -2,16 +2,52 @@
 
 import React, { useState } from "react";
 import { IconButton } from "@shared/components";
+import { Types } from "@features/type-select-modal/enums/types";
+import {
+  BooleanConfig,
+  DateTimeConfig,
+  NumberConfig,
+  StringConfig,
+  TextConfig,
+  UUIDConfig,
+} from "@features/type-select-modal/types-configurator/primitive-configurator";
 
-function FieldSettings(): React.JSX.Element {
+interface FieldSettingsProps {
+  selectedType: string;
+}
+
+function FieldSettings({ selectedType }: FieldSettingsProps): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  const typeComponents = {
+    [Types.NUMBER]: NumberConfig,
+    [Types.STRING]: StringConfig,
+    [Types.TEXT]: TextConfig,
+    [Types.BOOLEAN]: BooleanConfig,
+    [Types.DATETIME]: DateTimeConfig,
+    [Types.UUID]: UUIDConfig,
+  };
+
+  const ConfigComponent = typeComponents[selectedType as keyof typeof typeComponents];
+
   function onIconClick() {
-    console.log(isModalOpen);
     setIsModalOpen(true);
   }
 
-  return <IconButton src="/dragging/settings.svg" alt="Settings" height={18} width={18} onClick={onIconClick} />;
+  return (
+    <>
+      <IconButton
+        src="/dragging/settings.svg"
+        alt="Settings"
+        isDisabled={selectedType === "Type"}
+        height={18}
+        width={18}
+        onClick={onIconClick}
+      />
+
+      {ConfigComponent ? <ConfigComponent isOpen={isModalOpen} setIsOpen={setIsModalOpen} /> : null}
+    </>
+  );
 }
 
 export default FieldSettings;
