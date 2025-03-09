@@ -13,7 +13,7 @@ import {
 } from "@features/type-select-modal/types-configurator/primitive-configurator";
 
 interface FieldSettingsProps {
-  selectedType: string;
+  selectedType?: string;
 }
 
 function FieldSettings({ selectedType }: FieldSettingsProps): React.JSX.Element {

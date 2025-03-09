@@ -1,4 +1,4 @@
 .input {
-  @apply bg-[var(--grey-background)] border-small-rounded-default 
-  hover-border-default placeholder:text-[var(--lighter-text-color)] focus-default px-2;
+  @apply bg-[var(--grey-background)] border-2 border-solid border-[var(--violet-border)] rounded-lg 
+  transition duration-300 hover:border-[var(--dark-violet-border)] active:transition-none placeholder:text-[var(--lighter-text-color)] focus:transition focus:duration-300 focus:border-[var(--blue-border)] focus:outline-0 px-2;
 }

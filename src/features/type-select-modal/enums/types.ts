@@ -3,6 +3,6 @@ export enum Types {
   STRING = "String",
   TEXT = "Text",
   BOOLEAN = "Boolean",
-  DATETIME = "Date time",
+  DATETIME = "DateTime",
   UUID = "UUID",
 }

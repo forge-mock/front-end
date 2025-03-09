@@ -5,8 +5,8 @@ import { Button } from "@shared/components";
 import { TypeSelectModal } from "@features/type-select-modal";
 
 interface FieldProps {
-  selectedType: string;
-  setSelectedType: (selectedType: string) => void;
+  selectedType?: string;
+  setSelectedType?: (selectedType: string) => void;
 }
 
 function FieldType({ selectedType, setSelectedType }: FieldProps): React.JSX.Element {
@@ -18,7 +18,7 @@ function FieldType({ selectedType, setSelectedType }: FieldProps): React.JSX.Ele
 
   function onSettingType(type: string) {
     setIsModalOpen(false);
-    setSelectedType(type);
+    setSelectedType?.(type);
   }
 
   return (
