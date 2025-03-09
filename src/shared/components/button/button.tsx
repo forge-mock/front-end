@@ -6,7 +6,7 @@ import { FocusRing } from "react-aria";
 import { Button as AriaButton } from "react-aria-components";
 
 interface ButtonProps extends AriaButtonProps {
-  text: string;
+  text?: string;
   outline?: boolean;
   classes?: string;
 }

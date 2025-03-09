@@ -2,16 +2,32 @@
 
 import React, { useState } from "react";
 import { Button } from "@shared/components";
+import { TypeSelectModal } from "@features/type-select-modal";
 
-function FieldType(): React.JSX.Element {
+interface FieldProps {
+  selectedType?: string;
+  setSelectedType?: (selectedType: string) => void;
+}
+
+function FieldType({ selectedType, setSelectedType }: FieldProps): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   function onButtonClick() {
-    console.log(isModalOpen);
     setIsModalOpen(true);
   }
 
-  return <Button text="hello" outline onPress={onButtonClick} classes="w-24" />;
+  function onSettingType(type: string) {
+    setIsModalOpen(false);
+    setSelectedType?.(type);
+  }
+
+  return (
+    <>
+      <Button text={selectedType} outline onPress={onButtonClick} classes="w-24" />
+
+      {isModalOpen && <TypeSelectModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} onSelectType={onSettingType} />}
+    </>
+  );
 }
 
 export default FieldType;
