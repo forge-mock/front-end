@@ -1,0 +1,7 @@
+.idea
+.next
+node_module
+.git
+Dockerfile
+.dockerignore
+README.md

@@ -1,0 +1,7 @@
+slices
+1. api (minimum of services)
+2. components (ui elements)
+3. library (minimum of helpers)
+4. config (i18n, etc)
+5. model (minimum of store)
+6. public api (index.ts)

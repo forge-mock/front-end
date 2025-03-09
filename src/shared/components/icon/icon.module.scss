@@ -1,0 +1,23 @@
+.iconContainer {
+  @apply flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid border-[var(--violet-border)];
+}
+
+.iconLink {
+  @extend .iconContainer;
+  @apply cursor-pointer transition duration-300 hover:bg-[var(--grey-hover)] active:transition-none active:bg-[var(--grey-active)];
+}
+
+.iconButton {
+  @extend .iconLink;
+  @apply focus:outline-[var(--violet-border)] focus:ring-offset-[var(--violet-border)];
+}
+
+.iconButtonDisabled {
+  @apply p-1.5 rounded-full border-2 border-solid border-[var(--grey-active)];
+
+  filter: grayscale(100%) brightness(70%);
+}
+
+.icon {
+  filter: var(--violet-icon);
+}
