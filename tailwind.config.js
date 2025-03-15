@@ -1,4 +1,5 @@
 import tailwindcssAnimate from "tailwindcss-animate";
+import tailwindcssReactAriaComponents from "tailwindcss-react-aria-components";
 
 /** @type {import("tailwindcss").Config} */
 const config = {
@@ -8,7 +9,7 @@ const config = {
       roboto: ["Roboto", "sans-serif"],
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, tailwindcssReactAriaComponents],
 };
 
 export default config;

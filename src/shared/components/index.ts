@@ -24,3 +24,6 @@ export { NumberInput, TextInput };
 
 import ModalWindow from "./modal/modal";
 export { ModalWindow };
+
+import Toggle from "./toggle/toggle";
+export { Toggle };
