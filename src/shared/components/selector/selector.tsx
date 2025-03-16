@@ -24,6 +24,7 @@ interface SelectorProps<T> extends SelectProps {
   description?: string;
   errorMessage?: string;
   selectorClasses?: string;
+  labelClasses?: string;
 }
 
 function Selector<T extends object>({
@@ -39,7 +40,7 @@ function Selector<T extends object>({
   return (
     <Select
       className={({ isInvalid }) =>
-        `flex flex-col bg-[var(--grey-background)] focus-default 
+        `flex flex-col focus-default
         ${isInvalid ? "border-small-rounded-error-default" : ""} 
         ${selectorClasses}`
       }
@@ -48,7 +49,7 @@ function Selector<T extends object>({
       <Label className="text-sm text-[var(--light-text-color)]">{label}</Label>
 
       <FocusRing focusRingClass="outline-border-default">
-        <Button className="flex flex-row items-center justify-center gap-2 focus:outline-none border-small-rounded-default hover-border-default">
+        <Button className="flex flex-row items-center justify-center gap-2 focus:outline-none border-small-rounded-default hover-border-default bg-[var(--grey-background)]">
           <SelectValue
             className={({ isPlaceholder }) => `${isPlaceholder ? "text-[var(--lighter-text-color)]" : ""}`}
           />
@@ -73,7 +74,7 @@ function Selector<T extends object>({
       <Popover
         offset={0}
         className={({ isEntering, isExiting }) =>
-          `p-2 border-default bg-[var(--grey-background)] transition duration-300
+          `p-2 border-default bg-[var(--grey-background)] transition duration-300 w-[--trigger-width]
           ${isEntering ? "animate-in fade-in" : ""}
           ${isExiting ? "animate-out fade-out" : ""}`
         }
