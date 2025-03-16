@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Label, type Key } from "react-aria-components";
 import BlankSlider from "@features/blank-slider/blank-slider";
 import { Button, ModalWindow, Selector } from "@shared/components";
+import { uuidVersions } from "./const";
 
 interface ConfiguratorProps {
   isOpen: boolean;
@@ -11,15 +12,6 @@ interface ConfiguratorProps {
 function UUIDConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [selectedVersion, setSelectedVersion] = useState<Key>();
-
-  const uuidVersions = [
-    { id: 1, name: "UUIDV1" },
-    { id: 2, name: "UUIDV3" },
-    { id: 3, name: "UUIDV4" },
-    { id: 4, name: "UUIDV5" },
-    { id: 5, name: "UUIDV6" },
-    { id: 6, name: "UUIDV7" },
-  ];
 
   const changeUuidVersion = (version: Key) => {
     setSelectedVersion(version);
