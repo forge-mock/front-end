@@ -2,17 +2,17 @@ import React from "react";
 import { Tooltip, IconLink } from "@shared/components";
 
 export interface TabIconProps {
-  icon: string;
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   title: string;
   path: string;
 }
 
-function TabIcon({ icon, title, path }: TabIconProps): React.JSX.Element {
+function TabIcon({ Icon, title, path }: TabIconProps): React.JSX.Element {
   return (
     <div className="flex flex-row items-center gap-4 p-4">
       <div className="flex shrink-0">
         <Tooltip id={title} place="right" text={title}>
-          <IconLink path={path} src={icon} alt={title} />
+          <IconLink path={path} Icon={Icon} />
         </Tooltip>
       </div>
       <p className="text-[var(--violet-title-color)] truncate">{title}</p>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import SettingsIcon from "@assets/dragging/settings.svg";
 import { IconButton } from "@shared/components";
 import { Types } from "@features/type-select-modal/enums/types";
 import {
@@ -37,8 +38,7 @@ function FieldSettings({ selectedType }: FieldSettingsProps): React.JSX.Element 
   return (
     <>
       <IconButton
-        src="/dragging/settings.svg"
-        alt="Settings"
+        Icon={SettingsIcon}
         isDisabled={selectedType === "Type"}
         height={18}
         width={18}

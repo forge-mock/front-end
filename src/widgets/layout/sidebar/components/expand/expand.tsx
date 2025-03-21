@@ -1,16 +1,17 @@
 "use client";
 
 import React from "react";
+import ExpandIcon from "@assets/layout/expand.svg";
 import { IconButton } from "@shared/components";
 import { LocalStorageItems } from "@shared/lib/constants";
 import { setLocalStorage } from "@shared/lib/helpers";
 
-interface ExpandIconProps {
+interface ExpandProps {
   isExpanded: boolean;
   setIsExpanded: (isExpanded: boolean) => void;
 }
 
-function ExpandIcon({ isExpanded, setIsExpanded }: ExpandIconProps): React.JSX.Element {
+function Expand({ isExpanded, setIsExpanded }: ExpandProps): React.JSX.Element {
   function handleClickExpand(): void {
     setIsExpanded(!isExpanded);
     setLocalStorage(LocalStorageItems.IsSidebarExpanded, !isExpanded);
@@ -19,10 +20,10 @@ function ExpandIcon({ isExpanded, setIsExpanded }: ExpandIconProps): React.JSX.E
   return (
     <div className="flex p-3.5">
       <div className={`transition duration-300 ${isExpanded ? "rotate-0" : "rotate-180"}`}>
-        <IconButton src="/layout/expand.svg" alt="expand" onClick={() => handleClickExpand()} />
+        <IconButton Icon={ExpandIcon} onClick={() => handleClickExpand()} />
       </div>
     </div>
   );
 }
 
-export default ExpandIcon;
+export default Expand;

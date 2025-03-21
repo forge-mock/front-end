@@ -1,28 +1,33 @@
+import ConstructorIcon from "@assets/layout/constructor.svg";
+import SchemaIcon from "@assets/layout/schema.svg";
+import DocsIcon from "@assets/layout/docs.svg";
+import InfoIcon from "@assets/shared/info.svg";
+import FeedbackIcon from "@assets/layout/feedback.svg";
 import { Tab } from "../interfaces/tab";
 
 const TABS: Tab[] = [
   {
-    icon: "/layout/constructor.svg",
+    Icon: ConstructorIcon,
     title: "Constructor",
     path: "/",
   },
   {
-    icon: "/layout/schema.svg",
+    Icon: SchemaIcon,
     title: "Schemas",
     path: "/schema",
   },
   {
-    icon: "/layout/docs.svg",
+    Icon: DocsIcon,
     title: "Documentation",
     path: "docs",
   },
   {
-    icon: "/shared/info.svg",
+    Icon: InfoIcon,
     title: "About",
     path: "/about",
   },
   {
-    icon: "/layout/feedback.svg",
+    Icon: FeedbackIcon,
     title: "Feedback",
     path: "/feedback",
   },
