@@ -1,4 +1,5 @@
 import React from "react";
+import CrossIcon from "@assets/dragging/cross.svg";
 import { IconButton } from "@shared/components";
 import { useFieldsStore } from "../../store/fields-store";
 
@@ -15,7 +16,7 @@ function RemoveField({ id }: RemoveFieldProps): React.JSX.Element {
     }
   }
 
-  return <IconButton src="/dragging/cross.svg" alt="Settings" height={18} width={18} onClick={onIconClick} />;
+  return <IconButton Icon={CrossIcon} height={18} width={18} onClick={onIconClick} />;
 }
 
 export default RemoveField;

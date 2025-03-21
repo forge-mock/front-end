@@ -1,5 +1,5 @@
 export interface Tab {
-  icon: string;
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   title: string;
   path: string;
 }

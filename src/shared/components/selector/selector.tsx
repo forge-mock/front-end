@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import {
   Button,
   Label,
@@ -15,6 +14,7 @@ import {
 } from "react-aria-components";
 import { FocusRing } from "react-aria";
 import type { SelectProps } from "react-aria-components";
+import TriangleIcon from "@assets/selector/triangle.svg";
 
 interface SelectorProps<T> extends SelectProps {
   items: Iterable<T>;
@@ -53,13 +53,7 @@ function Selector<T extends object>({
           <SelectValue
             className={({ isPlaceholder }) => `${isPlaceholder ? "text-[var(--lighter-text-color)]" : ""}`}
           />
-          <Image
-            src="/selector/triangle.svg"
-            width={16}
-            height={16}
-            alt="Triangle"
-            style={{ filter: "var(--violet-icon)", transform: "rotate(180deg)" }}
-          />
+          <TriangleIcon style={{ transform: "rotate(180deg)" }} />
         </Button>
       </FocusRing>
 

@@ -3,6 +3,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import SunIcon from "@assets/layout/sun.svg";
+import MoonIcon from "@assets/layout/moon.svg";
 import { IconButton } from "@shared/components";
 
 function ThemeSwitch(): React.JSX.Element {
@@ -28,14 +30,10 @@ function ThemeSwitch(): React.JSX.Element {
   }
 
   if (theme === "light") {
-    return (
-      <IconButton src="/layout/sun.svg" alt="light mode" height={30} width={30} onClick={() => setUserTheme("dark")} />
-    );
+    return <IconButton Icon={SunIcon} height={30} width={30} onClick={() => setUserTheme("dark")} />;
   }
 
-  return (
-    <IconButton src="/layout/moon.svg" alt="dark mode" height={30} width={30} onClick={() => setUserTheme("light")} />
-  );
+  return <IconButton Icon={MoonIcon} height={30} width={30} onClick={() => setUserTheme("light")} />;
 }
 
 export default ThemeSwitch;

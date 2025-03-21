@@ -1,14 +1,12 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { FocusRing } from "react-aria";
 import { Button } from "react-aria-components";
 import styles from "./icon.module.scss";
 
 interface IconButtonProps {
-  src: string;
-  alt: string;
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   width?: number;
   height?: number;
   classes?: string;
@@ -16,13 +14,13 @@ interface IconButtonProps {
   onClick?: () => void;
 }
 
-function IconButton({ src, alt, width = 24, height = 24, onClick, classes = "", isDisabled }: IconButtonProps) {
+function IconButton({ Icon, width = 24, height = 24, onClick, classes = "", isDisabled }: IconButtonProps) {
   const className = !isDisabled ? `${styles.iconButton} ${classes}` : styles.iconButtonDisabled;
 
   return (
     <FocusRing focusRingClass="outline-border-default">
       <Button isDisabled={isDisabled} onPress={() => onClick?.()} className={className} type="button">
-        <Image src={src} width={width} height={height} alt={alt} className={styles.icon} />
+        <Icon width={width} height={height} className={styles.icon} />
       </Button>
     </FocusRing>
   );

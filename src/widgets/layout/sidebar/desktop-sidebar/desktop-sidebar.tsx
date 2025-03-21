@@ -7,7 +7,7 @@ import { Tab } from "../lib/interfaces/tab";
 import { TABS } from "../lib/constants/tabs";
 import TabIcon from "../components/tab-icon/tab-icon";
 import TabButton from "../components/tab-button/tab-button";
-import ExpandIcon from "../components/expand-icon/expand-icon";
+import Expand from "../components/expand/expand";
 import styles from "./desktop-sidebar.module.scss";
 
 function DesktopSidebar(): React.JSX.Element {
@@ -33,7 +33,7 @@ function DesktopSidebar(): React.JSX.Element {
           )}
         </div>
       </nav>
-      <ExpandIcon isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+      <Expand isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
     </aside>
   );
 }
