@@ -5,7 +5,7 @@ interface BlankSliderProps {
   setBlankValue: (blankValue: number | number[]) => void;
 }
 
-function BlankSlider({ blankValue, setBlankValue }: BlankSliderProps) {
+function BlankSlider({ blankValue, setBlankValue }: Readonly<BlankSliderProps>) {
   return (
     <Slider
       value={blankValue}

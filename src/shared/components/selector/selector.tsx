@@ -36,7 +36,7 @@ function Selector<T extends object>({
   errorMessage = "",
   selectorClasses = "",
   ...props
-}: SelectorProps<T>): React.JSX.Element {
+}: Readonly<SelectorProps<T>>): React.JSX.Element {
   return (
     <Select
       className={({ isInvalid }) =>

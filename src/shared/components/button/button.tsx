@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { ButtonProps as AriaButtonProps } from "react-aria-components";
+import { Button as AriaButton, ButtonProps as AriaButtonProps } from "react-aria-components";
 import { FocusRing } from "react-aria";
-import { Button as AriaButton } from "react-aria-components";
 
 interface ButtonProps extends AriaButtonProps {
   text?: string;
@@ -11,7 +10,7 @@ interface ButtonProps extends AriaButtonProps {
   classes?: string;
 }
 
-function Button({ text, outline = false, classes = "", ...props }: ButtonProps) {
+function Button({ text, outline = false, classes = "", ...props }: Readonly<ButtonProps>) {
   return (
     <FocusRing focusRingClass="outline-border-default">
       <AriaButton

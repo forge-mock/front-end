@@ -10,9 +10,9 @@ interface IconProps {
   classes?: string;
 }
 
-function Icon({ Icon, width = 24, height = 24, classes = "" }: IconProps) {
+function Icon({ Icon, width = 24, height = 24, classes = "" }: Readonly<IconProps>) {
   return (
-    <div tabIndex={0} className={`flex ${styles.iconContainer} ${classes}`}>
+    <div className={`flex ${styles.iconContainer} ${classes}`}>
       <Icon width={width} height={height} className={styles.icon} />
     </div>
   );

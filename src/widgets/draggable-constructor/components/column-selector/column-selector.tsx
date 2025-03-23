@@ -21,7 +21,7 @@ function setColumnName(columnNumber: number): string {
   return `${columnNumber} columns`;
 }
 
-function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: ColumnSelectorProps): React.JSX.Element {
+function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: Readonly<ColumnSelectorProps>): React.JSX.Element {
   const [columns, setColumns] = useState<{ id: number; name: string }[]>([]);
 
   const onSelectorChange = (selectedColumnCount: Key) => {

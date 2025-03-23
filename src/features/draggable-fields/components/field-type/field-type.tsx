@@ -9,7 +9,7 @@ interface FieldProps {
   setSelectedType?: (selectedType: string) => void;
 }
 
-function FieldType({ selectedType, setSelectedType }: FieldProps): React.JSX.Element {
+function FieldType({ selectedType, setSelectedType }: Readonly<FieldProps>): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   function onButtonClick() {

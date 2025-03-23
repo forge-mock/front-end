@@ -10,7 +10,7 @@ interface NumberInputProps extends NumberFieldProps {
   placeholder?: string;
 }
 
-function NumberInput({ label, inputClasses, numberFieldClasses, placeholder, ...props }: NumberInputProps) {
+function NumberInput({ label, inputClasses, numberFieldClasses, placeholder, ...props }: Readonly<NumberInputProps>) {
   return (
     <NumberField {...props} className={numberFieldClasses}>
       {label ? <Label className="size-6 text-black mr-10">{label}</Label> : null}

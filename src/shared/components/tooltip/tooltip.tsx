@@ -25,7 +25,7 @@ interface TooltipProps {
   children: React.ReactNode;
 }
 
-function Tooltip({ id, text, place = "top", offset = 10, classes = "", children }: TooltipProps) {
+function Tooltip({ id, text, place = "top", offset = 10, classes = "", children }: Readonly<TooltipProps>) {
   return (
     <>
       <div data-tooltip-id={id} data-tooltip-content={text}>

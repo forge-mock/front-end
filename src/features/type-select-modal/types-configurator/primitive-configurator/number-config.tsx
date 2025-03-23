@@ -10,7 +10,7 @@ interface ConfiguratorProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-function NumberConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
+function NumberConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [decimalValue, setDecimalValue] = useState<number | number[]>(0);
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [isLeft, setIsLeft] = useState<boolean>(true);

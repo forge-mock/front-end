@@ -6,7 +6,7 @@ export interface InfoTooltipProps {
   text: string;
 }
 
-function InfoTooltip({ text }: InfoTooltipProps): React.JSX.Element {
+function InfoTooltip({ text }: Readonly<InfoTooltipProps>): React.JSX.Element {
   return (
     <div className="flex flex-row items-center gap-4">
       <div className="flex shrink-0">

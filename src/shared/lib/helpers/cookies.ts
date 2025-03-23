@@ -2,8 +2,8 @@ function getCookie(name: string): string | null {
   const nameEq = `${name}=`;
   const cookies = document.cookie.split(";");
 
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
+  for (const element of cookies) {
+    const cookie = element.trim();
 
     if (cookie.startsWith(nameEq)) {
       return decodeURIComponent(cookie.substring(nameEq.length));

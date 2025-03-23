@@ -23,7 +23,7 @@ function ValueSwitcher({
   setMinValue,
   maxValue,
   minValue,
-}: SwitcherValueProps) {
+}: Readonly<SwitcherValueProps>) {
   return (
     <>
       <Switcher isLeft={isLeft} setIsLeft={setIsLeft} textLeft="Value" textRight="Range" />
