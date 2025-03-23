@@ -12,7 +12,7 @@ interface TypeSelectModalProps {
   onSelectType: (type: string) => void;
 }
 
-function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: TypeSelectModalProps) {
+function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: Readonly<TypeSelectModalProps>) {
   const [selectedType, setSelectedType] = useState<"primitive" | "collections" | "specialized">("primitive");
 
   return (

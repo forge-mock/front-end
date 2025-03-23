@@ -5,7 +5,7 @@ interface GridProps {
   children: React.ReactNode;
 }
 
-function Grid({ children, columns }: GridProps, ref: React.Ref<HTMLDivElement>): React.JSX.Element {
+function Grid({ children, columns }: Readonly<GridProps>, ref: React.Ref<HTMLDivElement>): React.JSX.Element {
   return (
     <div ref={ref} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }} className="grid max-w-max gap-[10px]">
       {children}

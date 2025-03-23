@@ -7,7 +7,7 @@ interface RemoveFieldProps {
   id?: string;
 }
 
-function RemoveField({ id }: RemoveFieldProps): React.JSX.Element {
+function RemoveField({ id }: Readonly<RemoveFieldProps>): React.JSX.Element {
   const { removeField } = useFieldsStore();
 
   function onIconClick() {

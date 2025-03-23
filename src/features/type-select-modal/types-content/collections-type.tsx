@@ -8,7 +8,7 @@ interface TypesProps {
   onSelectType: (type: string) => void;
 }
 
-function CollectionsTypes({ onSelectType }: TypesProps) {
+function CollectionsTypes({ onSelectType }: Readonly<TypesProps>) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const chooseType = (e: any) => {

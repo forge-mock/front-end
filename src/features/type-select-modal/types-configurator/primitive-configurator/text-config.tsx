@@ -9,7 +9,7 @@ interface ConfiguratorProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-function TextConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
+function TextConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [isSense, setIsSense] = useState<boolean>(true);
   const [paragraphsAmount, setParagraphsAmount] = useState<number>(0);

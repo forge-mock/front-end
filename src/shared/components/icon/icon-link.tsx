@@ -12,7 +12,7 @@ interface IconLinkProps {
   classes?: string;
 }
 
-function IconLink({ path, Icon, width = 24, height = 24, classes = "" }: IconLinkProps) {
+function IconLink({ path, Icon, width = 24, height = 24, classes = "" }: Readonly<IconLinkProps>) {
   return (
     <Link href={path} className={`flex outline-border-default shrink-0 focus-visible:rounded-full ${styles.iconLink} `}>
       <div className={`flex ${classes}`}>

@@ -6,12 +6,12 @@ import { CSS } from "@dnd-kit/utilities";
 import { FieldProps } from "../../lib/interfaces/field-props";
 import Field from "./field";
 
-function SortableField({ id }: FieldProps): React.JSX.Element {
+function SortableField({ id }: Readonly<FieldProps>): React.JSX.Element {
   const { isDragging, attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition: transition || undefined,
+    transition: transition ?? undefined,
   };
 
   return <Field id={id} ref={setNodeRef} style={style} withOpacity={isDragging} {...attributes} {...listeners} />;

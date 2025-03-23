@@ -9,7 +9,7 @@ interface ConfiguratorProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-function BooleanConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
+function BooleanConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [isSelected, setIsSelected] = useState<boolean>(false);
   const [booleanValues, setBooleanValues] = useState<number | number[]>(0.5);

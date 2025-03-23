@@ -11,7 +11,7 @@ interface ExpandProps {
   setIsExpanded: (isExpanded: boolean) => void;
 }
 
-function Expand({ isExpanded, setIsExpanded }: ExpandProps): React.JSX.Element {
+function Expand({ isExpanded, setIsExpanded }: Readonly<ExpandProps>): React.JSX.Element {
   function handleClickExpand(): void {
     setIsExpanded(!isExpanded);
     setLocalStorage(LocalStorageItems.IsSidebarExpanded, !isExpanded);

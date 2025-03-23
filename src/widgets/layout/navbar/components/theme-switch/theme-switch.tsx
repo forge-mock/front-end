@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import SunIcon from "@assets/layout/sun.svg";
 import MoonIcon from "@assets/layout/moon.svg";

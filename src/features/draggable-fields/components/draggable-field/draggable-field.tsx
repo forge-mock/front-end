@@ -12,7 +12,12 @@ interface DraggableFieldProps extends FieldProps {
   inputValue: string;
 }
 
-function DraggedField({ inputValue, withOpacity, isDragging, ...props }: DraggableFieldProps): React.JSX.Element {
+function DraggedField({
+  inputValue,
+  withOpacity,
+  isDragging,
+  ...props
+}: Readonly<DraggableFieldProps>): React.JSX.Element {
   const inlineStyles: CSSProperties = {
     opacity: withOpacity ? "0.5" : "1",
     transformOrigin: "10px 10px",

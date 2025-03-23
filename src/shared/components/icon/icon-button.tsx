@@ -14,7 +14,7 @@ interface IconButtonProps {
   onClick?: () => void;
 }
 
-function IconButton({ Icon, width = 24, height = 24, onClick, classes = "", isDisabled }: IconButtonProps) {
+function IconButton({ Icon, width = 24, height = 24, onClick, classes = "", isDisabled }: Readonly<IconButtonProps>) {
   const className = !isDisabled ? `${styles.iconButton} ${classes}` : styles.iconButtonDisabled;
 
   return (

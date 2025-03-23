@@ -5,7 +5,7 @@ interface ConfiguratorProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-function DateTimeConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
+function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   return (
     <ModalWindow isOpen={isOpen} width={50} height={60} title="DateTime configurator">
       DateTime

@@ -9,7 +9,7 @@ interface SwitcherProps {
   textRight: string;
 }
 
-function Switcher({ isLeft, setIsLeft, textLeft, textRight }: SwitcherProps) {
+function Switcher({ isLeft, setIsLeft, textLeft, textRight }: Readonly<SwitcherProps>) {
   return (
     <div className="relative flex items-center p-1 bg-gray-300 rounded-[15px] w-52 mt-10">
       <motion.div
