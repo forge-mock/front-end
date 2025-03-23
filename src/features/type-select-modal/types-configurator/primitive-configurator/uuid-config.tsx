@@ -9,7 +9,7 @@ interface ConfiguratorProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-function UUIDConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
+function UUIDConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [selectedVersion, setSelectedVersion] = useState<Key>();
 

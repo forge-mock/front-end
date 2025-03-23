@@ -8,7 +8,7 @@ interface FieldNameProps {
   id: string;
 }
 
-function FieldName({ id }: FieldNameProps): React.JSX.Element {
+function FieldName({ id }: Readonly<FieldNameProps>): React.JSX.Element {
   const [inputValue, setInputValue] = useState<string>("");
   const [isError, setIsError] = useState<boolean>(false);
 

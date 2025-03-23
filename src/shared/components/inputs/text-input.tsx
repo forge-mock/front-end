@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { TextFieldProps } from "react-aria-components";
-import { TextField, Label, Input, Text, FieldError } from "react-aria-components";
+import { TextField, Label, Input, Text, FieldError, TextFieldProps } from "react-aria-components";
 import styles from "./inputs.module.scss";
 
 interface TextInputProps extends TextFieldProps {
@@ -20,7 +19,7 @@ function TextInput({
   errorMessage = "",
   inputClasses = "",
   ...props
-}: TextInputProps) {
+}: Readonly<TextInputProps>) {
   return (
     <TextField {...props} className="flex flex-col">
       <Label className="text-sm text-[var(--light-text-color)]">{label}</Label>

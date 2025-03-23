@@ -17,7 +17,7 @@ interface FieldSettingsProps {
   selectedType?: string;
 }
 
-function FieldSettings({ selectedType }: FieldSettingsProps): React.JSX.Element {
+function FieldSettings({ selectedType }: Readonly<FieldSettingsProps>): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const typeComponents = {

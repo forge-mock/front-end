@@ -10,7 +10,7 @@ interface ConfiguratorProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-function StringConfig({ isOpen, setIsOpen }: ConfiguratorProps) {
+function StringConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [isLeft, setIsLeft] = useState<boolean>(true);
   const [minValue, setMinValue] = useState<number>(0);

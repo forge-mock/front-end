@@ -9,7 +9,7 @@ import Draggable from "./draggable";
 import RemoveField from "./remove-field";
 
 function Field(
-  { id, withOpacity, isDragging, style, ...props }: FieldProps,
+  { id, withOpacity, isDragging, style, ...props }: Readonly<FieldProps>,
   ref: React.Ref<HTMLDivElement>
 ): React.JSX.Element {
   const inlineStyles: CSSProperties = {

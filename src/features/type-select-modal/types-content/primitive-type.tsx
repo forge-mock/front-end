@@ -8,7 +8,7 @@ interface TypesProps {
   onSelectType: (type: string) => void;
 }
 
-function PrimitiveTypes({ onSelectType }: TypesProps) {
+function PrimitiveTypes({ onSelectType }: Readonly<TypesProps>) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const chooseType = (e: any) => {

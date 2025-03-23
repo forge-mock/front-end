@@ -17,7 +17,7 @@ interface SliderProps extends AriaSliderProps {
   name: string;
 }
 
-function Slider({ label, inputSliderClasses, inputTrackClasses, inputThumbClasses, name, ...props }: SliderProps) {
+function Slider({ label, inputSliderClasses, inputTrackClasses, inputThumbClasses, name, ...props }: Readonly<SliderProps>) {
   return (
     <AriaSlider className={() => `items-center flex ${inputSliderClasses}`} {...props}>
       {label ? (

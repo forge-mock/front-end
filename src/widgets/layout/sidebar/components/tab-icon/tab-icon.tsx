@@ -7,7 +7,7 @@ export interface TabIconProps {
   path: string;
 }
 
-function TabIcon({ Icon, title, path }: TabIconProps): React.JSX.Element {
+function TabIcon({ Icon, title, path }: Readonly<TabIconProps>): React.JSX.Element {
   return (
     <div className="flex flex-row items-center gap-4 p-4">
       <div className="flex shrink-0">

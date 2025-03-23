@@ -24,7 +24,7 @@ interface DraggableFieldsProps {
   columnsToShow: number;
 }
 
-function DraggableFields({ columnsToShow }: DraggableFieldsProps): React.JSX.Element {
+function DraggableFields({ columnsToShow }: Readonly<DraggableFieldsProps>): React.JSX.Element {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [draggedFieldValues, setDraggedFieldValues] = useState<{ inputValue: string; buttonValue: string }>({
     inputValue: "",

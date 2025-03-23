@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Icon as IconContainer } from "@shared/components";
 import { Tab as TabProps } from "../../lib/interfaces/tab";
 
-function TabButton({ Icon, title, path }: TabProps): React.JSX.Element {
+function TabButton({ Icon, title, path }: Readonly<TabProps>): React.JSX.Element {
   return (
     <div className="p-2.5">
       <Link

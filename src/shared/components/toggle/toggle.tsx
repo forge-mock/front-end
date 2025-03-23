@@ -7,7 +7,7 @@ interface ToggleProps extends SwitchProps {
   classes?: string;
 }
 
-function Toggle({ text, classes, ...props }: ToggleProps) {
+function Toggle({ text, classes, ...props }: Readonly<ToggleProps>) {
   return (
     <div className={classes}>
       <Switch className="group text-black size-6" {...props}>
