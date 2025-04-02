@@ -27,3 +27,6 @@ export { ModalWindow };
 
 import Toggle from "./toggle/toggle";
 export { Toggle };
+
+import Menu from "./menu/menu";
+export { Menu };
