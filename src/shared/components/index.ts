@@ -29,4 +29,5 @@ import Toggle from "./toggle/toggle";
 export { Toggle };
 
 import Menu from "./menu/menu";
-export { Menu };
+import MenuItem from "./menu/menu-item";
+export { Menu, MenuItem };
