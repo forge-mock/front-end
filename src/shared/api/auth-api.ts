@@ -1,7 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 import { LocalStorageItems } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
 import { ApiResponse } from "./interfaces/api-response";
+import { DEFAULT_ERROR_RESPONSE } from "./constants/error-response";
 import { createApiClient } from "./helpers/create-api-client";
 
 const baseUrl = "https://localhost:7289";
@@ -44,12 +45,41 @@ apiClient.interceptors.response.use(
 );
 
 const authApi = {
-  get: <T>(url: string, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => apiClient.get<T>(url, config),
-  post: <T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> =>
-    apiClient.post<T>(url, data, config),
-  put: <T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> =>
-    apiClient.put<T>(url, data, config),
-  delete: <T>(url: string, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => apiClient.delete<T>(url, config),
+  get: async <T>(url: string, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
+    try {
+      const response: AxiosResponse<ApiResponse<T>> = await apiClient.get(url, config);
+      return response.data;
+    } catch (error: any) {
+      return error.response?.data ?? DEFAULT_ERROR_RESPONSE;
+    }
+  },
+
+  post: async <T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
+    try {
+      const response: AxiosResponse<ApiResponse<T>> = await apiClient.post(url, data, config);
+      return response.data;
+    } catch (error: any) {
+      return error.response?.data ?? DEFAULT_ERROR_RESPONSE;
+    }
+  },
+
+  put: async <T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
+    try {
+      const response: AxiosResponse<ApiResponse<T>> = await apiClient.put(url, data, config);
+      return response.data;
+    } catch (error: any) {
+      return error.response?.data ?? DEFAULT_ERROR_RESPONSE;
+    }
+  },
+
+  delete: async <T>(url: string, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
+    try {
+      const response: AxiosResponse<ApiResponse<T>> = await apiClient.delete(url, config);
+      return response.data;
+    } catch (error: any) {
+      return error.response?.data ?? DEFAULT_ERROR_RESPONSE;
+    }
+  },
 };
 
 export default authApi;
