@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TextInput } from "@shared/components";
+import { Input } from "@shared/components";
 
 interface DraggableFieldNameProps {
   inputValue: string;
@@ -10,7 +10,7 @@ interface DraggableFieldNameProps {
 function DraggableFieldName({ inputValue }: Readonly<DraggableFieldNameProps>): React.JSX.Element {
   return (
     <div className="w-40">
-      <TextInput placeholder="Field name" value={inputValue} />
+      <Input placeholder="Field name" value={inputValue} />
     </div>
   );
 }

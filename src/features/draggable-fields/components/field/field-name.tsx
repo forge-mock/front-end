@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { TextInput } from "@shared/components";
+import { Input } from "@shared/components";
 import { useFieldsStore } from "../../store/fields-store";
 
 interface FieldNameProps {
@@ -26,7 +26,7 @@ function FieldName({ id }: Readonly<FieldNameProps>): React.JSX.Element {
 
   return (
     <div className="w-40">
-      <TextInput
+      <Input
         placeholder="Field name"
         value={inputValue}
         isInvalid={isError}

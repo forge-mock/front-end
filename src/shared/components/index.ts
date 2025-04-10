@@ -19,8 +19,8 @@ import Switcher from "./switcher/switcher";
 export { Switcher };
 
 import NumberInput from "./inputs/number-input";
-import TextInput from "./inputs/text-input";
-export { NumberInput, TextInput };
+import Input from "./inputs/input";
+export { NumberInput, Input };
 
 import Modal from "./modal/modal";
 export { Modal };
