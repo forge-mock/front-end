@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, ModalWindow } from "@shared/components";
+import { Button, Modal } from "@shared/components";
 import PrimitiveTypes from "./types-content/primitive-type";
 import CollectionsTypes from "./types-content/collections-type";
 import SpecializedTypes from "./types-content/specialized-type";
@@ -16,7 +16,7 @@ function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: Readonly<TypeSelec
   const [selectedType, setSelectedType] = useState<"primitive" | "collections" | "specialized">("primitive");
 
   return (
-    <ModalWindow isOpen={isOpen} title="Types">
+    <Modal isOpen={isOpen} title="Types">
       <div className="flex h-full relative">
         <aside className="w-[15%] flex flex-col border-right-2 bg-inherit flex-grow-1 gap-[5px] pr-[20px] mr-[20px]">
           <Button
@@ -41,7 +41,7 @@ function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: Readonly<TypeSelec
         onPress={() => setIsOpen(false)}
         className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
       />
-    </ModalWindow>
+    </Modal>
   );
 }
 

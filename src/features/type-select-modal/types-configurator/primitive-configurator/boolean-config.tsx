@@ -1,7 +1,7 @@
 "use client";
 
 import BlankSlider from "@features/blank-slider/blank-slider";
-import { Button, ModalWindow, Slider, Toggle } from "@shared/components";
+import { Button, Modal, Slider, Toggle } from "@shared/components";
 import { useState } from "react";
 
 interface ConfiguratorProps {
@@ -15,7 +15,7 @@ function BooleanConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [booleanValues, setBooleanValues] = useState<number | number[]>(0.5);
 
   return (
-    <ModalWindow isOpen={isOpen} width={"30%"} height={"50%"} title="Boolean configurator">
+    <Modal isOpen={isOpen} width={"30%"} height={"50%"} title="Boolean configurator">
       <div className="mt-20">
         <BlankSlider blankValue={blankValue} setBlankValue={setBlankValue} />
         <div className="flex items-end mt-14">
@@ -36,7 +36,7 @@ function BooleanConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
         onPress={() => setIsOpen(false)}
         className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
       />
-    </ModalWindow>
+    </Modal>
   );
 }
 

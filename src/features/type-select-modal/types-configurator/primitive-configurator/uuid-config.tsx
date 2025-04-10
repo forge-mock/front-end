@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Label, type Key } from "react-aria-components";
 import BlankSlider from "@features/blank-slider/blank-slider";
-import { Button, ModalWindow, Selector } from "@shared/components";
+import { Button, Modal, Selector } from "@shared/components";
 import { uuidVersions } from "./const";
 
 interface ConfiguratorProps {
@@ -18,7 +18,7 @@ function UUIDConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   };
 
   return (
-    <ModalWindow isOpen={isOpen} width={"30%"} height={"50%"} title="UUID configurator">
+    <Modal isOpen={isOpen} width={"30%"} height={"50%"} title="UUID configurator">
       <div className="mt-10">
         <BlankSlider blankValue={blankValue} setBlankValue={setBlankValue} />
         <div className="flex gap-7 mt-14">
@@ -37,7 +37,7 @@ function UUIDConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
         onPress={() => setIsOpen(false)}
         className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
       />
-    </ModalWindow>
+    </Modal>
   );
 }
 

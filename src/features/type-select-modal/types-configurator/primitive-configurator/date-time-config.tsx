@@ -1,4 +1,4 @@
-import { Button, ModalWindow } from "@shared/components";
+import { Button, Modal } from "@shared/components";
 
 interface ConfiguratorProps {
   isOpen: boolean;
@@ -7,14 +7,14 @@ interface ConfiguratorProps {
 
 function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   return (
-    <ModalWindow isOpen={isOpen} width={50} height={60} title="DateTime configurator">
+    <Modal isOpen={isOpen} width={50} height={60} title="DateTime configurator">
       DateTime
       <Button
         text="Close modal"
         onPress={() => setIsOpen(false)}
         className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
       />
-    </ModalWindow>
+    </Modal>
   );
 }
 

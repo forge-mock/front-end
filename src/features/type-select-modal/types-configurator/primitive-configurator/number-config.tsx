@@ -1,6 +1,6 @@
 "use client";
 
-import { Slider, ModalWindow, Button } from "@shared/components";
+import { Slider, Modal, Button } from "@shared/components";
 import BlankSlider from "@features/blank-slider/blank-slider";
 import ValueSwitcher from "@features/switcher/switcher-value";
 import { useState } from "react";
@@ -19,7 +19,7 @@ function NumberConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [numberValue, setNumberValue] = useState<number>(0);
 
   return (
-    <ModalWindow isOpen={isOpen} width={"30%"} height={"50%"} title="Number configurator">
+    <Modal isOpen={isOpen} width={"30%"} height={"50%"} title="Number configurator">
       <div className="mt-20">
         <BlankSlider blankValue={blankValue} setBlankValue={setBlankValue} />
         <ValueSwitcher
@@ -47,7 +47,7 @@ function NumberConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
         onPress={() => setIsOpen(false)}
         className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
       />
-    </ModalWindow>
+    </Modal>
   );
 }
 
