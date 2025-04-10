@@ -31,3 +31,6 @@ export { Toggle };
 import Menu from "./menu/menu";
 import MenuItem from "./menu/menu-item";
 export { Menu, MenuItem };
+
+import Toast, { toastQueue } from "./toast/toast";
+export { Toast, toastQueue };

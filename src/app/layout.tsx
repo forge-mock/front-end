@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Providers from "./providers";
+import { Toast } from "@shared/components";
 import { Navbar } from "@widgets/layout/navbar";
 import { DesktopSidebar, MobileSidebar } from "@widgets/layout/sidebar";
 import { Footer } from "@widgets/layout/footer";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
             <div className="flex grow flex-col justify-between overflow-auto h-[calc(100vh-3.5rem)]">
               <main className="p-2">{children}</main>
+              <Toast />
               <Footer />
             </div>
           </div>

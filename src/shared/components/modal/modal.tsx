@@ -14,7 +14,7 @@ interface ModalProps {
 function Modal({ children, isOpen, title }: Readonly<ModalProps>) {
   return (
     <AriaModal isOpen={isOpen} className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <Dialog className={`bg-white p-6 rounded-lg shadow-lg align-center`}>
+      <Dialog className={`bg-[var(--light-grey-background)] p-6 rounded-lg shadow-lg align-center`}>
         <Heading slot="title" className="text-slate-950 font-semibold uppercase text-xl">
           {title}
         </Heading>
