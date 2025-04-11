@@ -21,7 +21,7 @@ export const IMG_SRC: ContentSecurityPolicy = {
 };
 
 export const CONNECT_SRC: ContentSecurityPolicy = {
-  item: "connect-src 'self' 'unsafe-inline'",
+  item: "connect-src 'self' 'unsafe-inline' https://localhost:7289",
   values: [],
 };
 
