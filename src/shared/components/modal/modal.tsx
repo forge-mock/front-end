@@ -46,11 +46,12 @@ function Modal({
                 />
               )}
 
-              {title && (
-                <Heading slot="title" className="text-slate-950 font-semibold uppercase text-xl mt-1">
-                  {title}
-                </Heading>
-              )}
+              <Heading
+                slot="title"
+                className="flex w-full items-center justify-center text-2xl font-bold italic text-[var(--violet-title-color)] mb-4"
+              >
+                {title}
+              </Heading>
 
               {children}
             </Dialog>

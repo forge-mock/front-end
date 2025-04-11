@@ -11,12 +11,8 @@ export interface AuthModalProps {
 
 function AuthModal({ isLogin = true, isOpen = false, setIsOpen }: Readonly<AuthModalProps>): React.JSX.Element {
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={isLogin ? "Login" : "Register"}>
       <div className="w-96">
-        <div className="flex w-full items-center justify-center text-2xl font-bold italic text-[var(--violet-title-color)] mb-4">
-          {isLogin ? "Login" : "Register"}
-        </div>
-
         {isLogin ? <LoginForm setIsOpen={setIsOpen} /> : <RegisterForm setIsOpen={setIsOpen} />}
       </div>
     </Modal>
