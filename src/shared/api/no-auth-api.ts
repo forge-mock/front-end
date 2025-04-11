@@ -1,7 +1,7 @@
 import { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
-import { ApiResponse } from "./interfaces/api-response";
-import { DEFAULT_ERROR_RESPONSE } from "./constants/error-response";
-import { createApiClient } from "./helpers/create-api-client";
+import { ApiResponse } from "./interfaces";
+import { DEFAULT_ERROR_RESPONSE } from "./constants";
+import { createApiClient } from "./helpers";
 
 const apiClient: AxiosInstance = createApiClient("https://localhost:7289");
 

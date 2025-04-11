@@ -1,15 +1,17 @@
 interface SuccessfulApiResponse<T> {
-  isSuccess: boolean;
+  isSuccess: true;
   data?: T;
 }
 
+export interface Errors {
+  reasons: string[];
+  message: string;
+  metadata: any;
+}
+
 interface ErrorApiResponse {
-  isSuccess: boolean;
-  errors?: {
-    reasongs: string[];
-    message: string;
-    metadata: any;
-  };
+  isSuccess: false;
+  errors: Errors[];
 }
 
 export type ApiResponse<T> = SuccessfulApiResponse<T> | ErrorApiResponse;

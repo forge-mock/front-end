@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 import { LocalStorageItems } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
-import { ApiResponse } from "./interfaces/api-response";
-import { DEFAULT_ERROR_RESPONSE } from "./constants/error-response";
-import { createApiClient } from "./helpers/create-api-client";
+import { ApiResponse } from "./interfaces";
+import { DEFAULT_ERROR_RESPONSE } from "./constants";
+import { createApiClient } from "./helpers";
 
 const baseUrl = "https://localhost:7289";
 const apiClient: AxiosInstance = createApiClient(baseUrl);

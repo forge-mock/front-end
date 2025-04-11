@@ -6,17 +6,14 @@ import {
   Text,
   UNSTABLE_Toast as AriaToast,
   UNSTABLE_ToastContent as ToastContent,
-  UNSTABLE_ToastQueue as ToastQueue,
   UNSTABLE_ToastRegion as ToastRegion,
+  UNSTABLE_ToastQueue as AriaToastQueue,
 } from "react-aria-components";
 import { AnimatePresence, motion } from "framer-motion";
+import { COLORS } from "./constants";
+import { ToastQueue } from "./interfaces";
 
-interface ToastProps {
-  title: string;
-  type: "info" | "success" | "error";
-}
-
-export const toastQueue = new ToastQueue<ToastProps>({
+export const toastQueue: AriaToastQueue<ToastQueue> = new AriaToastQueue<ToastQueue>({
   wrapUpdate(fn) {
     if ("startViewTransition" in document) {
       document.startViewTransition(() => {
@@ -28,15 +25,9 @@ export const toastQueue = new ToastQueue<ToastProps>({
   },
 });
 
-const COLORS: Record<"info" | "success" | "error", string> = {
-  info: "#6d28d9",
-  success: "#28a355",
-  error: "#dc2626",
-};
-
 function Toast(): React.JSX.Element {
   return (
-    <ToastRegion className="fixed w-full mt-5 z-50" queue={toastQueue}>
+    <ToastRegion className="fixed left-1/2 transform -translate-x-1/2 top-0 mt-5 z-50" queue={toastQueue}>
       {({ toast }) => (
         <AnimatePresence mode="wait">
           <motion.div

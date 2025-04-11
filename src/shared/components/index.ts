@@ -32,5 +32,6 @@ import Menu from "./menu/menu";
 import MenuItem from "./menu/menu-item";
 export { Menu, MenuItem };
 
-import Toast, { toastQueue } from "./toast/toast";
-export { Toast, toastQueue };
+import Toast from "./toast/toast";
+import { addToast } from "./toast/helpers";
+export { Toast, addToast };
