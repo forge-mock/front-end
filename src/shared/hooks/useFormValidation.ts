@@ -17,19 +17,19 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
   const [touched, setTouched] = useState<Record<keyof FormValues, boolean>>({} as Record<keyof FormValues, boolean>);
   const [submitted, setSubmitted] = useState(false);
 
-  const isFieldInvalid = (field: keyof FormValues): boolean => {
+  function isFieldInvalid(field: keyof FormValues): boolean {
     return (touched[field] || submitted) && Boolean(errors[field as string]);
-  };
+  }
 
-  const handleChange = (field: keyof FormValues, value: string) => {
+  function handleChange(field: keyof FormValues, value: string): void {
     setValues((prev) => ({ ...prev, [field]: value }));
 
     if (touched[field]) {
       validateField(field as string, value);
     }
-  };
+  }
 
-  const validateField = (field: string, value: any) => {
+  function validateField(field: string, value: any): boolean {
     const partialValidation = schema.pick({ [field]: true }).safeParse({
       [field]: value,
     });
@@ -42,9 +42,9 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
       setErrors((prev) => ({ ...prev, [field]: "" }));
       return true;
     }
-  };
+  }
 
-  const validate = () => {
+  function validate(): any {
     setSubmitted(true);
 
     const allTouched = {} as Record<keyof FormValues, boolean>;
@@ -64,26 +64,12 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
 
       setErrors(validationErrors);
 
-      const invalidFields = Object.keys(validationErrors);
-      const invalidValues = invalidFields.reduce(
-        (acc, field) => {
-          acc[field] = values[field as keyof FormValues];
-          return acc;
-        },
-        {} as Record<string, any>
-      );
-
-      return {
-        isValid: false,
-        data: null,
-        invalidFields,
-        invalidValues,
-      };
+      return { isValid: false };
     }
 
     setErrors({});
     return { isValid: true, data: result.data };
-  };
+  }
 
   return {
     values,
