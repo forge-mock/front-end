@@ -4,6 +4,7 @@ import React, { ReactNode } from "react";
 import { Modal as AriaModal, Dialog, Heading } from "react-aria-components";
 import { motion, AnimatePresence } from "framer-motion";
 import CrossIcon from "@assets/dragging/cross.svg";
+import { IconButton } from "@shared/components";
 
 interface ModalProps {
   isOpen: boolean;
@@ -36,11 +37,12 @@ function Modal({
           >
             <Dialog className="bg-[var(--light-grey-background)] p-6 rounded-lg shadow-lg align-center relative">
               {showCloseButton && (
-                <CrossIcon
-                  width={18}
-                  height={18}
-                  className="absolute top-2 right-2 m-1 cursor-pointer"
+                <IconButton
+                  Icon={CrossIcon}
+                  height={14}
+                  width={14}
                   onClick={() => setIsOpen(false)}
+                  classes="absolute top-2 right-2 m-1"
                 />
               )}
 
