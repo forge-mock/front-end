@@ -1,26 +1,61 @@
 "use client";
 
+import React, { ReactNode } from "react";
 import { Modal as AriaModal, Dialog, Heading } from "react-aria-components";
-import { ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import CrossIcon from "@assets/dragging/cross.svg";
 
 interface ModalProps {
   isOpen: boolean;
-  children: ReactNode;
-  width?: number | string;
-  height?: number | string;
+  setIsOpen: (isOpen: boolean) => void;
   title?: string;
+  showCloseButton?: boolean;
+  children: ReactNode;
 }
 
-function Modal({ children, isOpen, title }: Readonly<ModalProps>) {
+function Modal({
+  children,
+  isOpen,
+  setIsOpen,
+  title,
+  showCloseButton = true,
+}: Readonly<ModalProps>): React.JSX.Element {
   return (
-    <AriaModal isOpen={isOpen} className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <Dialog className={`bg-[var(--light-grey-background)] p-6 rounded-lg shadow-lg align-center`}>
-        <Heading slot="title" className="text-slate-950 font-semibold uppercase text-xl">
-          {title}
-        </Heading>
-        {children}
-      </Dialog>
-    </AriaModal>
+    <AnimatePresence>
+      {isOpen && (
+        <AriaModal
+          isOpen={isOpen}
+          onOpenChange={setIsOpen}
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Dialog className="bg-[var(--light-grey-background)] p-6 rounded-lg shadow-lg align-center relative">
+              {showCloseButton && (
+                <CrossIcon
+                  width={18}
+                  height={18}
+                  className="absolute top-2 right-2 m-1 cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                />
+              )}
+
+              {title && (
+                <Heading slot="title" className="text-slate-950 font-semibold uppercase text-xl mt-1">
+                  {title}
+                </Heading>
+              )}
+
+              {children}
+            </Dialog>
+          </motion.div>
+        </AriaModal>
+      )}
+    </AnimatePresence>
   );
 }
 
