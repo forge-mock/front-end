@@ -39,8 +39,8 @@ function Modal({
               {showCloseButton && (
                 <IconButton
                   Icon={CrossIcon}
-                  height={14}
-                  width={14}
+                  height={16}
+                  width={16}
                   onClick={() => setIsOpen(false)}
                   classes="absolute top-2 right-2 m-1"
                 />
