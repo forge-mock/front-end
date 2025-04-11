@@ -11,5 +11,5 @@ export const createApiClient = (baseURL: string): AxiosInstance => {
 };
 
 export const formatErrorMessages = (errors: Errors[]): string => {
-  return errors.map((error) => error.message).join(" ");
+  return errors.map((error) => error.message).join(". ");
 };
