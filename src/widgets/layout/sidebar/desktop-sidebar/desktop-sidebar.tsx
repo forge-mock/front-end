@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { LocalStorageItems } from "@shared/constants";
+import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem } from "@shared/helpers";
 import { Tab } from "../lib/interfaces/tab";
 import { TABS } from "../lib/constants/tabs";
@@ -14,7 +14,7 @@ function DesktopSidebar(): React.JSX.Element {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   useEffect(() => {
-    const isSidebarExpanded = getLocalStorageItem(LocalStorageItems.IsSidebarExpanded);
+    const isSidebarExpanded = getLocalStorageItem(LOCAL_STORAGE_ITEMS.isSidebarExpanded);
 
     if (isSidebarExpanded) {
       setIsExpanded(isSidebarExpanded as boolean);

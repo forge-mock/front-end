@@ -3,7 +3,7 @@
 import React from "react";
 import ExpandIcon from "@assets/layout/expand.svg";
 import { IconButton } from "@shared/components";
-import { LocalStorageItems } from "@shared/constants";
+import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { setLocalStorageItem } from "@shared/helpers";
 
 interface ExpandProps {
@@ -14,7 +14,7 @@ interface ExpandProps {
 function Expand({ isExpanded, setIsExpanded }: Readonly<ExpandProps>): React.JSX.Element {
   function handleClickExpand(): void {
     setIsExpanded(!isExpanded);
-    setLocalStorageItem(LocalStorageItems.IsSidebarExpanded, !isExpanded);
+    setLocalStorageItem(LOCAL_STORAGE_ITEMS.isSidebarExpanded, !isExpanded);
   }
 
   return (

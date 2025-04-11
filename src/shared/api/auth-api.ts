@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
-import { LocalStorageItems } from "@shared/constants";
+import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
 import { ApiResponse } from "./interfaces";
 import { DEFAULT_ERROR_RESPONSE } from "./constants";
@@ -9,7 +9,7 @@ const baseUrl = "https://localhost:7289";
 const apiClient: AxiosInstance = createApiClient(baseUrl);
 
 apiClient.interceptors.request.use((config) => {
-  const accessToken = getLocalStorageItem<string>(LocalStorageItems.AccessToken);
+  const accessToken = getLocalStorageItem<string>(LOCAL_STORAGE_ITEMS.accessToken);
 
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
@@ -27,16 +27,16 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const accessToken = getLocalStorageItem(LocalStorageItems.AccessToken);
+        const accessToken = getLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken);
         const response = await axios.post(`${baseUrl}/auth/refresh-token`, accessToken);
         const newAccessToken = response.data.accessToken;
 
-        setLocalStorageItem(LocalStorageItems.AccessToken, newAccessToken);
+        setLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken, newAccessToken);
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return apiClient(originalRequest);
       } catch {
         console.error("Please, login again");
-        removeLocalStorageItem(LocalStorageItems.AccessToken);
+        removeLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken);
       }
     }
 

@@ -1,5 +1,5 @@
-import { LocalStorageItems } from "./user-preferences";
-export { LocalStorageItems };
+import { LOCAL_STORAGE_ITEMS } from "./user-preferences";
+export { LOCAL_STORAGE_ITEMS };
 
 import {
   DEFAULT_SRC,
