@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { COLORS } from "./constants";
 import { ToastQueue } from "./interfaces";
 
-export const toastQueue: AriaToastQueue<ToastQueue> = new AriaToastQueue<ToastQueue>({
+export const toastQueue = new AriaToastQueue<ToastQueue>({
   wrapUpdate(fn) {
     if ("startViewTransition" in document) {
       document.startViewTransition(() => {
