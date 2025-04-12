@@ -35,3 +35,6 @@ export { Menu, MenuItem };
 import Toast from "./toast/toast";
 import { addToast } from "./toast/helpers";
 export { Toast, addToast };
+
+import Loader from "./loader/Loader";
+export { Loader };

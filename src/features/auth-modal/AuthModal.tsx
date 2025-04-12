@@ -103,7 +103,17 @@ function AuthModal({
           {isLogin ? "Do not have an account? Sign up" : "Already have an account? Sign in"}
         </button>
 
-        <Button text={isLogin ? "Login" : "Register"} isDisabled={isSubmitting} type="submit" />
+        <div className="flex justify-center gap-4 w-full">
+          <Button text="Cancel" outline type="button" onPress={() => setIsOpen(false)} />
+
+          <Button
+            text={isLogin ? "Login" : "Register"}
+            isLoading={isSubmitting}
+            isDisabled={isSubmitting}
+            type="submit"
+            classes="w-20"
+          />
+        </div>
       </Form>
     </Modal>
   );
