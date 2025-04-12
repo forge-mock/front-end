@@ -1,40 +1,40 @@
-import Icon from "./icon/icon";
-import IconLink from "./icon/icon-link";
-import IconButton from "./icon/icon-button";
+import Icon from "./icon/Icon";
+import IconLink from "./icon/IconLink";
+import IconButton from "./icon/IconButton";
 export { Icon, IconLink, IconButton };
 
-import Tooltip from "./tooltip/tooltip";
+import Tooltip from "./tooltip/Tooltip";
 export { Tooltip };
 
-import Selector from "./selector/selector";
+import Selector from "./Selector";
 export { Selector };
 
-import Button from "./button/button";
+import Button from "./Button";
 export { Button };
 
-import Slider from "./slider/slider";
+import Slider from "./Slider";
 export { Slider };
 
-import Switcher from "./switcher/switcher";
+import Switcher from "./Switcher";
 export { Switcher };
 
-import NumberInput from "./inputs/number-input";
-import Input from "./inputs/input";
+import NumberInput from "./inputs/NumberInput";
+import Input from "./inputs/Input";
 export { NumberInput, Input };
 
-import Modal from "./modal/modal";
+import Modal from "./Modal";
 export { Modal };
 
-import Toggle from "./toggle/toggle";
+import Toggle from "./Toggle";
 export { Toggle };
 
-import Menu from "./menu/menu";
-import MenuItem from "./menu/menu-item";
+import Menu from "./menu/Menu";
+import MenuItem from "./menu/MenuItem";
 export { Menu, MenuItem };
 
-import Toast from "./toast/toast";
+import Toast from "./toast/Toast";
 import { addToast } from "./toast/helpers";
 export { Toast, addToast };
 
-import Loader from "./loader/Loader";
+import Loader from "./Loader";
 export { Loader };
