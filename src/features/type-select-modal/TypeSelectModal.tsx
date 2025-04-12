@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Button, Modal } from "@shared/components";
-import PrimitiveTypes from "./types-content/primitive-type";
-import CollectionsTypes from "./types-content/collections-type";
-import SpecializedTypes from "./types-content/specialized-type";
+import PrimitiveTypes from "./components/types-content/PrimitiveType";
+import CollectionsTypes from "./components/types-content/CollectionsType";
+import SpecializedTypes from "./components/types-content/SpecializedType";
 
 interface TypeSelectModalProps {
   isOpen: boolean;
@@ -16,7 +16,7 @@ function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: Readonly<TypeSelec
   const [selectedType, setSelectedType] = useState<"primitive" | "collections" | "specialized">("primitive");
 
   return (
-    <Modal isOpen={isOpen} title="Types">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Types">
       <div className="flex h-full relative">
         <aside className="w-[15%] flex flex-col border-right-2 bg-inherit flex-grow-1 gap-[5px] pr-[20px] mr-[20px]">
           <Button

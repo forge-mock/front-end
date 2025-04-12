@@ -15,10 +15,10 @@ import {
 } from "@dnd-kit/core";
 import { arrayMove, SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import type { Field } from "@entities/fields";
-import { useFieldsStore } from "./store/fields-store";
-import Grid from "./components/grid/grid";
-import SortableField from "./components/field/sortable-field";
-import DraggedField from "./components/draggable-field/draggable-field";
+import { useFieldsStore } from "./store";
+import Grid from "./components/Grid";
+import SortableField from "./components/field/SortableField";
+import DraggedField from "./components/draggable-field/DraggableField";
 
 interface DraggableFieldsProps {
   columnsToShow: number;

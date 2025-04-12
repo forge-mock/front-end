@@ -1,12 +1,12 @@
 "use client";
 
 import React, { CSSProperties } from "react";
-import { FieldProps } from "../../lib/interfaces/field-props";
-import FieldType from "../field-type/field-type";
-import FieldSettings from "../field-settings/field-settings";
-import Draggable from "../field/draggable";
-import RemoveField from "../field/remove-field";
-import DraggableFieldName from "./draggable-field-name";
+import { FieldProps } from "../../interfaces";
+import FieldType from "../FieldType";
+import FieldSettings from "../FieldSettings";
+import Draggable from "../field/Draggable";
+import RemoveField from "../field/RemoveField";
+import DraggableFieldName from "./DraggableFieldName";
 
 interface DraggableFieldProps extends FieldProps {
   inputValue: string;

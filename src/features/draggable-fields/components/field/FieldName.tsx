@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Input } from "@shared/components";
-import { useFieldsStore } from "../../store/fields-store";
+import { useFieldsStore } from "../../store";
 
 interface FieldNameProps {
   id: string;

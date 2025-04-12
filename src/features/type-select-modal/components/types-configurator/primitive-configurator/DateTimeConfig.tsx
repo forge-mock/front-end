@@ -7,7 +7,7 @@ interface ConfiguratorProps {
 
 function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   return (
-    <Modal isOpen={isOpen} width={50} height={60} title="DateTime configurator">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="DateTime configurator">
       DateTime
       <Button
         text="Close modal"

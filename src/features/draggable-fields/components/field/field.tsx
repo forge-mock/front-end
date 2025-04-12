@@ -1,12 +1,12 @@
 "use client";
 
 import React, { CSSProperties, forwardRef, useState } from "react";
-import { FieldProps } from "../../lib/interfaces/field-props";
-import FieldName from "./field-name";
-import FieldType from "../field-type/field-type";
-import FieldSettings from "../field-settings/field-settings";
-import Draggable from "./draggable";
-import RemoveField from "./remove-field";
+import { FieldProps } from "../../interfaces";
+import FieldName from "./FieldName";
+import FieldType from "../FieldType";
+import FieldSettings from "../FieldSettings";
+import Draggable from "./Draggable";
+import RemoveField from "./RemoveField";
 
 function Field(
   { id, withOpacity, isDragging, style, ...props }: Readonly<FieldProps>,

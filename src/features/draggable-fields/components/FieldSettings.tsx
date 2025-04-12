@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import SettingsIcon from "@assets/dragging/settings.svg";
 import { IconButton } from "@shared/components";
-import { Types } from "@features/type-select-modal/enums/types";
+import { Types } from "@features/type-select-modal/enums";
 import {
   BooleanConfig,
   DateTimeConfig,
@@ -11,7 +11,7 @@ import {
   StringConfig,
   TextConfig,
   UUIDConfig,
-} from "@features/type-select-modal/types-configurator/primitive-configurator";
+} from "@features/type-select-modal/components/types-configurator/primitive-configurator";
 
 interface FieldSettingsProps {
   selectedType?: string;

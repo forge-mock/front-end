@@ -1,8 +1,7 @@
 "use client";
 
-import { NumberInput, Switcher } from "@shared/components";
 import { Group } from "react-aria-components";
-
+import { NumberInput, Switcher } from "@shared/components";
 interface SwitcherValueProps {
   isLeft: boolean;
   setIsLeft: (isLeft: boolean) => void;

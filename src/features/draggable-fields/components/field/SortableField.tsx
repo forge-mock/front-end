@@ -3,8 +3,8 @@
 import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { FieldProps } from "../../lib/interfaces/field-props";
-import Field from "./field";
+import { FieldProps } from "../../interfaces";
+import Field from "./Field";
 
 function SortableField({ id }: Readonly<FieldProps>): React.JSX.Element {
   const { isDragging, attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });

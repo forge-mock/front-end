@@ -1,6 +1,6 @@
 "use client";
 
-import BlankSlider from "@features/blank-slider/blank-slider";
+import BlankSlider from "@features/blank-slider/BlankSlider";
 import { Button, NumberInput, Switcher, Modal } from "@shared/components";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ function TextConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
   const [paragraphsAmount, setParagraphsAmount] = useState<number>(0);
 
   return (
-    <Modal isOpen={isOpen} width={"30%"} height={"50%"} title="String configurator">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="String configurator">
       <div className="mt-20">
         <BlankSlider blankValue={blankValue} setBlankValue={setBlankValue} />
         <NumberInput

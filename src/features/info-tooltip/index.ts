@@ -1,2 +1,2 @@
-import InfoTooltip from "./info-tooltip";
+import InfoTooltip from "./InfoTooltip";
 export { InfoTooltip };
