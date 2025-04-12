@@ -27,10 +27,9 @@ yarn dev
 
 ## Important notes
 
-Use ESLint, Stylelint and Prettier to keep the code clean and consistent.
+Use ESLint and Prettier to keep the code clean and consistent.
 
 ```bash
 yarn lint
-yarn stylelint
 yarn prettier
 ```

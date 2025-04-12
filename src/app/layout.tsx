@@ -1,9 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import Providers from "./providers";
-import { Navbar } from "@widgets/layout/navbar";
-import { DesktopSidebar, MobileSidebar } from "@widgets/layout/sidebar";
-import { Footer } from "@widgets/layout/footer";
+import { Toast } from "@shared/components";
+import { Navbar, DesktopSidebar, MobileSidebar, Footer } from "@widgets/layout";
 import "./globals.scss";
 
 export const metadata: Metadata = {
@@ -30,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
             <div className="flex grow flex-col justify-between overflow-auto h-[calc(100vh-3.5rem)]">
               <main className="p-2">{children}</main>
+              <Toast />
               <Footer />
             </div>
           </div>

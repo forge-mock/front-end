@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { ContentSecurityPolicy } from "@shared/lib/interfaces";
+import { ContentSecurityPolicy } from "@shared/interfaces";
 import {
   DEFAULT_SRC,
   SCRIPT_SRC,
@@ -8,7 +8,7 @@ import {
   CONNECT_SRC,
   OBJECT_SRC,
   FRAME_ANCESTORS,
-} from "@shared/lib/constants";
+} from "@shared/constants";
 
 function concatPolicy(item: ContentSecurityPolicy): string {
   return `${item.item} ${item.values.join(" ")};`;
@@ -29,6 +29,7 @@ function uniteContentSecurityPolicy(): string {
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  devIndicators: false,
   async headers() {
     return [
       {
@@ -50,13 +51,11 @@ const nextConfig: NextConfig = {
 
     return config;
   },
-  experimental: {
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },
