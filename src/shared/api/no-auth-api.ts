@@ -12,7 +12,7 @@ async function getCsrfToken(): Promise<string | null> {
   return xsrf;
 }
 
-const noAuthApi = {
+export const noAuthApi = {
   post: async <T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
     try {
       const response: AxiosResponse<ApiResponse<T>> = await apiClient.post(url, data, config);
@@ -41,5 +41,3 @@ const noAuthApi = {
     }
   },
 };
-
-export default noAuthApi;

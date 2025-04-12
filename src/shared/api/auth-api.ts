@@ -44,7 +44,7 @@ apiClient.interceptors.response.use(
   }
 );
 
-const authApi = {
+export const authApi = {
   get: async <T>(url: string, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
     try {
       const response: AxiosResponse<ApiResponse<T>> = await apiClient.get(url, config);
@@ -81,5 +81,3 @@ const authApi = {
     }
   },
 };
-
-export default authApi;

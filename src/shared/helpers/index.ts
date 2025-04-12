@@ -1,5 +1,5 @@
-import { getCookie, setCookie } from "./cookies";
-export { getCookie, setCookie };
+import { getCookie } from "./cookies";
+export { getCookie };
 
-import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "./local-storage";
+import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "./localStorage";
 export { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem };

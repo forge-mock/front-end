@@ -1,5 +1,5 @@
-import authApi from "./auth-api";
-import noAuthApi from "./no-auth-api";
+import { authApi } from "./auth-api";
+import { noAuthApi } from "./no-auth-api";
 export { authApi, noAuthApi };
 
 import type { ApiResponse } from "./interfaces";
