@@ -3,7 +3,7 @@ import SchemaIcon from "@assets/layout/schema.svg";
 import DocsIcon from "@assets/layout/docs.svg";
 import InfoIcon from "@assets/shared/info.svg";
 import FeedbackIcon from "@assets/layout/feedback.svg";
-import { Tab } from "../interfaces/tab";
+import { Tab } from "./interfaces";
 
 const TABS: Tab[] = [
   {

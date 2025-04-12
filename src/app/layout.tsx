@@ -2,9 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Providers from "./providers";
 import { Toast } from "@shared/components";
-import { Navbar } from "@widgets/layout/navbar";
-import { DesktopSidebar, MobileSidebar } from "@widgets/layout/sidebar";
-import { Footer } from "@widgets/layout/footer";
+import { Navbar, DesktopSidebar, MobileSidebar, Footer } from "@widgets/layout";
 import "./globals.scss";
 
 export const metadata: Metadata = {

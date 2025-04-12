@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem } from "@shared/helpers";
-import { Tab } from "../lib/interfaces/tab";
-import { TABS } from "../lib/constants/tabs";
-import TabIcon from "../components/tab-icon/tab-icon";
-import TabButton from "../components/tab-button/tab-button";
-import Expand from "../components/expand/expand";
+import { Tab } from "../interfaces";
+import { TABS } from "../constants";
+import TabIcon from "../components/TabIcon";
+import TabButton from "../components/TabButton";
+import Expand from "../components/Expand";
 import styles from "./desktop-sidebar.module.scss";
 
 function DesktopSidebar(): React.JSX.Element {

@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { DraggableFields } from "@features/draggable-fields";
-import ColumnSelector from "./components/column-selector/column-selector";
-import AddNewField from "./components/add-new-field/add-new-field";
+import ColumnSelector from "./components/ColumnSelector";
+import AddNewField from "./components/AddNewField";
 
 function DraggableConstructor(): React.JSX.Element {
   const [selectedColumnCount, setSelectedColumnCount] = useState<number | null>(null);

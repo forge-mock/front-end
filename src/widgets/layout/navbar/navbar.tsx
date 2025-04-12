@@ -1,8 +1,7 @@
 import React from "react";
-import Logo from "./components/logo/logo";
-import Burger from "./components/burger/burger";
-import Title from "./components/title/title";
-import ThemeSwitch from "./components/theme-switch/theme-switch";
+import Logo from "./components/Logo";
+import Burger from "./components/Burger";
+import ThemeSwitch from "./components/ThemeSwitch";
 import Account from "./components/Account";
 
 function Navbar(): React.JSX.Element {
@@ -18,7 +17,7 @@ function Navbar(): React.JSX.Element {
         </div>
       </div>
 
-      <Title />
+      <h1 className="text-2xl font-bold italic text-[var(--violet-title-color)]">Forge Mock</h1>
 
       <div className="flex items-center gap-4">
         <ThemeSwitch />

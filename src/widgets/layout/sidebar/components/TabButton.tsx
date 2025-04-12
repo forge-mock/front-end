@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Icon as IconContainer } from "@shared/components";
-import { Tab as TabProps } from "../../lib/interfaces/tab";
+import { Tab as TabProps } from "../interfaces";
 
 function TabButton({ Icon, title, path }: Readonly<TabProps>): React.JSX.Element {
   return (

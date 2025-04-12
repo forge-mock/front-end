@@ -3,7 +3,7 @@
 import React from "react";
 import BurgerMenuIcon from "@assets/layout/burger-menu.svg";
 import { IconButton } from "@shared/components";
-import { useLayoutStore } from "../../../store/layout";
+import { useLayoutStore } from "../../store";
 
 function Burger(): React.JSX.Element {
   const { expandMobileSidebar } = useLayoutStore();
