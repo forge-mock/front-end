@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import AccountIcon from "@assets/layout/account.svg";
-import { IconLink, Menu, MenuItem } from "@shared/components";
+import { IconButton, Menu, MenuItem } from "@shared/components";
 import { AuthModal } from "@features/auth-modal";
 
 function Account(): React.JSX.Element {
@@ -16,7 +16,7 @@ function Account(): React.JSX.Element {
 
   return (
     <>
-      <Menu menuChildren={<IconLink path="/account" Icon={AccountIcon} height={30} width={30} />}>
+      <Menu isButton menuChildren={<IconButton Icon={AccountIcon} height={30} width={30} />}>
         <MenuItem onAction={() => handleSignClick(true)}>Sign In</MenuItem>
         <MenuItem onAction={() => handleSignClick(false)}>Sign Up</MenuItem>
       </Menu>

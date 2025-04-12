@@ -16,7 +16,7 @@ function IconLink({ path, Icon, width = 24, height = 24, classes = "" }: Readonl
   return (
     <Link href={path} className={`flex outline-border-default shrink-0 focus-visible:rounded-full ${styles.iconLink} `}>
       <div className={`flex ${classes}`}>
-        <Icon width={width} height={height} className={styles.icon} />
+        <Icon width={width} height={height} />
       </div>
     </Link>
   );

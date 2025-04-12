@@ -13,7 +13,7 @@ interface IconProps {
 function Icon({ Icon, width = 24, height = 24, classes = "" }: Readonly<IconProps>) {
   return (
     <div className={`flex ${styles.iconContainer} ${classes}`}>
-      <Icon width={width} height={height} className={styles.icon} />
+      <Icon width={width} height={height} />
     </div>
   );
 }

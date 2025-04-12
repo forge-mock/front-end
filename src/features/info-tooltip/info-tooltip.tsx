@@ -11,7 +11,7 @@ function InfoTooltip({ text }: Readonly<InfoTooltipProps>): React.JSX.Element {
     <div className="flex flex-row items-center gap-4">
       <div className="flex shrink-0">
         <Tooltip id={text} place="top" text={text}>
-          <InfoIcon />
+          <InfoIcon className="cursor-pointer" />
         </Tooltip>
       </div>
     </div>

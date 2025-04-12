@@ -2,14 +2,17 @@
 
 import { Button, Menu as MenuAria, MenuTrigger, Popover } from "react-aria-components";
 import type { MenuProps as MenuAriaProps, MenuTriggerProps } from "react-aria-components";
+
 interface MenuProps<T> extends MenuAriaProps<T>, Omit<MenuTriggerProps, "children"> {
+  isButton?: boolean;
   menuChildren: React.ReactNode;
 }
 
-function Menu<T extends object>({ menuChildren, children, ...props }: Readonly<MenuProps<T>>) {
+function Menu<T extends object>({ isButton = false, menuChildren, children, ...props }: Readonly<MenuProps<T>>) {
   return (
     <MenuTrigger {...props}>
-      <Button excludeFromTabOrder>{menuChildren}</Button>
+      {isButton ? menuChildren : <Button>{menuChildren}</Button>}
+
       <Popover
         offset={5}
         className={({ isEntering, isExiting }) =>

@@ -20,7 +20,7 @@ function IconButton({ Icon, width = 24, height = 24, onClick, classes = "", isDi
   return (
     <FocusRing focusRingClass="outline-border-default">
       <Button isDisabled={isDisabled} onPress={() => onClick?.()} className={className} type="button">
-        <Icon width={width} height={height} className={styles.icon} />
+        <Icon width={width} height={height} />
       </Button>
     </FocusRing>
   );

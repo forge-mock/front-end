@@ -29,6 +29,7 @@ function uniteContentSecurityPolicy(): string {
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  devIndicators: false,
   async headers() {
     return [
       {
