@@ -3,7 +3,7 @@
 import React, { ReactNode } from "react";
 import { Modal as AriaModal, Dialog, Heading } from "react-aria-components";
 import { motion, AnimatePresence } from "framer-motion";
-import CrossIcon from "@assets/dragging/cross.svg";
+import CrossIcon from "@assets/shared/cross.svg";
 import { IconButton } from "@shared/components";
 
 interface ModalProps {

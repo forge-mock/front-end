@@ -1,5 +1,5 @@
 import React from "react";
-import CrossIcon from "@assets/dragging/cross.svg";
+import CrossIcon from "@assets/shared/cross.svg";
 import { IconButton } from "@shared/components";
 import { useFieldsStore } from "../../store/fields-store";
 

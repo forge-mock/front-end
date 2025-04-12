@@ -3,7 +3,7 @@ import Logo from "./components/logo/logo";
 import Burger from "./components/burger/burger";
 import Title from "./components/title/title";
 import ThemeSwitch from "./components/theme-switch/theme-switch";
-import Account from "./components/account/account";
+import Account from "./components/Account";
 
 function Navbar(): React.JSX.Element {
   return (

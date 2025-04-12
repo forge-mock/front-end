@@ -13,6 +13,7 @@ export interface AuthModalProps {
   isOpen: boolean;
   setIsLogin: (isOpen: boolean) => void;
   setIsOpen: (isOpen: boolean) => void;
+  setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
 function AuthModal({
@@ -20,6 +21,7 @@ function AuthModal({
   isOpen = false,
   setIsLogin,
   setIsOpen,
+  setIsLoggedIn,
 }: Readonly<AuthModalProps>): React.JSX.Element {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { values, errors, isFieldInvalid, handleChange, validate, reset } = useFormValidation(
@@ -52,6 +54,7 @@ function AuthModal({
       setLocalStorageItem(LOCAL_STORAGE_ITEMS.isLoggedIn, true);
       addToast(isLogin ? "Successfully logged in" : "Successfully registered", "success");
       setIsOpen(false);
+      setIsLoggedIn(true);
     } catch {
       addToast("An error occurred. Please try again.", "error");
     } finally {
