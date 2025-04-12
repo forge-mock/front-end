@@ -21,7 +21,7 @@ function Account(): React.JSX.Element {
         <MenuItem onAction={() => handleSignClick(false)}>Sign Up</MenuItem>
       </Menu>
 
-      <AuthModal isLogin={isLogin} isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AuthModal isLogin={isLogin} isOpen={isOpen} setIsLogin={setIsLogin} setIsOpen={setIsOpen} />
     </>
   );
 }

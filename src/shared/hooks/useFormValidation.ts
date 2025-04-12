@@ -71,6 +71,13 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
     return { isValid: true, data: result.data };
   }
 
+  function reset(): any {
+    setValues(initialValues);
+    setErrors({});
+    setTouched({} as Record<keyof FormValues, boolean>);
+    setSubmitted(false);
+  }
+
   return {
     values,
     errors,
@@ -78,5 +85,6 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
     isFieldInvalid,
     handleChange,
     validate,
+    reset,
   };
 }

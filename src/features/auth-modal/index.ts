@@ -1,2 +1,2 @@
-import AuthModal from "./auth-modal";
+import AuthModal from "./AuthModal";
 export { AuthModal };
