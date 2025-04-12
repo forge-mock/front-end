@@ -5,7 +5,7 @@ import { FieldProps } from "../../interfaces";
 import FieldName from "./FieldName";
 import FieldType from "../FieldType";
 import FieldSettings from "../FieldSettings";
-import Draggable from "./draggable1";
+import Draggable from "./Draggable";
 import RemoveField from "./RemoveField";
 
 function Field(

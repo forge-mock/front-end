@@ -4,7 +4,7 @@ import React, { CSSProperties } from "react";
 import { FieldProps } from "../../interfaces";
 import FieldType from "../FieldType";
 import FieldSettings from "../FieldSettings";
-import Draggable from "../field/draggable1";
+import Draggable from "../field/Draggable";
 import RemoveField from "../field/RemoveField";
 import DraggableFieldName from "./DraggableFieldName";
 
