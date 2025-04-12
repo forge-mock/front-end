@@ -1,5 +1,5 @@
 import React from "react";
-import DraggableConstructorWrapper from "./components/draggable-constructor-wrapper";
+import DraggableConstructorWrapper from "./components/DraggableConstructorWrapper";
 
 function Constructor(): React.JSX.Element {
   return <DraggableConstructorWrapper />;
