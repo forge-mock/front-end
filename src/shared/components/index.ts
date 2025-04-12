@@ -1,9 +1,9 @@
-import Icon from "./icon/icon1";
+import Icon from "./icon/Icon";
 import IconLink from "./icon/IconLink";
 import IconButton from "./icon/IconButton";
 export { Icon, IconLink, IconButton };
 
-import Tooltip from "./tooltip/tooltip1";
+import Tooltip from "./tooltip/Tooltip";
 export { Tooltip };
 
 import Selector from "./Selector";
@@ -19,7 +19,7 @@ import Switcher from "./Switcher";
 export { Switcher };
 
 import NumberInput from "./inputs/NumberInput";
-import Input from "./inputs/input1";
+import Input from "./inputs/Input";
 export { NumberInput, Input };
 
 import Modal from "./Modal";
@@ -28,11 +28,11 @@ export { Modal };
 import Toggle from "./Toggle";
 export { Toggle };
 
-import Menu from "./menu/menu1";
+import Menu from "./menu/Menu";
 import MenuItem from "./menu/MenuItem";
 export { Menu, MenuItem };
 
-import Toast from "./toast/toast1";
+import Toast from "./toast/Toast";
 import { addToast } from "./toast/helpers";
 export { Toast, addToast };
 
