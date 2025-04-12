@@ -12,5 +12,5 @@ export function register(register: Register): Promise<ApiResponse<string>> {
 }
 
 export function logout(accessToken: string): Promise<ApiResponse<boolean>> {
-  return noAuthApi.post(`${auth}/logout`, accessToken, { withCredentials: true });
+  return noAuthApi.postWithCsrf(`${auth}/logout`, accessToken, { withCredentials: true });
 }
