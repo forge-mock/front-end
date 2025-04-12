@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import AccountIcon from "@assets/layout/account.svg";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
-import { getLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
+import { getLocalStorageItem } from "@shared/helpers";
 import { IconButton, Menu, MenuItem } from "@shared/components";
 import { AuthModal } from "@features/auth-modal";
+import { LogoutModal } from "@features/logout-modal";
 
 function Account(): React.JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
+  const [isLogoutOpen, setIsLogoutOpen] = useState<boolean>(false);
   const [isLogin, setIsLogin] = useState<boolean>(true);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -18,21 +20,15 @@ function Account(): React.JSX.Element {
   }, []);
 
   const handleSignClick = (isLogin: boolean) => {
-    setIsOpen(true);
+    setIsLoginOpen(true);
     setIsLogin(isLogin);
-  };
-
-  const handleSignOut = () => {
-    setIsLoggedIn(false);
-    removeLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken);
-    removeLocalStorageItem(LOCAL_STORAGE_ITEMS.isLoggedIn);
   };
 
   return (
     <>
       <Menu isButton menuChildren={<IconButton Icon={AccountIcon} height={30} width={30} />}>
         {isLoggedIn ? (
-          <MenuItem onAction={handleSignOut}>Sign Out</MenuItem>
+          <MenuItem onAction={() => setIsLogoutOpen(true)}>Sign Out</MenuItem>
         ) : (
           <>
             <MenuItem onAction={() => handleSignClick(true)}>Sign In</MenuItem>
@@ -43,11 +39,13 @@ function Account(): React.JSX.Element {
 
       <AuthModal
         isLogin={isLogin}
-        isOpen={isOpen}
+        isOpen={isLoginOpen}
         setIsLogin={setIsLogin}
-        setIsOpen={setIsOpen}
+        setIsOpen={setIsLoginOpen}
         setIsLoggedIn={setIsLoggedIn}
       />
+
+      <LogoutModal isOpen={isLogoutOpen} setIsOpen={setIsLogoutOpen} setIsLoggedIn={setIsLoggedIn} />
     </>
   );
 }

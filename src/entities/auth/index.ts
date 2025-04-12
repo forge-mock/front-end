@@ -1,5 +1,5 @@
-import { login, register } from "./auth.api";
-export { login, register };
+import { login, register, logout } from "./api";
+export { login, register, logout };
 
-import type { Login, Register } from "./auth.interfaces";
+import type { Login, Register } from "./interfaces";
 export type { Login, Register };
