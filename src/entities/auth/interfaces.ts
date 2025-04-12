@@ -1,10 +1,8 @@
 export interface Login {
-  userInput: string;
+  userEmail: string;
   password: string;
 }
 
-export interface Register {
+export interface Register extends Login {
   username: string;
-  userEmail: string;
-  password: string;
 }
