@@ -1,2 +1,2 @@
-import { Field } from "./interfaces/field";
+import { Field } from "./field";
 export type { Field };
