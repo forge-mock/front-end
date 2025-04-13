@@ -42,6 +42,7 @@ function FieldSettings({ selectedType }: Readonly<FieldSettingsProps>): React.JS
         isDisabled={selectedType === "Type"}
         height={18}
         width={18}
+        ariaLabel="Settings"
         onClick={onIconClick}
       />
 

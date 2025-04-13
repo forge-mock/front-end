@@ -12,7 +12,7 @@ function Burger(): React.JSX.Element {
     expandMobileSidebar();
   }
 
-  return <IconButton Icon={BurgerMenuIcon} height={30} width={30} onClick={handleExpandClick} />;
+  return <IconButton Icon={BurgerMenuIcon} ariaLabel="Open menu" height={30} width={30} onClick={handleExpandClick} />;
 }
 
 export default Burger;

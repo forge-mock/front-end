@@ -26,7 +26,7 @@ function Account(): React.JSX.Element {
 
   return (
     <>
-      <Menu isButton menuChildren={<IconButton Icon={AccountIcon} height={30} width={30} />}>
+      <Menu isButton menuChildren={<IconButton Icon={AccountIcon} ariaLabel="Account" height={30} width={30} />}>
         {isLoggedIn ? (
           <MenuItem onAction={() => setIsLogoutOpen(true)}>Sign Out</MenuItem>
         ) : (

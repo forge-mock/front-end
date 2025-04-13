@@ -1,11 +1,11 @@
 "use client";
 
 import React, { CSSProperties, forwardRef, useState } from "react";
+import MoveIcon from "@assets/dragging/move.svg";
 import { FieldProps } from "../../interfaces";
 import FieldName from "./FieldName";
 import FieldType from "../FieldType";
 import FieldSettings from "../FieldSettings";
-import Draggable from "./Draggable";
 import RemoveField from "./RemoveField";
 
 function Field(
@@ -28,11 +28,12 @@ function Field(
       style={inlineStyles}
     >
       <div
+        aria-label="Drag to reorder"
         className={`flex select-none shrink-0 flex-row items-center p-1 rounded-full border-2 border-solid 
           border-[var(--violet-border)] outline-border-default ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
         {...props}
       >
-        <Draggable />
+        <MoveIcon />
       </div>
       <FieldName id={id} />
       <FieldType selectedType={selectedType} setSelectedType={setSelectedType} />

@@ -5,6 +5,8 @@ import { Toast } from "@shared/components";
 import { Navbar, DesktopSidebar, MobileSidebar, Footer } from "@widgets/layout";
 import "./globals.scss";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Forge Mock",
   description: "Generate any mock data you need for your project",

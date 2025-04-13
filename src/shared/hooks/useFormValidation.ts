@@ -35,7 +35,7 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
     });
 
     if (!partialValidation.success) {
-      const fieldError = partialValidation.error.issues[0]?.message || "";
+      const fieldError = partialValidation.error.issues[0]?.message ?? "";
       setErrors((prev) => ({ ...prev, [field]: fieldError }));
       return false;
     } else {

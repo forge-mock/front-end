@@ -24,6 +24,7 @@ function UUIDConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
         <div className="flex gap-7 mt-14">
           <Label className="text-black">Version</Label>
           <Selector
+            name="uuid-version"
             items={uuidVersions}
             onSelectionChange={(key) => changeUuidVersion(key)}
             placeholder="Select UUID version"

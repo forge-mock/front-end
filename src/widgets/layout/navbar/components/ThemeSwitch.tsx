@@ -29,10 +29,14 @@ function ThemeSwitch(): React.JSX.Element {
   }
 
   if (theme === "light") {
-    return <IconButton Icon={SunIcon} height={30} width={30} onClick={() => setUserTheme("dark")} />;
+    return (
+      <IconButton Icon={SunIcon} ariaLabel="Light Theme" height={30} width={30} onClick={() => setUserTheme("dark")} />
+    );
   }
 
-  return <IconButton Icon={MoonIcon} height={30} width={30} onClick={() => setUserTheme("light")} />;
+  return (
+    <IconButton Icon={MoonIcon} ariaLabel="Dark Theme" height={30} width={30} onClick={() => setUserTheme("light")} />
+  );
 }
 
 export default ThemeSwitch;

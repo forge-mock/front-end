@@ -10,26 +10,31 @@ const TABS: Tab[] = [
     Icon: ConstructorIcon,
     title: "Constructor",
     path: "/",
+    ariaLabel: "Go to constructor",
   },
   {
     Icon: SchemaIcon,
     title: "Schemas",
     path: "/schema",
+    ariaLabel: "Go to schema",
   },
   {
     Icon: DocsIcon,
     title: "Documentation",
     path: "docs",
+    ariaLabel: "Go to documentation",
   },
   {
     Icon: InfoIcon,
     title: "About",
     path: "/about",
+    ariaLabel: "Go to about",
   },
   {
     Icon: FeedbackIcon,
     title: "Feedback",
     path: "/feedback",
+    ariaLabel: "Go to feedback",
   },
 ];
 

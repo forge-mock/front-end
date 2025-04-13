@@ -11,6 +11,9 @@
 # WebStorm
 /.idea
 
+#VS Code
+.vscode
+
 # testing
 /coverage
 

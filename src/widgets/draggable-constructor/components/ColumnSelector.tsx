@@ -58,6 +58,7 @@ function ColumnSelector({ chosenColumnCount, setChosenColumnCount }: Readonly<Co
       <div className="w-32">
         {columns.length > 0 && (
           <Selector
+            name="column-count"
             items={columns}
             selectedKey={chosenColumnCount}
             defaultSelectedKey={columns[0].id}
