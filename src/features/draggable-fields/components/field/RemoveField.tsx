@@ -16,7 +16,7 @@ function RemoveField({ id }: Readonly<RemoveFieldProps>): React.JSX.Element {
     }
   }
 
-  return <IconButton Icon={CrossIcon} height={18} width={18} onClick={onIconClick} />;
+  return <IconButton Icon={CrossIcon} ariaLabel="Close" height={18} width={18} onClick={onIconClick} />;
 }
 
 export default RemoveField;

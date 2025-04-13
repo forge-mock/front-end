@@ -39,6 +39,7 @@ function Modal({
               {showCloseButton && (
                 <IconButton
                   Icon={CrossIcon}
+                  ariaLabel="Close"
                   height={16}
                   width={16}
                   onClick={() => setIsOpen(false)}

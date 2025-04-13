@@ -1,10 +1,10 @@
 "use client";
 
 import React, { CSSProperties } from "react";
+import MoveIcon from "@assets/dragging/move.svg";
 import { FieldProps } from "../../interfaces";
 import FieldType from "../FieldType";
 import FieldSettings from "../FieldSettings";
-import Draggable from "../field/Draggable";
 import RemoveField from "../field/RemoveField";
 import DraggableFieldName from "./DraggableFieldName";
 
@@ -34,7 +34,7 @@ function DraggedField({
           border-[var(--violet-border)] outline-border-default ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
         {...props}
       >
-        <Draggable />
+        <MoveIcon />
       </div>
       <DraggableFieldName inputValue={inputValue} />
       <FieldType />

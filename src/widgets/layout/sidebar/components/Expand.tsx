@@ -20,7 +20,7 @@ function Expand({ isExpanded, setIsExpanded }: Readonly<ExpandProps>): React.JSX
   return (
     <div className="flex p-3.5">
       <div className={`transition duration-300 ${isExpanded ? "rotate-0" : "rotate-180"}`}>
-        <IconButton Icon={ExpandIcon} onClick={() => handleClickExpand()} />
+        <IconButton Icon={ExpandIcon} ariaLabel="Expand Menu" onClick={() => handleClickExpand()} />
       </div>
     </div>
   );
