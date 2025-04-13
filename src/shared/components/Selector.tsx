@@ -17,6 +17,7 @@ import type { SelectProps } from "react-aria-components";
 import TriangleIcon from "@assets/selector/triangle.svg";
 
 interface SelectorProps<T> extends SelectProps {
+  name?: string;
   items: Iterable<T>;
   itemId?: string;
   itemField?: string;
@@ -28,6 +29,7 @@ interface SelectorProps<T> extends SelectProps {
 }
 
 function Selector<T extends object>({
+  name,
   items = [],
   itemId = "id",
   itemField = "name",
@@ -44,6 +46,7 @@ function Selector<T extends object>({
         ${isInvalid ? "border-small-rounded-error-default" : ""} 
         ${selectorClasses}`
       }
+      name={name}
       {...props}
     >
       <Label className="text-sm text-[var(--light-text-color)]">{label}</Label>
@@ -73,7 +76,7 @@ function Selector<T extends object>({
           ${isExiting ? "animate-out fade-out" : ""}`
         }
       >
-        <ListBox className="flex flex-col gap-1 outline-none" items={items}>
+        <ListBox id="Boba" className="flex flex-col gap-1 outline-none" items={items}>
           {(item: any) => (
             <ListBoxItem
               key={item[itemId]}
