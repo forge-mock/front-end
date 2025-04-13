@@ -2,7 +2,11 @@
 
 import { ThemeProvider } from "next-themes";
 
-function Providers({ children }: Readonly<{ children: React.ReactNode }>) {
+interface ProvidersProps {
+  children: React.ReactNode;
+}
+
+function Providers({ children }: Readonly<ProvidersProps>) {
   return (
     <ThemeProvider attribute="data-theme" defaultTheme="light">
       {children}

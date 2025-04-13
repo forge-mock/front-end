@@ -1,4 +1,4 @@
-import DesktopSidebar from "./desktop-sidebar/desktop-sidebar";
-import MobileSidebar from "./mobile-sidebar/mobile-sidebar";
+import DesktopSidebar from "./desktop-sidebar/DesktopSidebar";
+import MobileSidebar from "./mobile-sidebar/MobileSidebar";
 
 export { DesktopSidebar, MobileSidebar };

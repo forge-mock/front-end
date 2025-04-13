@@ -1,3 +1,2 @@
-import DraggableConstructor from "./draggable-constructor";
-
+import DraggableConstructor from "./DraggableConstructor";
 export { DraggableConstructor };

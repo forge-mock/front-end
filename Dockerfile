@@ -10,8 +10,14 @@ RUN yarn --frozen-lockfile --ignore-scripts
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-
+COPY package.json yarn.lock ./
+COPY next.config.ts ./
+COPY tsconfig.json ./
+COPY postcss.config.js ./
+COPY tailwind.config.js ./
+COPY eslint.config.mjs ./
+COPY public ./public
+COPY src ./src
 RUN yarn run build
 
 FROM base AS runner
@@ -21,8 +27,8 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
 USER nextjs
 
