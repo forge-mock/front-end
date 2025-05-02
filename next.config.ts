@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { createSecureHeaders } from "next-secure-headers";
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -8,16 +9,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/(.*)",
-        headers: [
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
-          },
-        ],
+        headers: createSecureHeaders(),
       },
     ];
   },
