@@ -25,6 +25,7 @@ function OauthHandle(): React.JSX.Element {
 
       if (!accessToken || !refreshToken) {
         errorWhileLogin();
+        router.push("/");
       }
 
       try {
@@ -42,6 +43,7 @@ function OauthHandle(): React.JSX.Element {
         setLocalStorageItem(LOCAL_STORAGE_ITEMS.isLoggedIn, false);
         removeLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken);
         setIsLoggedIn(false);
+        router.push("/");
       }
     };
 
