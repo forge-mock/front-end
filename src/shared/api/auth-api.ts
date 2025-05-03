@@ -17,7 +17,11 @@ export async function refreshToken(accessToken: string): Promise<string> {
     },
   });
 
-  return response.data;
+  if (!response.isSuccess) {
+    throw new Error("Failed to refresh token");
+  }
+
+  return response.data!;
 }
 
 apiClient.interceptors.request.use((config) => {
