@@ -17,13 +17,25 @@ yarn install
 
 ## Run the project
 
-1. Run the project by running the following command and accept localhost certificate:
+1. Create .env file in the root folder and add environment variables:
+
+```
+NEXT_PUBLIC_AUTH=https://localhost:7289
+GOOGLE_CLIENT_ID=client_id
+GOOGLE_CLIENT_SECRET=client_secret
+GITHUB_CLIENT_ID=client_id
+GITHUB_CLIENT_SECRET=client_secret
+NEXTAUTH_URL=https://localhost:3000
+NEXTAUTH_SECRET=random_secret
+```
+
+2. Run the project by running the following command and accept localhost certificate:
 
 ```bash
 yarn dev
 ```
 
-2. Open your browser and navigate to `https://localhost:3000/` to see the project running.
+3. Open your browser and navigate to `https://localhost:3000/` to see the project running.
 
 ## Important notes
 
