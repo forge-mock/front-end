@@ -12,3 +12,13 @@ export function getCookie(name: string): string | null {
 
   return null;
 }
+
+export function setCookie(name: string, value: string, days: number = 30): void {
+  let expires = "";
+
+  const date = new Date();
+  date.setDate(date.getDate() + days);
+  expires = `; expires=${date.toUTCString()}`;
+
+  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}${expires}; path=/`;
+}
