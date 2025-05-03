@@ -1,2 +1,4 @@
+import { useLoginStore } from "./useLoginStore";
 import AuthModal from "./AuthModal";
-export { AuthModal };
+
+export { useLoginStore, AuthModal };

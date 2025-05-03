@@ -4,7 +4,7 @@ import { ApiResponse } from "./interfaces";
 import { DEFAULT_ERROR_RESPONSE } from "./constants";
 import { createApiClient } from "./helpers";
 
-const apiClient: AxiosInstance = createApiClient("https://localhost:7289");
+const apiClient: AxiosInstance = createApiClient(process.env.NEXT_PUBLIC_AUTH!);
 
 async function getCsrfToken(): Promise<string | null> {
   await apiClient.get("/csrf/token", { withCredentials: true });
@@ -13,6 +13,15 @@ async function getCsrfToken(): Promise<string | null> {
 }
 
 export const noAuthApi = {
+  get: async <T>(url: string, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
+    try {
+      const response: AxiosResponse<ApiResponse<T>> = await apiClient.get(url, config);
+      return response.data;
+    } catch (error: any) {
+      return error.response?.data ?? DEFAULT_ERROR_RESPONSE;
+    }
+  },
+
   post: async <T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> => {
     try {
       const response: AxiosResponse<ApiResponse<T>> = await apiClient.post(url, data, config);

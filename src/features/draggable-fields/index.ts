@@ -1,4 +1,4 @@
 import DraggableFields from "./DraggableFields";
-import { useFieldsStore } from "./store";
+import { useFieldsStore } from "./useFieldStore";
 
 export { DraggableFields, useFieldsStore };

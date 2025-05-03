@@ -1,7 +1,7 @@
 import React from "react";
 import CrossIcon from "@assets/shared/cross.svg";
 import { IconButton } from "@shared/components";
-import { useFieldsStore } from "../../store";
+import { useFieldsStore } from "../../useFieldStore";
 
 interface RemoveFieldProps {
   id?: string;

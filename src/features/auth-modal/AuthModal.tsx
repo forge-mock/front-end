@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { signIn } from "next-auth/react";
 import { Form } from "react-aria-components";
 import { formatErrorMessages } from "@shared/api";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
@@ -7,13 +8,13 @@ import { useFormValidation } from "@shared/hooks";
 import { Modal, Input, Button, addToast } from "@shared/components";
 import { login, Login, register, Register } from "@entities/auth";
 import { LOGIN_FIELDS, REGISTER_FIELDS, LOGIN_SCHEMA, REGISTER_SCHEMA } from "./constants";
+import { useLoginStore } from "./useLoginStore";
 
 export interface AuthModalProps {
   isLogin: boolean;
   isOpen: boolean;
   setIsLogin: (isOpen: boolean) => void;
   setIsOpen: (isOpen: boolean) => void;
-  setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
 function AuthModal({
@@ -21,8 +22,17 @@ function AuthModal({
   isOpen = false,
   setIsLogin,
   setIsOpen,
-  setIsLoggedIn,
 }: Readonly<AuthModalProps>): React.JSX.Element {
+  const { setIsLoggedIn } = useLoginStore();
+
+  const handleLogin = async () => {
+    await signIn("google");
+  };
+
+  const handleGitHubLogin = async () => {
+    await signIn("github");
+  };
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { values, errors, isFieldInvalid, handleChange, validate, reset } = useFormValidation(
     isLogin ? LOGIN_SCHEMA : REGISTER_SCHEMA
@@ -104,6 +114,10 @@ function AuthModal({
         </button>
 
         <div className="flex justify-center gap-4 w-full">
+          <Button text="Google" outline type="button" onPress={handleLogin} />
+
+          <Button text="Github" outline type="button" onPress={handleGitHubLogin} />
+
           <Button text="Cancel" outline type="button" onPress={() => setIsOpen(false)} />
 
           <Button

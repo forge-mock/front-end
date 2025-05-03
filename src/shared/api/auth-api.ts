@@ -1,12 +1,24 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
+import { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
 import { ApiResponse } from "./interfaces";
 import { DEFAULT_ERROR_RESPONSE } from "./constants";
+import { noAuthApi } from "./no-auth-api";
 import { createApiClient } from "./helpers";
 
-const baseUrl = "https://localhost:7289";
+const baseUrl = process.env.NEXT_PUBLIC_AUTH!;
 const apiClient: AxiosInstance = createApiClient(baseUrl);
+
+export async function refreshToken(accessToken: string): Promise<string> {
+  const response = await noAuthApi.postWithCsrf<string>(`${baseUrl}/auth/refresh-token`, accessToken, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.data;
+}
 
 apiClient.interceptors.request.use((config) => {
   const accessToken = getLocalStorageItem<string>(LOCAL_STORAGE_ITEMS.accessToken);
@@ -27,15 +39,13 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const accessToken = getLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken);
-        const response = await axios.post(`${baseUrl}/auth/refresh-token`, accessToken);
-        const newAccessToken = response.data.accessToken;
+        const accessToken = getLocalStorageItem<string>(LOCAL_STORAGE_ITEMS.accessToken);
+        const newAccessToken = await refreshToken(accessToken as string);
 
         setLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken, newAccessToken);
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return apiClient(originalRequest);
       } catch {
-        console.error("Please, login again");
         removeLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken);
       }
     }
