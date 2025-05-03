@@ -7,7 +7,7 @@ import { formatErrorMessages } from "@shared/api";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { setLocalStorageItem } from "@shared/helpers";
 import { useFormValidation } from "@shared/hooks";
-import { Modal, Input, Button, addToast } from "@shared/components";
+import { Modal, Input, Button, IconButton, addToast } from "@shared/components";
 import { login, Login, register, Register } from "@entities/auth";
 import { LOGIN_FIELDS, REGISTER_FIELDS, LOGIN_SCHEMA, REGISTER_SCHEMA } from "./constants";
 import { useLoginStore } from "./useLoginStore";
@@ -117,10 +117,20 @@ function AuthModal({
         </div>
 
         <div className="w-100 items-center flex justify-center gap-4 mb-4">
-          <GoogleIcon width={50} height={50} onClick={() => handleOauthLogin("google")} className="cursor-pointer" />
-          <div className="rounded-full bg-[#f1f5f9]">
-            <GithubIcon width={50} height={50} onClick={() => handleOauthLogin("github")} className="cursor-pointer" />
-          </div>
+          <IconButton
+            Icon={GoogleIcon}
+            height={50}
+            width={50}
+            ariaLabel="Google OAuth"
+            onClick={() => handleOauthLogin("google")}
+          />
+          <IconButton
+            Icon={GithubIcon}
+            height={50}
+            width={50}
+            ariaLabel="GitHub OAuth"
+            onClick={() => handleOauthLogin("github")}
+          />
         </div>
 
         <button type="button" onClick={handleSwitchForm} className="cursor-pointer text-center my-2 underline">
