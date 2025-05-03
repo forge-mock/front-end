@@ -1,5 +1,0 @@
-1. api (interceptor with predefined headers)
-2. components (buttons, inputs, card, loader, etc)
-3. config (i18n, etc)
-4. library (utilities, hooks, etc)
-5. constants (constants like HTTP methods, etc)
