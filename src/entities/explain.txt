@@ -1,6 +1,0 @@
-slices that represents business objects
-1. api (api services, mappers)
-2. interfaces
-3. constants
-4. helpers
-5. public api (index.ts)
