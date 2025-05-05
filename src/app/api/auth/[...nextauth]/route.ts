@@ -4,10 +4,11 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { noAuthApi } from "@shared/api";
 
-interface GitHubDto {
+interface ProviderDto {
   userEmail: string;
   userName: string;
   accessToken: string;
+  providerAccountId: string;
 }
 
 const authConfig: AuthOptions = {
@@ -27,14 +28,22 @@ const authConfig: AuthOptions = {
   callbacks: {
     async jwt({ token, account }) {
       if (account?.provider === "google" && account?.id_token) {
-        token.tokens = await noAuthApi.post("/provider/google", account.id_token);
+        const googleDto: ProviderDto = {
+          userEmail: token.email ?? "",
+          userName: token.name ?? "",
+          accessToken: account.id_token,
+          providerAccountId: account.providerAccountId,
+        };
+
+        token.tokens = await noAuthApi.post("/provider/google", googleDto);
       }
 
       if (account?.provider === "github" && account?.access_token && token?.name && token?.email) {
-        const gitHubDto: GitHubDto = {
+        const gitHubDto: ProviderDto = {
           userEmail: token.email ?? "",
           userName: token.name ?? "",
           accessToken: account.access_token,
+          providerAccountId: account.providerAccountId,
         };
 
         token.tokens = await noAuthApi.post("/provider/github", gitHubDto);
