@@ -15,7 +15,7 @@ import {
 } from "@dnd-kit/core";
 import { arrayMove, SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import type { Field } from "@entities/fields";
-import { useFieldsStore } from "./store";
+import { useFieldsStore } from "./useFieldStore";
 import Grid from "./components/Grid";
 import SortableField from "./components/field/SortableField";
 import DraggedField from "./components/draggable-field/DraggableField";

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useLayoutStore } from "../../store";
+import { useLayoutStore } from "../../useLayoutStore";
 import { Tab } from "../interfaces";
 import { TABS } from "../constants";
 import TabButton from "../components/TabButton";

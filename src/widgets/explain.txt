@@ -1,7 +1,0 @@
-slices that represents entity and features combination
-1. api (rare api services)
-2. components (ui elements combination)
-3. config (i18n, etc)
-4. library (utilities, hooks)
-5. model (store, actions, reducers, selectors)
-6. public api (index.ts)
