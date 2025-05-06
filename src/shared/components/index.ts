@@ -38,3 +38,6 @@ export { Toast, addToast };
 
 import Loader from "./Loader";
 export { Loader };
+
+import DateRange from "./DateRange";
+export { DateRange };
