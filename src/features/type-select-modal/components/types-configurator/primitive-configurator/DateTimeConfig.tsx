@@ -1,4 +1,4 @@
-import { Button, Modal, Selector } from "@shared/components";
+import { DateRange, Modal, Selector } from "@shared/components";
 import { useState } from "react";
 import BlankSlider from "@features/blank-slider/BlankSlider";
 import { dateFormat, separators } from "./constants";
@@ -24,7 +24,7 @@ function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="DateTime configurator">
-      <div className="mt-10">
+      <div className="mt-12 mb-10">
         <BlankSlider blankValue={blankValue} setBlankValue={setBlankValue} />
         <div className="flex gap-7 mt-14">
           <Label className="text-black">Format</Label>
@@ -46,12 +46,8 @@ function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
             selectorClasses="w-[50%]"
           />
         </div>
+        <DateRange />
       </div>
-      <Button
-        text="Close modal"
-        onPress={() => setIsOpen(false)}
-        className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
-      />
     </Modal>
   );
 }
