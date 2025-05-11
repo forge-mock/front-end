@@ -10,7 +10,6 @@ const apiClient: AxiosInstance = createApiClient(baseUrl);
 
 export async function refreshToken(accessToken: string): Promise<string> {
   const response = await noAuthApi.postWithCsrf<string>(`${baseUrl}/auth/refresh-token`, accessToken, {
-    withCredentials: true,
     headers: {
       "Content-Type": "application/json",
     },
