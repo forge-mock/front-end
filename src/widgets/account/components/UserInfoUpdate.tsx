@@ -6,10 +6,11 @@ import { useFormValidation } from "@shared/hooks";
 import { refreshToken, formatErrorMessages } from "@shared/api";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem } from "@shared/helpers";
-import { Input, Button, addToast } from "@shared/components";
+import { Input, Button, Loader, addToast } from "@shared/components";
 import { useLoginStore, updateUserInfo, setUserInfo } from "@entities/user-info";
 import type { UserInfoUpdate } from "@entities/user-info";
 import { OauthButtons } from "@features/auth-modal";
+import { useUserProviders } from "../hooks/useUserProviders";
 import { INFO_FIELDS, INFO_SCHEMA } from "../constants";
 
 function UserInfoUpdate(): React.JSX.Element {
@@ -17,6 +18,7 @@ function UserInfoUpdate(): React.JSX.Element {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const { userInfo } = useLoginStore();
+  const { providers, isLoading } = useUserProviders();
   const { values, errors, isFieldInvalid, handleChange, validate, reset } = useFormValidation(
     INFO_SCHEMA,
     initialValues
@@ -80,10 +82,16 @@ function UserInfoUpdate(): React.JSX.Element {
         />
       </div>
 
-      <div className="flex flex-col mt-10 gap-2">
-        <p className="text-center">Or add another sign in way</p>
-        <OauthButtons addedProviders={["Google", "github"]} />
-      </div>
+      {isLoading ? (
+        <div className="flex items-center justify-center mt-10">
+          <Loader size={50} />
+        </div>
+      ) : (
+        <div className="flex flex-col mt-10 gap-2">
+          <p className="text-center">Or add another sign in way</p>
+          <OauthButtons addedProviders={providers} />
+        </div>
+      )}
 
       <div className="flex justify-center mt-10 gap-4 w-full">
         <Button text="Reset" outline type="button" onPress={() => reset()} />
