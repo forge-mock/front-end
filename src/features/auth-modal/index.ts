@@ -1,4 +1,4 @@
-import { useLoginStore } from "./useLoginStore";
 import AuthModal from "./AuthModal";
+import OauthButtons from "./components/OauthButtons";
 
-export { useLoginStore, AuthModal };
+export { AuthModal, OauthButtons };
