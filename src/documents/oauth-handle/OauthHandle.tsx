@@ -6,7 +6,7 @@ import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { setCookie, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
 import { refreshToken as refreshTokenRequest } from "@shared/api";
 import { addToast } from "@shared/components";
-import { useLoginStore } from "@features/auth-modal";
+import { useLoginStore } from "@entities/user-info";
 import { clearRefreshToken } from "./api";
 
 function errorWhileLogin() {

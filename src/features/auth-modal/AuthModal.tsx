@@ -9,8 +9,8 @@ import { setLocalStorageItem } from "@shared/helpers";
 import { useFormValidation } from "@shared/hooks";
 import { Modal, Input, Button, IconButton, addToast } from "@shared/components";
 import { login, Login, register, Register } from "@entities/auth";
+import { useLoginStore } from "@entities/user-info";
 import { LOGIN_FIELDS, REGISTER_FIELDS, LOGIN_SCHEMA, REGISTER_SCHEMA } from "./constants";
-import { useLoginStore } from "./useLoginStore";
 
 export interface AuthModalProps {
   isLogin: boolean;

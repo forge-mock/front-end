@@ -5,7 +5,8 @@ import AccountIcon from "@assets/layout/account.svg";
 import { IconButton, Menu, MenuItem } from "@shared/components";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem } from "@shared/helpers";
-import { useLoginStore, AuthModal } from "@features/auth-modal";
+import { useLoginStore } from "@entities/user-info";
+import { AuthModal } from "@features/auth-modal";
 import { LogoutModal } from "@features/logout-modal";
 
 function Account(): React.JSX.Element {
@@ -29,7 +30,11 @@ function Account(): React.JSX.Element {
     <>
       <Menu isButton menuChildren={<IconButton Icon={AccountIcon} ariaLabel="Account" height={30} width={30} />}>
         {isLoggedIn ? (
-          <MenuItem onAction={() => setIsLogoutOpen(true)}>Sign Out</MenuItem>
+          <>
+            <MenuItem>Welcome, biba</MenuItem>
+            <MenuItem onAction={() => setIsLogoutOpen(true)}>Profile</MenuItem>
+            <MenuItem onAction={() => setIsLogoutOpen(true)}>Sign Out</MenuItem>
+          </>
         ) : (
           <>
             <MenuItem onAction={() => handleSignClick(true)}>Sign In</MenuItem>
