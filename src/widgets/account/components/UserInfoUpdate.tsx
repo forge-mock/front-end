@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-aria-components";
 import { useFormValidation } from "@shared/hooks";
+import { refreshToken, formatErrorMessages } from "@shared/api";
+import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
+import { getLocalStorageItem, setLocalStorageItem } from "@shared/helpers";
 import { Input, Button, addToast } from "@shared/components";
-import { formatErrorMessages } from "@shared/api";
-import { useLoginStore, updateUserInfo } from "@entities/user-info";
+import { useLoginStore, updateUserInfo, setUserInfo } from "@entities/user-info";
 import type { UserInfoUpdate } from "@entities/user-info";
 import { INFO_FIELDS, INFO_SCHEMA } from "../constants";
 
@@ -19,6 +21,8 @@ function UserInfoUpdate(): React.JSX.Element {
     initialValues
   );
 
+  const isPreviousValues = userInfo?.email === values.newUserEmail && userInfo?.name === values.username;
+
   useEffect(() => {
     const initialValues = {
       [INFO_FIELDS.newUserEmail]: userInfo?.email ?? "",
@@ -28,9 +32,7 @@ function UserInfoUpdate(): React.JSX.Element {
     setInitialValues(initialValues);
   }, [userInfo]);
 
-  async function handleSubmit(e: React.FormEvent): Promise<void> {
-    e.preventDefault();
-
+  async function handleSubmit(): Promise<void> {
     const validation = validate();
     if (!validation.isValid) return;
 
@@ -44,6 +46,11 @@ function UserInfoUpdate(): React.JSX.Element {
         addToast(formatErrorMessages(response.errors), "error");
         return;
       }
+
+      const accessToken = getLocalStorageItem<string>(LOCAL_STORAGE_ITEMS.accessToken);
+      const newAccessToken = await refreshToken(accessToken as string, values.newUserEmail, values.username);
+      setLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken, newAccessToken);
+      setUserInfo();
     } catch {
       addToast("An error occurred. Please try again", "error");
     } finally {
@@ -52,7 +59,7 @@ function UserInfoUpdate(): React.JSX.Element {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="flex flex-col w-96">
+    <Form className="flex flex-col w-96">
       <div className="flex flex-col gap-4">
         <Input
           label="Email"
@@ -75,7 +82,14 @@ function UserInfoUpdate(): React.JSX.Element {
       <div className="flex justify-center mt-10 gap-4 w-full">
         <Button text="Reset" outline type="button" onPress={() => reset()} />
 
-        <Button text="Save" isLoading={isSubmitting} isDisabled={isSubmitting} type="submit" classes="w-20" />
+        <Button
+          text="Save"
+          isLoading={isSubmitting}
+          isDisabled={isSubmitting || isPreviousValues}
+          type="submit"
+          onPress={() => handleSubmit()}
+          classes="w-20"
+        />
       </div>
     </Form>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { removeLocalStorageItem } from "@shared/helpers";
 import { Modal, Button, addToast } from "@shared/components";
@@ -11,6 +12,8 @@ export interface LogoutModalProps {
 }
 
 function LogoutModal({ isOpen = false, setIsOpen, setIsLoggedIn }: Readonly<LogoutModalProps>): React.JSX.Element {
+  const router = useRouter();
+
   function handleSignOut(): void {
     const accessToken = localStorage.getItem(LOCAL_STORAGE_ITEMS.accessToken);
 
@@ -20,6 +23,7 @@ function LogoutModal({ isOpen = false, setIsOpen, setIsLoggedIn }: Readonly<Logo
     removeLocalStorageItem(LOCAL_STORAGE_ITEMS.isLoggedIn);
     addToast("Successfully signed out", "success");
     setIsOpen(false);
+    router.push("/");
   }
 
   return (

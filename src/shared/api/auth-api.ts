@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosRequestConfig } from "axios";
+import { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
 import { ApiResponse } from "./interfaces";
@@ -7,10 +7,10 @@ import { createApiClient, makeApiRequest } from "./helpers";
 
 const apiClient: AxiosInstance = createApiClient(process.env.NEXT_PUBLIC_GATEWAY!);
 
-export async function refreshToken(accessToken: string): Promise<string> {
+export async function refreshToken(accessToken: string, email: string = "", name: string = ""): Promise<string> {
   const response = await noAuthApi.postWithCsrf<string>(
     `${process.env.NEXT_PUBLIC_AUTH!}/auth/refresh-token`,
-    accessToken,
+    { token: accessToken, email, name },
     {
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ apiClient.interceptors.response.use(
       }
     }
 
-    return Promise.reject(new Error(error));
+    return Promise.reject(new AxiosError(error));
   }
 );
 

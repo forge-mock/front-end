@@ -9,7 +9,7 @@ import { setLocalStorageItem } from "@shared/helpers";
 import { useFormValidation } from "@shared/hooks";
 import { Modal, Input, Button, IconButton, addToast } from "@shared/components";
 import { login, Login, register, Register } from "@entities/auth";
-import { useLoginStore } from "@entities/user-info";
+import { useLoginStore, setUserInfo } from "@entities/user-info";
 import { LOGIN_FIELDS, REGISTER_FIELDS, LOGIN_SCHEMA, REGISTER_SCHEMA } from "./constants";
 
 export interface AuthModalProps {
@@ -60,6 +60,7 @@ function AuthModal({
       addToast(isLogin ? "Successfully logged in" : "Successfully registered", "success");
       setIsOpen(false);
       setIsLoggedIn(true);
+      setUserInfo();
     } catch {
       addToast("An error occurred. Please try again.", "error");
     } finally {

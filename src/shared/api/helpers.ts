@@ -42,6 +42,6 @@ export async function makeApiRequest<T>(
 
     return response.data;
   } catch (error: any) {
-    return error.response?.data ?? DEFAULT_ERROR_RESPONSE;
+    return error.message.response?.data ?? DEFAULT_ERROR_RESPONSE;
   }
 }
