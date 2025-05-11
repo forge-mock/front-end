@@ -3,3 +3,13 @@ export interface UserInfo {
   name: string;
   email: string;
 }
+
+export interface UserInfoUpdate {
+  newUserEmail: string;
+  username: string;
+}
+
+export interface PasswordUpdate {
+  oldPassword: string;
+  newPassword: string;
+}

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { UserInfo } from "./interfaces";
+import type { UserInfo } from "./interfaces";
 
 interface LoginState {
   isLoggedIn: boolean;
