@@ -73,7 +73,7 @@ const UPGRADE_INSECURE_REQUEST: ContentSecurityPolicy = {
 
 const CONNECT_SRC: ContentSecurityPolicy = {
   item: "connect-src 'self'",
-  values: ["localhost:7289"],
+  values: ["localhost:4000", "localhost:4001", "localhost:4002"],
 };
 
 function concatPolicy(item: ContentSecurityPolicy): string {
