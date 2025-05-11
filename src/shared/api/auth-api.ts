@@ -5,15 +5,18 @@ import { ApiResponse } from "./interfaces";
 import { noAuthApi } from "./no-auth-api";
 import { createApiClient, makeApiRequest } from "./helpers";
 
-const baseUrl = process.env.NEXT_PUBLIC_GATEWAY!;
-const apiClient: AxiosInstance = createApiClient(baseUrl);
+const apiClient: AxiosInstance = createApiClient(process.env.NEXT_PUBLIC_GATEWAY!);
 
 export async function refreshToken(accessToken: string): Promise<string> {
-  const response = await noAuthApi.postWithCsrf<string>(`${baseUrl}/auth/refresh-token`, accessToken, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await noAuthApi.postWithCsrf<string>(
+    `${process.env.NEXT_PUBLIC_AUTH!}/auth/refresh-token`,
+    accessToken,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (!response.isSuccess) {
     throw new Error("Failed to refresh token");
