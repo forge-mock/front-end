@@ -1,7 +1,7 @@
 import React from "react";
 
 function UserInfoUpdate(): React.JSX.Element {
-  return <div className="flex shrink-0 items-center justify-between h-14 w-screen px-2.5">Biba</div>;
+  return <div className="flex">Biba</div>;
 }
 
 export default UserInfoUpdate;
