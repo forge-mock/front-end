@@ -17,7 +17,7 @@ function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: Readonly<TypeSelec
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Types">
-      <div className="flex h-full relative">
+      <div className="flex h-[400px] relative w-[900px]">
         <aside className="w-[15%] flex flex-col border-right-2 bg-inherit flex-grow-1 gap-[5px] pr-[20px] mr-[20px]">
           <Button
             autoFocus
@@ -35,12 +35,6 @@ function TypeSelectModal({ isOpen, setIsOpen, onSelectType }: Readonly<TypeSelec
           {selectedType === "specialized" && <SpecializedTypes />}
         </div>
       </div>
-
-      <Button
-        text="Close modal"
-        onPress={() => setIsOpen(false)}
-        className="absolute bottom-[120px] right-[320px] bg-[var(--violet-background)] p-[10px] rounded-lg"
-      />
     </Modal>
   );
 }

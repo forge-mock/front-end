@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { z } from "zod";
 
-export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
+export function useFormValidation<T extends z.ZodObject<any, any>>(
+  schema: T,
+  initialData?: Partial<z.infer<typeof schema>>
+) {
   type FormValues = z.infer<typeof schema>;
 
-  const initialValues = Object.keys(schema.shape).reduce(
+  const defaultInitialValues = Object.keys(schema.shape).reduce(
     (acc, key) => {
       acc[key as keyof FormValues] = "" as any;
       return acc;
@@ -12,10 +15,16 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
     {} as Record<keyof FormValues, any>
   );
 
-  const [values, setValues] = useState<Partial<FormValues>>(initialValues);
+  const [values, setValues] = useState<Partial<FormValues>>(defaultInitialValues);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<keyof FormValues, boolean>>({} as Record<keyof FormValues, boolean>);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (initialData) {
+      setValues({ ...defaultInitialValues, ...initialData });
+    }
+  }, [initialData]);
 
   function isFieldInvalid(field: keyof FormValues): boolean {
     return (touched[field] || submitted) && Boolean(errors[field as string]);
@@ -72,7 +81,7 @@ export function useFormValidation<T extends z.ZodObject<any, any>>(schema: T) {
   }
 
   function reset(): any {
-    setValues(initialValues);
+    setValues(initialData ? { ...defaultInitialValues, ...initialData } : defaultInitialValues);
     setErrors({});
     setTouched({} as Record<keyof FormValues, boolean>);
     setSubmitted(false);
