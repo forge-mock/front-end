@@ -80,7 +80,7 @@ function UserInfoUpdate(): React.JSX.Element {
         />
       </div>
 
-      <div className="flex flex-col mt-10 gap-4">
+      <div className="flex flex-col mt-10 gap-2">
         <p className="text-center">Or add another sign in way</p>
         <OauthButtons addedProviders={["Google", "github"]} />
       </div>

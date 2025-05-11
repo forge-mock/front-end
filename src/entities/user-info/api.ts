@@ -11,6 +11,6 @@ export function updateUserInfo(userInfoUpdate: UserInfoUpdate): Promise<ApiRespo
   return authApi.put(`${user}/information`, userInfoUpdate);
 }
 
-export function register(passwordUpdate: PasswordUpdate): Promise<ApiResponse<string>> {
+export function updatePassword(passwordUpdate: PasswordUpdate): Promise<ApiResponse<string>> {
   return authApi.put(`${user}/password`, passwordUpdate);
 }
