@@ -21,7 +21,7 @@ const SCRIPT_SRC: ContentSecurityPolicy = {
 };
 
 const STYLE_SRC: ContentSecurityPolicy = {
-  item: "style-src 'self'",
+  item: "style-src 'self' 'unsafe-hashes'",
   values: [
     "'sha256-sHwQzC2ZsVrt1faUYCjF/eo8aIoBlQbGjVstzanL9CU='", // react-tooltip
     "'sha256-GIdE8trY6laGTlkS1nFVb1KoN/xCPpLTIeDxl/w5xQE='",
@@ -33,6 +33,7 @@ const STYLE_SRC: ContentSecurityPolicy = {
     "'sha256-k1m9MgjuV56OVgoQq43A5vLIpdJFJrlq/3ANCGJD4es='",
     "'sha256-m8dEh7VmKFRCO8jEWPbmkeO1mq4SIx8omtyx50rrS/M='",
     "'sha256-fNQvmabDUct/Q8bVROR2oAMzjWD2CYHGuJj7V7Sxgfc='",
+    "'sha256-lOcqgHK+62qtI6EG9jo7vQlh9h78X1oxri3SLeN9pK8='", // loader
   ],
 };
 
@@ -73,7 +74,7 @@ const UPGRADE_INSECURE_REQUEST: ContentSecurityPolicy = {
 
 const CONNECT_SRC: ContentSecurityPolicy = {
   item: "connect-src 'self'",
-  values: ["localhost:7289"],
+  values: ["localhost:4000", "localhost:4001", "localhost:4002"],
 };
 
 function concatPolicy(item: ContentSecurityPolicy): string {
