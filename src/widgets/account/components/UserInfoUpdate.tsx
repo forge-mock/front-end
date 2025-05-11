@@ -54,6 +54,8 @@ function UserInfoUpdate(): React.JSX.Element {
       const newAccessToken = await refreshToken(accessToken as string, values.newUserEmail, values.username);
       setLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken, newAccessToken);
       setUserInfo();
+
+      addToast("Data successfully updated", "success");
     } catch {
       addToast("An error occurred. Please try again", "error");
     } finally {
@@ -62,36 +64,38 @@ function UserInfoUpdate(): React.JSX.Element {
   }
 
   return (
-    <Form className="flex flex-col w-96">
-      <div className="flex flex-col gap-4">
-        <Input
-          label="Email"
-          type="email"
-          value={values.newUserEmail ?? ""}
-          errorMessage={errors.newUserEmail}
-          isInvalid={isFieldInvalid(INFO_FIELDS.newUserEmail)}
-          onChange={(value) => handleChange(INFO_FIELDS.newUserEmail, value)}
-        />
+    <Form className="flex flex-col justify-between w-96 h-[400px]">
+      <div>
+        <div className="flex flex-col gap-4">
+          <Input
+            label="Email"
+            type="email"
+            value={values.newUserEmail ?? ""}
+            errorMessage={errors.newUserEmail}
+            isInvalid={isFieldInvalid(INFO_FIELDS.newUserEmail)}
+            onChange={(value) => handleChange(INFO_FIELDS.newUserEmail, value)}
+          />
 
-        <Input
-          label="Username"
-          value={values.username ?? ""}
-          errorMessage={errors.username}
-          isInvalid={isFieldInvalid(INFO_FIELDS.username)}
-          onChange={(value) => handleChange(INFO_FIELDS.username, value)}
-        />
+          <Input
+            label="Username"
+            value={values.username ?? ""}
+            errorMessage={errors.username}
+            isInvalid={isFieldInvalid(INFO_FIELDS.username)}
+            onChange={(value) => handleChange(INFO_FIELDS.username, value)}
+          />
+        </div>
+
+        {isLoading ? (
+          <div className="flex items-center justify-center mt-10">
+            <Loader size={50} />
+          </div>
+        ) : (
+          <div className="flex flex-col mt-10 gap-2">
+            <p className="text-center">Or add another sign in way</p>
+            <OauthButtons addedProviders={providers} />
+          </div>
+        )}
       </div>
-
-      {isLoading ? (
-        <div className="flex items-center justify-center mt-10">
-          <Loader size={50} />
-        </div>
-      ) : (
-        <div className="flex flex-col mt-10 gap-2">
-          <p className="text-center">Or add another sign in way</p>
-          <OauthButtons addedProviders={providers} />
-        </div>
-      )}
 
       <div className="flex justify-center mt-10 gap-4 w-full">
         <Button text="Reset" outline type="button" onPress={() => reset()} />

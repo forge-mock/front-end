@@ -5,7 +5,7 @@ import PasswordUpdate from "./components/PasswordUpdate";
 
 function Account(): React.JSX.Element {
   return (
-    <div className="flex flex-row items-center justify-between h-full w-full gap-10">
+    <div className="flex flex-col xl:flex-row items-center justify-center h-full w-full gap-10">
       <UpdateItem title="Data">
         <UserInfoUpdate />
       </UpdateItem>

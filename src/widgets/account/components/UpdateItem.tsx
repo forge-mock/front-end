@@ -7,7 +7,7 @@ interface UpdateItemProps {
 
 function UpdateItem({ title, children }: Readonly<UpdateItemProps>): React.JSX.Element {
   return (
-    <div className="flex flex-col items-center w-full gap-5 mt-5">
+    <div className="flex flex-col items-center h-[450px] w-[450px] gap-5 mt-5 p-5 border-default">
       <h2 className="text-2xl font-bold">{title}</h2>
       {children}
     </div>

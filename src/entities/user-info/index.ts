@@ -9,5 +9,5 @@ import { setUserInfo } from "./helpers";
 
 export { useLoginStore, setUserInfo };
 
-import { getUserProviders, updateUserInfo, register } from "./api";
-export { getUserProviders, updateUserInfo, register };
+import { getUserProviders, updateUserInfo, updatePassword } from "./api";
+export { getUserProviders, updateUserInfo, updatePassword };
