@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { signIn } from "next-auth/react";
 import { Form } from "react-aria-components";
-import GoogleIcon from "@assets/oauth-providers/google.svg";
-import GithubIcon from "@assets/oauth-providers/github.svg";
 import { formatErrorMessages } from "@shared/api";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { setLocalStorageItem } from "@shared/helpers";
 import { useFormValidation } from "@shared/hooks";
-import { Modal, Input, Button, IconButton, addToast } from "@shared/components";
+import { Modal, Input, Button, addToast } from "@shared/components";
 import { login, Login, register, Register } from "@entities/auth";
 import { useLoginStore, setUserInfo } from "@entities/user-info";
 import { LOGIN_FIELDS, REGISTER_FIELDS, LOGIN_SCHEMA, REGISTER_SCHEMA } from "./constants";
+import OauthButtons from "./components/OauthButtons";
 
 export interface AuthModalProps {
   isLogin: boolean;
@@ -68,10 +66,6 @@ function AuthModal({
     }
   }
 
-  async function handleOauthLogin(provider: string): Promise<void> {
-    await signIn(provider);
-  }
-
   function handleSwitchForm(e: React.MouseEvent): void {
     e.preventDefault();
     setIsLogin(!isLogin);
@@ -117,22 +111,7 @@ function AuthModal({
           {divider}
         </div>
 
-        <div className="w-100 items-center flex justify-center gap-4 mb-4">
-          <IconButton
-            Icon={GoogleIcon}
-            height={50}
-            width={50}
-            ariaLabel="Google OAuth"
-            onClick={() => handleOauthLogin("google")}
-          />
-          <IconButton
-            Icon={GithubIcon}
-            height={50}
-            width={50}
-            ariaLabel="GitHub OAuth"
-            onClick={() => handleOauthLogin("github")}
-          />
-        </div>
+        <OauthButtons />
 
         <button type="button" onClick={handleSwitchForm} className="cursor-pointer text-center my-2 underline">
           {isLogin ? "Do not have an account? Sign up" : "Already have an account? Sign in"}

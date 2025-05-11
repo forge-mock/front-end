@@ -9,6 +9,7 @@ import { getLocalStorageItem, setLocalStorageItem } from "@shared/helpers";
 import { Input, Button, addToast } from "@shared/components";
 import { useLoginStore, updateUserInfo, setUserInfo } from "@entities/user-info";
 import type { UserInfoUpdate } from "@entities/user-info";
+import { OauthButtons } from "@features/auth-modal";
 import { INFO_FIELDS, INFO_SCHEMA } from "../constants";
 
 function UserInfoUpdate(): React.JSX.Element {
@@ -77,6 +78,11 @@ function UserInfoUpdate(): React.JSX.Element {
           isInvalid={isFieldInvalid(INFO_FIELDS.username)}
           onChange={(value) => handleChange(INFO_FIELDS.username, value)}
         />
+      </div>
+
+      <div className="flex flex-col mt-10 gap-4">
+        <p className="text-center">Or add another sign in way</p>
+        <OauthButtons addedProviders={["Google", "github"]} />
       </div>
 
       <div className="flex justify-center mt-10 gap-4 w-full">
