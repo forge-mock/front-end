@@ -1,6 +1,7 @@
 import { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { getLocalStorageItem, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
+import { addToast } from "@shared/components";
 import { ApiResponse } from "./interfaces";
 import { noAuthApi } from "./no-auth-api";
 import { createApiClient, makeApiRequest } from "./helpers";
@@ -19,7 +20,8 @@ export async function refreshToken(accessToken: string, email: string = "", name
   );
 
   if (!response.isSuccess) {
-    throw new Error("Failed to refresh token");
+    addToast("Please, try login again", "error");
+    return "";
   }
 
   return response.data!;
