@@ -12,8 +12,10 @@ import type { UserInfoUpdate } from "@entities/user-info";
 import { OauthButtons } from "@features/auth-modal";
 import { useUserProviders } from "../hooks/useUserProviders";
 import { INFO_FIELDS, INFO_SCHEMA } from "../constants";
+import ChangeInfoModal from "./ChangeInfoModal";
 
 function UserInfoUpdate(): React.JSX.Element {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [initialValues, setInitialValues] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
@@ -35,10 +37,15 @@ function UserInfoUpdate(): React.JSX.Element {
     setInitialValues(initialValues);
   }, [userInfo]);
 
-  async function handleSubmit(): Promise<void> {
+  function handleClick(): void {
     const validation = validate();
     if (!validation.isValid) return;
 
+    setIsOpen(true);
+  }
+
+  async function handleSubmit(): Promise<void> {
+    const validation = validate();
     const userInfoUpdate: UserInfoUpdate = validation.data;
 
     try {
@@ -64,52 +71,65 @@ function UserInfoUpdate(): React.JSX.Element {
   }
 
   return (
-    <Form className="flex flex-col justify-between w-96 h-[400px]">
-      <div>
-        <div className="flex flex-col gap-4">
-          <Input
-            label="Email"
-            type="email"
-            value={values.newUserEmail ?? ""}
-            errorMessage={errors.newUserEmail}
-            isInvalid={isFieldInvalid(INFO_FIELDS.newUserEmail)}
-            onChange={(value) => handleChange(INFO_FIELDS.newUserEmail, value)}
-          />
+    <>
+      <Form className="flex flex-col justify-between w-96 h-[400px]">
+        <div>
+          <div className="flex flex-col gap-4">
+            <Input
+              label="Email"
+              type="email"
+              value={values.newUserEmail ?? ""}
+              errorMessage={errors.newUserEmail}
+              isInvalid={isFieldInvalid(INFO_FIELDS.newUserEmail)}
+              onChange={(value) => handleChange(INFO_FIELDS.newUserEmail, value)}
+            />
 
-          <Input
-            label="Username"
-            value={values.username ?? ""}
-            errorMessage={errors.username}
-            isInvalid={isFieldInvalid(INFO_FIELDS.username)}
-            onChange={(value) => handleChange(INFO_FIELDS.username, value)}
-          />
+            <Input
+              label="Username"
+              value={values.username ?? ""}
+              errorMessage={errors.username}
+              isInvalid={isFieldInvalid(INFO_FIELDS.username)}
+              onChange={(value) => handleChange(INFO_FIELDS.username, value)}
+            />
+          </div>
+
+          {isLoading ? (
+            <div className="flex items-center justify-center mt-10">
+              <Loader size={50} />
+            </div>
+          ) : (
+            <div className="flex flex-col mt-10 gap-2">
+              <p className="text-center">Or add another sign in way</p>
+              <OauthButtons addedProviders={providers} />
+            </div>
+          )}
         </div>
 
-        {isLoading ? (
-          <div className="flex items-center justify-center mt-10">
-            <Loader size={50} />
-          </div>
-        ) : (
-          <div className="flex flex-col mt-10 gap-2">
-            <p className="text-center">Or add another sign in way</p>
-            <OauthButtons addedProviders={providers} />
-          </div>
-        )}
-      </div>
+        <div className="flex justify-center mt-10 gap-4 w-full">
+          <Button text="Reset" outline type="button" onPress={() => reset()} />
 
-      <div className="flex justify-center mt-10 gap-4 w-full">
-        <Button text="Reset" outline type="button" onPress={() => reset()} />
+          <Button
+            text="Save"
+            isLoading={isSubmitting}
+            isDisabled={isSubmitting || isPreviousValues}
+            type="button"
+            onPress={() => handleClick()}
+            classes="w-20"
+          />
+        </div>
+      </Form>
 
-        <Button
-          text="Save"
-          isLoading={isSubmitting}
-          isDisabled={isSubmitting || isPreviousValues}
-          type="submit"
-          onPress={() => handleSubmit()}
-          classes="w-20"
-        />
-      </div>
-    </Form>
+      <ChangeInfoModal
+        title="Change User Information"
+        description={[
+          "Are you sure you want to change your data?",
+          "If you change your email, you will need to verify it again.",
+        ]}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        handleSubmit={handleSubmit}
+      />
+    </>
   );
 }
 
