@@ -8,10 +8,10 @@ const uuidVersions = [
 ];
 
 const dateFormat = [
-  { id: 1, name: "dd/mm/yy" },
-  { id: 2, name: "mm/dd/yy" },
-  { id: 3, name: "yy/dd/mm" },
-  { id: 4, name: "yy/mm/dd" },
+  { id: 1, name: "dd/mm/yyyy" },
+  { id: 2, name: "mm/dd/yyyy" },
+  { id: 3, name: "yyyy/dd/mm" },
+  { id: 4, name: "yyyy/mm/dd" },
 ];
 
 const separators = [
@@ -20,4 +20,9 @@ const separators = [
   { id: 3, name: "/" },
 ];
 
-export { uuidVersions, dateFormat, separators };
+const timeFormat = [
+  { id: 1, name: "12-hour (AM/PM)" },
+  { id: 2, name: "24-hour" },
+];
+
+export { uuidVersions, dateFormat, separators, timeFormat };

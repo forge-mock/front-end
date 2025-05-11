@@ -41,3 +41,6 @@ export { Loader };
 
 import DateRange from "./DateRange";
 export { DateRange };
+
+import TimeRange from "./TimeRange";
+export { TimeRange };
