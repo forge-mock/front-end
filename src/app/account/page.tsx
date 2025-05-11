@@ -1,3 +1,5 @@
+import { AccountPage } from "@documents/account-page";
+
 export default function Home() {
-  return <div>account</div>;
+  return <AccountPage />;
 }
