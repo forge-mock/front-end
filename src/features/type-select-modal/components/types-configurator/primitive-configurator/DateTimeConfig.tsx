@@ -53,11 +53,7 @@ function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
         </div>
         <div className="flex justify-start gap-9 items-center mt-6">
           <div>
-            <Toggle 
-              text="Date range" 
-              onChange={setIsDateRangeSelected} 
-              isSelected={isDateRangeSelected} 
-            />
+            <Toggle text="Date range" onChange={setIsDateRangeSelected} isSelected={isDateRangeSelected} />
           </div>
           <div>
             <DateRange disabled={!isDateRangeSelected} />
@@ -75,16 +71,12 @@ function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
         </div>
         <div className="flex justify-start gap-8 items-center mt-6">
           <div>
-            <Toggle 
-              text="Time range" 
-              onChange={setIsTimeRangeSelected} 
-              isSelected={isTimeRangeSelected} 
-            />
+            <Toggle text="Time range" onChange={setIsTimeRangeSelected} isSelected={isTimeRangeSelected} />
           </div>
           <div>
-            <TimeRange 
-              disabled={!isTimeRangeSelected} 
-              format={timeFormat.find(format => format.id === selectedTimeFormat)?.name === '24-hour' ? '24h' : '12h'} 
+            <TimeRange
+              disabled={!isTimeRangeSelected}
+              format={timeFormat.find((format) => format.id === selectedTimeFormat)?.name === "24-hour" ? "24h" : "12h"}
             />
           </div>
         </div>
