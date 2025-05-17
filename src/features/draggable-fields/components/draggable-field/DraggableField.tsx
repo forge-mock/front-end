@@ -20,7 +20,6 @@ function DraggedField({
   selectedType,
   ...props
 }: Readonly<DraggableFieldProps>): React.JSX.Element {
-
   const inlineStyles: CSSProperties = {
     opacity: withOpacity ? "0.5" : "1",
     transformOrigin: "10px 10px",

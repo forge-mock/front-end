@@ -52,7 +52,7 @@ function ConfiguratorControls({
           minValue: config.minValue ?? 0,
           maxValue: config.maxValue ?? 0,
           numberValue: config.numberValue ?? 0,
-          isLeft: config.isLeft ?? true
+          isLeft: config.isLeft ?? true,
         } as FieldConfig;
       case "text":
         return {

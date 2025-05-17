@@ -23,7 +23,7 @@ function GenerateButton(): React.JSX.Element {
       };
     });
 
-    console.log("Fields with configurations:", fieldsWithConfigs); // use these configs for generating db later  
+    console.log("Fields with configurations:", fieldsWithConfigs); // use these configs for generating db later
   };
 
   return (

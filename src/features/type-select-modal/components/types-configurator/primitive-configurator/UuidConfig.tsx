@@ -21,7 +21,7 @@ function UUIDConfig({ isOpen, setIsOpen, fieldId }: Readonly<ConfiguratorProps>)
 
   const [initialValues, setInitialValues] = useState({
     blankValue: 0 as number | number[],
-    selectedVersion: uuidVersions[2].id as Key, 
+    selectedVersion: uuidVersions[2].id as Key,
   });
 
   useEffect(() => {
