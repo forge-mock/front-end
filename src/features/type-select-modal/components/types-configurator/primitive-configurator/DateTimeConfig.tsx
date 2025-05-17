@@ -3,13 +3,15 @@ import { useState } from "react";
 import BlankSlider from "@features/blank-slider/BlankSlider";
 import { dateFormat, separators, timeFormat } from "./constants";
 import { Key, Label } from "react-aria-components";
+import ConfiguratorControls from "../ConfiguratorControls";
 
 interface ConfiguratorProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  fieldId: string;
 }
 
-function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
+function DateTimeConfig({ isOpen, setIsOpen, fieldId }: Readonly<ConfiguratorProps>) {
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [selectedTimeFormat, setSelectedTimeFormat] = useState<Key>(timeFormat[0].id);
   const [selectedDateFormat, setSelectedDateFormat] = useState<Key>(dateFormat[0].id);
@@ -27,8 +29,16 @@ function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
     setSelectedSeparator(separator);
   };
 
+  const handleSave = () => {
+    setIsOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="DateTime configurator">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="DateTime configurator" showCloseButton={false}>
       <div className="mt-12 mb-10">
         <BlankSlider blankValue={blankValue} setBlankValue={setBlankValue} />
         <div className="flex gap-7 mt-14">
@@ -80,6 +90,21 @@ function DateTimeConfig({ isOpen, setIsOpen }: Readonly<ConfiguratorProps>) {
             />
           </div>
         </div>
+
+        <ConfiguratorControls
+          fieldId={fieldId}
+          fieldType="datetime"
+          config={{
+            blankValue,
+            timeFormat: Number(selectedTimeFormat),
+            dateFormat: Number(selectedDateFormat),
+            separator: Number(selectedSeparator),
+            isDateRangeSelected,
+            isTimeRangeSelected,
+          }}
+          onSave={handleSave}
+          onCancel={handleCancel}
+        />
       </div>
     </Modal>
   );

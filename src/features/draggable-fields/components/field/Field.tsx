@@ -37,7 +37,7 @@ function Field(
       </div>
       <FieldName id={id} />
       <FieldType selectedType={selectedType} setSelectedType={setSelectedType} />
-      <FieldSettings selectedType={selectedType} />
+      <FieldSettings selectedType={selectedType} fieldId={id} />
       <RemoveField id={id} />
     </div>
   );
