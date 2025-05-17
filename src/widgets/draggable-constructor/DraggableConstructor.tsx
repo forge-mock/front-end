@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { DraggableFields } from "@features/draggable-fields";
 import ColumnSelector from "./components/ColumnSelector";
 import AddNewField from "./components/AddNewField";
+import GenerateButton from "./components/GenerateButton";
 
 function DraggableConstructor(): React.JSX.Element {
   const [selectedColumnCount, setSelectedColumnCount] = useState<number | null>(null);
@@ -13,6 +14,7 @@ function DraggableConstructor(): React.JSX.Element {
       <div className="flex flex-row w-full justify-center gap-20">
         <ColumnSelector chosenColumnCount={selectedColumnCount} setChosenColumnCount={setSelectedColumnCount} />
         <AddNewField />
+        <GenerateButton />
       </div>
 
       {selectedColumnCount && (

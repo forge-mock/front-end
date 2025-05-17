@@ -16,6 +16,8 @@ function DraggedField({
   inputValue,
   withOpacity,
   isDragging,
+  id,
+  selectedType,
   ...props
 }: Readonly<DraggableFieldProps>): React.JSX.Element {
   const inlineStyles: CSSProperties = {
@@ -38,7 +40,7 @@ function DraggedField({
       </div>
       <DraggableFieldName inputValue={inputValue} />
       <FieldType />
-      <FieldSettings />
+      <FieldSettings selectedType={selectedType} fieldId={id} />
       <RemoveField />
     </div>
   );

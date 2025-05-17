@@ -15,9 +15,10 @@ import {
 
 interface FieldSettingsProps {
   selectedType?: string;
+  fieldId: string;
 }
 
-function FieldSettings({ selectedType }: Readonly<FieldSettingsProps>): React.JSX.Element {
+function FieldSettings({ selectedType, fieldId }: Readonly<FieldSettingsProps>): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const typeComponents = {
@@ -46,7 +47,7 @@ function FieldSettings({ selectedType }: Readonly<FieldSettingsProps>): React.JS
         onClick={onIconClick}
       />
 
-      {ConfigComponent ? <ConfigComponent isOpen={isModalOpen} setIsOpen={setIsModalOpen} /> : null}
+      {ConfigComponent ? <ConfigComponent isOpen={isModalOpen} setIsOpen={setIsModalOpen} fieldId={fieldId} /> : null}
     </>
   );
 }
