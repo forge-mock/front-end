@@ -6,7 +6,7 @@ import { LOCAL_STORAGE_ITEMS } from "@shared/constants";
 import { setCookie, setLocalStorageItem, removeLocalStorageItem } from "@shared/helpers";
 import { refreshToken as refreshTokenRequest } from "@shared/api";
 import { addToast } from "@shared/components";
-import { useLoginStore } from "@features/auth-modal";
+import { useLoginStore, setUserInfo } from "@entities/user-info";
 import { clearRefreshToken } from "./api";
 
 function errorWhileLogin() {
@@ -36,6 +36,7 @@ function OauthHandle(): React.JSX.Element {
         setLocalStorageItem(LOCAL_STORAGE_ITEMS.accessToken, newAccessToken);
         setLocalStorageItem(LOCAL_STORAGE_ITEMS.isLoggedIn, true);
         setIsLoggedIn(true);
+        setUserInfo();
 
         router.push("/");
       } catch {
