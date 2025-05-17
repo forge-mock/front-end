@@ -1,9 +1,11 @@
 import { DateRange, TimeRange, Modal, Selector, Toggle } from "@shared/components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlankSlider from "@features/blank-slider/BlankSlider";
 import { dateFormat, separators, timeFormat } from "./constants";
 import { Key, Label } from "react-aria-components";
 import ConfiguratorControls from "../ConfiguratorControls";
+import { useConfigStore } from "../useConfigStore";
+import type { DateTimeConfig as DateTimeConfigType } from "../useConfigStore";
 
 interface ConfiguratorProps {
   isOpen: boolean;
@@ -12,6 +14,8 @@ interface ConfiguratorProps {
 }
 
 function DateTimeConfig({ isOpen, setIsOpen, fieldId }: Readonly<ConfiguratorProps>) {
+  const { getConfigByFieldId } = useConfigStore();
+
   const [blankValue, setBlankValue] = useState<number | number[]>(0);
   const [selectedTimeFormat, setSelectedTimeFormat] = useState<Key>(timeFormat[0].id);
   const [selectedDateFormat, setSelectedDateFormat] = useState<Key>(dateFormat[0].id);
@@ -19,14 +23,60 @@ function DateTimeConfig({ isOpen, setIsOpen, fieldId }: Readonly<ConfiguratorPro
   const [isDateRangeSelected, setIsDateRangeSelected] = useState<boolean>(false);
   const [isTimeRangeSelected, setIsTimeRangeSelected] = useState<boolean>(false);
 
+  const [initialValues, setInitialValues] = useState({
+    blankValue: 0 as number | number[],
+    selectedTimeFormat: timeFormat[0].id as Key,
+    selectedDateFormat: dateFormat[0].id as Key,
+    selectedSeparator: separators[1].id as Key,
+    isDateRangeSelected: false,
+    isTimeRangeSelected: false,
+  });
+
+  useEffect(() => {
+    if (isOpen && fieldId) {
+      const existingConfig = getConfigByFieldId(fieldId) as DateTimeConfigType | undefined;
+
+      if (existingConfig && existingConfig.type === "datetime") {
+        const values = {
+          blankValue: existingConfig.blankValue,
+          selectedTimeFormat: existingConfig.timeFormat as Key,
+          selectedDateFormat: existingConfig.dateFormat as Key,
+          selectedSeparator: existingConfig.separator as Key,
+          isDateRangeSelected: existingConfig.isDateRangeSelected,
+          isTimeRangeSelected: existingConfig.isTimeRangeSelected,
+        };
+
+        setBlankValue(values.blankValue);
+        setSelectedTimeFormat(values.selectedTimeFormat);
+        setSelectedDateFormat(values.selectedDateFormat);
+        setSelectedSeparator(values.selectedSeparator);
+        setIsDateRangeSelected(values.isDateRangeSelected);
+        setIsTimeRangeSelected(values.isTimeRangeSelected);
+
+        setInitialValues(values);
+      }
+    }
+  }, [isOpen, fieldId, getConfigByFieldId]);
+
   const changeDateFormat = (selectedDateFormat: Key) => {
     setSelectedDateFormat(selectedDateFormat);
   };
+
   const changeTimeFormat = (selectedTimeFormat: Key) => {
     setSelectedTimeFormat(selectedTimeFormat);
   };
+
   const changeSeparator = (separator: Key) => {
     setSelectedSeparator(separator);
+  };
+
+  const handleReset = () => {
+    setBlankValue(initialValues.blankValue);
+    setSelectedTimeFormat(initialValues.selectedTimeFormat);
+    setSelectedDateFormat(initialValues.selectedDateFormat);
+    setSelectedSeparator(initialValues.selectedSeparator);
+    setIsDateRangeSelected(initialValues.isDateRangeSelected);
+    setIsTimeRangeSelected(initialValues.isTimeRangeSelected);
   };
 
   const handleSave = () => {
@@ -104,6 +154,7 @@ function DateTimeConfig({ isOpen, setIsOpen, fieldId }: Readonly<ConfiguratorPro
           }}
           onSave={handleSave}
           onCancel={handleCancel}
+          onReset={handleReset}
         />
       </div>
     </Modal>

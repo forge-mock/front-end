@@ -10,9 +10,17 @@ interface ConfiguratorControlsProps {
   config: Record<string, any>;
   onSave?: () => void;
   onCancel?: () => void;
+  onReset?: () => void; // Add this callback for resetting state
 }
 
-function ConfiguratorControls({ fieldId, fieldType, config, onSave, onCancel }: Readonly<ConfiguratorControlsProps>) {
+function ConfiguratorControls({
+  fieldId,
+  fieldType,
+  config,
+  onSave,
+  onCancel,
+  onReset,
+}: Readonly<ConfiguratorControlsProps>) {
   const { updateConfig } = useConfigStore();
 
   const createConfig = (): FieldConfig => {
@@ -32,17 +40,19 @@ function ConfiguratorControls({ fieldId, fieldType, config, onSave, onCancel }: 
           type: "number",
           decimalValue: config.decimalValue ?? 0,
           minValue: config.minValue ?? 0,
-          maxValue: config.maxValue ?? 100,
-          numberValue: config.numberValue ?? 50,
+          maxValue: config.maxValue ?? 0,
+          numberValue: config.numberValue ?? 0,
+          isLeft: config.isLeft ?? true,
         } as FieldConfig;
       case "string":
         return {
           ...baseConfig,
           type: "string",
           isSense: config.isSense ?? false,
-          minValue: config.minValue ?? 5,
-          maxValue: config.maxValue ?? 20,
-          numberValue: config.numberValue ?? 10,
+          minValue: config.minValue ?? 0,
+          maxValue: config.maxValue ?? 0,
+          numberValue: config.numberValue ?? 0,
+          isLeft: config.isLeft ?? true
         } as FieldConfig;
       case "text":
         return {
@@ -93,6 +103,12 @@ function ConfiguratorControls({ fieldId, fieldType, config, onSave, onCancel }: 
   };
 
   const handleCancel = () => {
+    // First reset form values if onReset is provided
+    if (onReset) {
+      onReset();
+    }
+
+    // Then close the modal
     if (onCancel) {
       onCancel();
     }

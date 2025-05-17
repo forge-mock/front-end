@@ -11,6 +11,7 @@ export interface NumberConfig extends BaseConfig {
   minValue: number;
   maxValue: number;
   numberValue: number;
+  isLeft: boolean; // Add this to save the toggle state
 }
 
 export interface StringConfig extends BaseConfig {
@@ -19,6 +20,7 @@ export interface StringConfig extends BaseConfig {
   minValue: number;
   maxValue: number;
   numberValue: number;
+  isLeft: boolean;
 }
 
 export interface TextConfig extends BaseConfig {
@@ -40,6 +42,10 @@ export interface DateTimeConfig extends BaseConfig {
   separator: number;
   isDateRangeSelected: boolean;
   isTimeRangeSelected: boolean;
+  dateRangeStart?: string; // Add these to store actual date values
+  dateRangeEnd?: string;
+  timeRangeStart?: string; // Add these to store actual time values
+  timeRangeEnd?: string;
 }
 
 export interface UuidConfig extends BaseConfig {
